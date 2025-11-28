@@ -1,0 +1,2122 @@
+import re
+from datetime import datetime
+from config.wake_words import WAKE_WORDS
+from utils.logger import setup_logger
+from core.database_query import DatabaseQuery
+from core.archive_manager import ArchiveManager
+from core.ollama_client import OllamaClient
+import jieba
+import threading
+import time
+import random
+import os
+import glob
+from typing import Optional
+
+class CommandHandler:
+    def __init__(self, audio_processor, database_manager=None, socketio=None):
+        self.audio_processor = audio_processor
+        self.database_manager = database_manager
+        self.socketio = socketio
+
+        # 立即初始化基础组件
+        self.db_query = DatabaseQuery()
+        self.archive_manager = ArchiveManager()
+        self.logger = setup_logger("command_handler")
+
+        # 对话状态
+        self.conversation_context = {
+            'last_command': None,
+            'last_user': None,
+            'last_time': None
+        }
+
+        # 线程管理
+        self.active_threads = []
+        self.conversation_history = []
+        self.is_cleaning_up = False
+        self._is_speaking = False
+
+        # 初始化对话状态
+        self.conversation_state = {}
+        self.reset_conversation_state()
+
+        self.is_exited = False
+        self.is_exited = False
+        self.is_speaking = False
+        self.last_speak_time = 0
+        self.speak_cooldown = 3.0  # 增加到3秒冷却时间
+        self.exit_keywords = ['退出', '结束', '结束对话', '退出系统', '关闭', '再见']
+
+        # 聊天模式标志
+        self.chat_mode = False
+        self.chat_start_time = None
+
+        # 异步初始化耗时组件
+        self.init_heavy_components_async()
+
+    def init_heavy_components_async(self):
+        """异步初始化耗时组件"""
+        def init_task():
+            try:
+                # 初始化jieba（相对较快）
+                self._init_jieba()
+                self.logger.info("✅ jieba分词器初始化成功")
+
+                # 异步初始化Ollama（不阻塞）
+                self.init_ollama_async()
+
+            except Exception as e:
+                self.logger.error(f"❌ 异步初始化失败: {e}")
+
+        init_thread = threading.Thread(target=init_task, daemon=True)
+        init_thread.start()
+
+    def init_ollama_async(self):
+        """异步初始化Ollama客户端"""
+        def ollama_task():
+            try:
+                self.ollama_client = OllamaClient()
+                # 异步测试连接，不阻塞
+                self.test_ollama_async()
+            except Exception as e:
+                self.logger.error(f"❌ Ollama客户端初始化失败: {e}")
+                self.ollama_client = None
+
+        ollama_thread = threading.Thread(target=ollama_task, daemon=True)
+        ollama_thread.start()
+
+    def test_ollama_async(self):
+        """异步测试Ollama连接"""
+        def test_task():
+            try:
+                if self.ollama_client and self.ollama_client.is_service_available():
+                    self.logger.info("✅ Ollama服务器连接成功")
+                else:
+                    self.logger.warning("⚠️ 无法连接到Ollama服务器，将使用本地命令处理")
+            except Exception as e:
+                self.logger.error(f"❌ Ollama连接测试异常: {e}")
+
+        test_thread = threading.Thread(target=test_task, daemon=True)
+        test_thread.start()
+
+    def send_websocket_message(self, message_type, params=None, user_text=None):
+        """发送WebSocket消息到前端"""
+        if not self.socketio:
+            print(f"❌ SocketIO未初始化，无法发送消息: {message_type}")
+            return False
+
+        try:
+            data = {
+                'type': message_type,
+                'params': params or {},
+                'user_text': user_text or ''
+            }
+            self.socketio.emit('command', data)
+            print(f"📤 发送SocketIO消息: {message_type} - {params}")
+            return True
+        except Exception as e:
+            print(f"❌ 发送SocketIO消息失败: {e}")
+            return False
+
+    def process_command_with_wake_word(self, text):
+        """处理带唤醒词的命令 - 紧急修复版本"""
+        if not text:
+            self.logger.info("❌ 文本为空，跳过处理")
+            return None
+
+        if self.is_cleaning_up:
+            return "系统正在关闭，无法处理命令"
+
+        try:
+            # 关键修复：不要清洗空格，保留原始文本
+            original_text = text.strip()
+            self.logger.info(f"🎯 处理带唤醒词命令 - 原始文本: '{original_text}'")
+
+            # 紧急修复：先检查是否为纯唤醒词
+            is_pure_wakeup = self._is_pure_wakeup_call(original_text)
+            self.logger.info(f"🔍 纯唤醒词检测结果: {is_pure_wakeup}")
+
+            if is_pure_wakeup:
+                # 如果是纯唤醒词，直接返回问候语，不进行后续处理
+                response = self._get_greeting_response()
+                self.logger.info(f"🎯 纯唤醒词，直接返回问候: '{response}'")
+                return response
+
+            # 检查是否包含唤醒词
+            has_wake_word = self.smart_wake_word_detection(original_text)
+            self.logger.info(f"🔍 唤醒词检测结果: {has_wake_word}")
+
+            if not has_wake_word:
+                self.logger.info("❌ 未检测到唤醒词，忽略命令")
+                return None
+
+            # 提取纯净命令（移除唤醒词）
+            pure_command = self.extract_pure_command(original_text)
+            self.logger.info(f"🔧 提取纯净命令: '{pure_command}'")
+
+            if not pure_command.strip():
+                # 如果只有唤醒词没有命令，返回问候语
+                response = self._get_greeting_response()
+                self.logger.info(f"🎯 只有唤醒词，返回问候: '{response}'")
+                return response
+
+            # 处理命令
+            self.logger.info(f"🎯 开始处理命令: '{pure_command}'")
+            result = self.process_command(pure_command)
+            self.logger.info(f"✅ 命令处理完成: '{result}'")
+            return result
+
+        except Exception as e:
+            self.logger.error(f"❌ 带唤醒词命令处理异常: {e}")
+            error_msg = "处理命令时出现错误，请重试"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def should_process_with_wake_word(self, text):
+        """判断是否应该使用唤醒词处理模式"""
+        if not text:
+            return False
+
+        # 检查是否包含唤醒词
+        has_wake_word = self.smart_wake_word_detection(text)
+
+        # 如果是设备控制命令且包含唤醒词，使用唤醒词模式
+        if has_wake_word and self._is_device_control(text):
+            return True
+
+        # 如果是基础对话且包含唤醒词，使用唤醒词模式
+        if has_wake_word and self._is_basic_conversation(text):
+            return True
+
+        # 如果只有唤醒词，也使用唤醒词模式
+        if has_wake_word and len(self.extract_pure_command(text).strip()) == 0:
+            return True
+
+        return False
+
+    def _is_exit_command(self, text):
+        """判断是否为退出命令 - 增强版：支持退出聊天模式"""
+        if not text:
+            return False
+
+        # 清洗文本
+        cleaned_text = self._clean_text(text)
+        text_lower = cleaned_text.lower().strip()
+
+        self.logger.info(f"🔍 退出命令检测 - 原始文本: '{text}', 清洗后: '{cleaned_text}'")
+
+        # 如果是聊天模式，检查是否要退出聊天
+        if self.chat_mode:
+            chat_exit_keywords = ['退出聊天', '结束聊天', '停止聊天', '不聊了', '聊完了', '结束对话']
+            if any(keyword in cleaned_text for keyword in chat_exit_keywords):
+                self.logger.info("🎯 检测到退出聊天命令")
+                return True
+
+        # 紧急修复：如果是"关闭柜子"相关命令，直接返回False
+        close_cabinet_keywords = [
+            '关闭柜子', '关柜子', '关掉柜子', '关上柜子', '关毕柜子', '完毕柜子',
+            '关闭档案柜', '关档案柜', '关掉档案柜', '关上档案柜',
+            '关闭柜了', '关柜了', '关掉柜了', '关上柜了',
+            '关相子', '关箱子', '关贵子','把柜子关上'
+            '关闭相子', '关闭箱子', '关闭贵子'
+        ]
+
+        for keyword in close_cabinet_keywords:
+            if keyword in cleaned_text:
+                self.logger.info(f"🚫 检测到关闭柜子命令 '{keyword}'，不是退出: {cleaned_text}")
+                return False
+
+        # 简化设备相关词汇检查
+        device_indicators = [
+            '柜子', '档案柜', '柜', '列', '号', '温度', '湿度', '度',
+            '通风', '空调', '换气', '状态', '查询', '查看'
+        ]
+
+        for indicator in device_indicators:
+            if indicator in cleaned_text:
+                self.logger.info(f"🔧 检测到设备词汇 '{indicator}'，不是退出: {cleaned_text}")
+                return False
+
+        if '关闭' in cleaned_text:
+            close_index = cleaned_text.find('关闭')
+            if close_index >= 0:
+                remaining_text = cleaned_text[close_index + 2:]
+                device_after_close = any(indicator in remaining_text for indicator in device_indicators)
+                if device_after_close:
+                    self.logger.info(f"🔧 '关闭'后面跟着设备词汇，识别为设备控制: {cleaned_text}")
+                    return False
+
+        # 退出命令模式
+        exit_patterns = [
+            r'^退出$', r'^结束$', r'^再见$', r'^拜拜$',
+            r'^退出系统$', r'^结束对话$', r'^关闭系统$',
+            r'^小智退出$', r'^小智再见$', r'^小智拜拜$',
+            r'^系统退出$', r'^程序退出$', r'^应用退出$',
+            r'^关闭助手$', r'^关闭语音$', r'^关闭对话$',
+            r'^停止语音$', r'^停止对话$'
+        ]
+
+        for pattern in exit_patterns:
+            if re.match(pattern, text_lower):
+                self.logger.info(f"🎯 模式匹配到退出命令: {cleaned_text}")
+                return True
+
+        exit_keywords = ['退出', '结束', '结束对话', '退出系统', '再见', '拜拜', '停止语音', '停止对话']
+        has_exit_keyword = any(exit_word in text_lower for exit_word in exit_keywords)
+
+        if '关闭' in cleaned_text:
+            exit_indicators = ['系统', '程序', '应用', '助手', '小智', '语音', '对话']
+            has_exit_indicator = any(indicator in text_lower for indicator in exit_indicators)
+
+            if has_exit_indicator:
+                self.logger.info(f"🎯 系统相关'关闭'命令识别为退出: {cleaned_text}")
+                return True
+            else:
+                self.logger.info(f"🔧 '关闭'命令识别为设备控制: {cleaned_text}")
+                return False
+
+        if has_exit_keyword:
+            self.logger.info(f"🎯 确认为退出命令: {cleaned_text}")
+            return True
+
+        self.logger.info(f"❌ 不是退出命令: {cleaned_text}")
+        return False
+
+    def _is_device_control(self, text):
+        """判断是否为设备控制命令"""
+        if not text:
+            return False
+
+        cleaned_text = self._clean_text(text)
+        text_lower = cleaned_text.lower()
+
+        device_patterns = [
+            '温度', '湿度', '调节温度', '设置温度', '升温', '降温', '调温',
+            '度', '摄氏度', '调到', '调制', '调至', '设置为',
+            '通风', '空调', '换气', '空气',
+            '关闭柜子', '关柜子', '关掉柜子', '关上柜子', '关毕柜子', '完毕柜子',
+            '打开柜子', '开柜子', '开启柜子', '拉开柜子',
+            '关闭档案柜', '关档案柜', '打开档案柜', '开档案柜',
+            '关闭相子', '关相子', '关闭箱子', '关箱子',
+            '状态', '查询状态', '查看状态'
+        ]
+
+        for pattern in device_patterns:
+            if pattern in cleaned_text:
+                self.logger.info(f"🔧 直接匹配设备控制模式: {pattern}")
+                return True
+
+        if (any(word in cleaned_text for word in ['第', '列']) and
+                any(word in cleaned_text for word in ['打开', '关闭', '开', '关'])):
+            self.logger.info(f"🔧 检测到列号控制模式: {cleaned_text}")
+            return True
+
+        if cleaned_text in ['打开', '开启', '启动', '关闭', '关', '关掉', '停止']:
+            self.logger.info(f"🔧 识别为单独的打开/关闭命令: {cleaned_text}")
+            return True
+
+        self.logger.info(f"❌ 不是设备控制命令: {cleaned_text}")
+        return False
+
+    def process_command(self, text):
+        """处理命令 - 优化流程：先检查唤醒词再判断"""
+        if not text:
+            self.logger.info("❌ 文本为空，跳过处理")
+            return None
+
+        if self.is_cleaning_up:
+            return "系统正在关闭，无法处理命令"
+
+        try:
+            # 第一步：文本清洗（移除空格+基本纠正）
+            cleaned_text = self._clean_text(text)
+            self.logger.info(f"🎯 处理命令 - 原始文本: '{text}', 清洗后: '{cleaned_text}'")
+
+            # 第二步：紧急修复 - 优先检查是否为纯唤醒词
+            is_pure_wakeup = self._is_pure_wakeup_call(cleaned_text)
+            self.logger.info(f"🔍 纯唤醒词检测结果: {is_pure_wakeup}")
+
+            if is_pure_wakeup:
+                # 如果是纯唤醒词，直接返回问候语，不进行后续处理
+                response = self._get_greeting_response()
+                self.logger.info(f"🎯 纯唤醒词，直接返回问候: '{response}'")
+                self._speak_async(response)
+                return response
+
+            # 第三步：检查聊天模式
+            if self.chat_mode:
+                self.logger.info("💬 聊天模式激活，直接进行智能对话")
+                return self._handle_chat_conversation(cleaned_text, text)
+
+            # 第四步：检查是否要进入聊天模式
+            if self._is_chat_initiation(cleaned_text):
+                self.logger.info("🎯 进入聊天模式")
+                return self._enter_chat_mode(cleaned_text)
+
+            # 第五步：检查退出命令
+            is_exit = self._is_exit_command(cleaned_text)
+            self.logger.info(f"🔍 退出命令检测结果: {is_exit}")
+
+            if is_exit:
+                self.logger.info("🎯 识别为退出命令")
+                return self._handle_exit_command(cleaned_text, text)
+
+            # 第六步：状态检查和命令处理（优先处理等待用户输入的状态）
+            if self.conversation_state.get('waiting_for_column', False):
+                self.logger.info("🔄 处理列号输入")
+                return self._handle_column_input(cleaned_text, text)
+
+            if self.conversation_state.get('waiting_for_temperature', False):
+                self.logger.info("🔄 处理温度输入")
+                return self._handle_temperature_input(cleaned_text, text)
+
+            if self.conversation_state.get('expecting_selection', False):
+                self.logger.info("🔄 处理选择输入")
+                return self._handle_selection(cleaned_text, text)
+
+            # 新增：第七步 - 优先检查档案查询命令（按姓名）
+            if self._is_archive_query_by_name(cleaned_text):
+                self.logger.info("📁 识别为按姓名查询档案命令")
+                return self._handle_archive_query_by_name_websocket(cleaned_text, text)
+
+            # 第八步：设备控制命令检测和处理
+            if self._is_explicit_device_control(cleaned_text):
+                self.logger.info("🎯 识别为明确设备控制命令，直接处理")
+                return self._handle_device_control_websocket(cleaned_text, text)
+
+            # 再检测一般设备控制命令
+            is_device = self._is_device_control(cleaned_text)
+            self.logger.info(f"🔧 设备控制检测结果: {is_device}")
+
+            if is_device:
+                self.logger.info("🎯 识别为设备控制命令，立即处理")
+                return self._handle_device_control_websocket(cleaned_text, text)
+
+            # 第九步：档案查询命令检测（按列）
+            if self._is_archive_query(cleaned_text):
+                self.logger.info("📁 识别为档案查询命令")
+                return self._handle_archive_query_websocket(cleaned_text, text)
+
+            # 第十步：所有其他非设备控制命令都交给AI处理
+            self.logger.info("🤖 非设备控制命令，交给AI处理")
+            return self._handle_with_ollama_enhanced(cleaned_text)
+
+        except Exception as e:
+            self.logger.error(f"❌ 命令处理异常: {e}")
+            error_msg = "处理命令时出现错误，请重试"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def _is_device_control_related(self, text):
+        """判断是否为设备控制相关命令（需要进行语义纠正）"""
+        if not text:
+            return False
+
+        device_related_keywords = [
+            '打开', '关闭', '开启', '停止', '档案柜', '柜子', '柜',
+            '列', '号', '温度', '湿度', '调节', '设置', '度',
+            '通风', '空调', '换气', '状态', '查询', '查看'
+        ]
+
+        return any(keyword in text for keyword in device_related_keywords)
+
+    def _is_explicit_device_control(self, text):
+        """判断是否为明确的设备控制命令，不需要语义纠正 - 增强版本"""
+        if not text:
+            return False
+
+        # 明确的设备控制命令模式
+        explicit_patterns = [
+            # 打开柜子相关
+            r'打开第?[一二两三四五六七八九十\d]+列?柜子',
+            r'打开柜子',
+            r'开启柜子',
+            r'启动柜子',
+            # 🔥 新增：支持不完整的打开命令
+            r'打开第?[一二两三四五六七八九十\d]+列?',
+            r'打开第?[一二两三四五六七八九十\d]+',
+            # 关闭柜子相关
+            r'关闭第?[一二两三四五六七八九十\d]+列?柜子',
+            r'关闭柜子',
+            r'关柜子',
+            r'关掉柜子',
+            # 通风相关
+            r'打开通风',
+            r'开启通风',
+            r'关闭通风',
+            r'关通风',
+            # 空调相关
+            r'打开空调',
+            r'开启空调',
+            r'关闭空调',
+            r'关空调',
+            # 温度调节相关
+            r'温度调到[一二两三四五六七八九十\d]+度',
+            r'温度设置为[一二两三四五六七八九十\d]+度',
+            r'调节温度到[一二两三四五六七八九十\d]+度',
+            # 状态查询
+            r'查询状态',
+            r'查看状态',
+            r'状态查询',
+            r'状态查看',
+        ]
+
+        for pattern in explicit_patterns:
+            if re.search(pattern, text):
+                return True
+
+        return False
+
+    def _is_chat_initiation(self, text):
+        """判断是否要进入聊天模式"""
+        chat_keywords = [
+            '聊天', '聊会天', '聊一下', '聊一聊', '说说话', '陪我聊天',
+            '讲个故事', '讲个笑话', '说点有趣的', '聊点别的',
+            '今天怎么样', '最近好吗', '心情如何', '有什么新闻'
+        ]
+
+        # 检查是否包含明确的聊天关键词
+        has_chat_keyword = any(keyword in text for keyword in chat_keywords)
+
+        # 检查是否是开放式问题或闲聊
+        is_open_question = any([
+            '吗' in text and len(text) > 3,
+            '呢' in text and len(text) > 3,
+            '什么' in text and len(text) > 4,
+            '怎么' in text and len(text) > 4,
+            '为什么' in text,
+            '如何' in text,
+            '怎样' in text,
+            '谁' in text and len(text) > 3,
+            '哪' in text and len(text) > 3
+        ])
+
+        return has_chat_keyword or is_open_question
+
+    def _enter_chat_mode(self, text):
+        """进入聊天模式"""
+        self.chat_mode = True
+        self.chat_start_time = time.time()
+
+        responses = [
+            "哎~ 好啊呀！小智最喜欢聊天了~ 你想聊什么话题呢？",
+            "来啦来啦~ 聊天时间到！小智随时陪你聊~",
+            "好呀~ 工作累了聊聊天放松一下！小智在这里呢~",
+            "聊天模式启动！小智已经准备好啦，你想聊什么呢？"
+        ]
+
+        response = random.choice(responses)
+        self._speak_async(response)
+        return response
+
+    def _exit_chat_mode(self):
+        """退出聊天模式"""
+        self.chat_mode = False
+        chat_duration = time.time() - self.chat_start_time if self.chat_start_time else 0
+        self.logger.info(f"💬 退出聊天模式，持续时间: {chat_duration:.1f}秒")
+
+        responses = [
+            "好的，聊天结束啦~ 需要的时候再叫小智哦！",
+            "聊得很开心呢~ 小智先退下啦，有事随时叫我~",
+            "好的，小智去忙别的啦，想聊天了随时喊我~",
+            "聊天时间结束~ 小智继续待命，等你召唤哦~"
+        ]
+
+        return random.choice(responses)
+
+    def _handle_chat_conversation(self, text, original_text):
+        """处理聊天对话 - 修复版本：在聊天模式下也要优先处理设备控制命令"""
+        try:
+            self.logger.info(f"💬 聊天模式处理: {text}")
+
+            # 检查是否要退出聊天
+            if self._is_exit_command(text):
+                response = self._exit_chat_mode()
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, original_text)
+                return response
+
+            # 🔥 紧急修复：在聊天模式下也要检查设备控制命令
+            # 1. 首先检查是否为明确的设备控制命令
+            if self._is_explicit_device_control(text):
+                self.logger.info("🎯 聊天模式下识别到明确设备控制命令，立即执行")
+                return self._handle_device_control_websocket(text, original_text)
+
+            # 2. 检查是否为设备控制相关命令
+            if self._is_device_control(text):
+                self.logger.info("🎯 聊天模式下识别到设备控制命令，立即执行")
+                return self._handle_device_control_websocket(text, original_text)
+
+            # 3. 检查档案查询命令（按姓名）
+            if self._is_archive_query_by_name(text):
+                self.logger.info("📁 聊天模式下识别为按姓名查询档案命令")
+                return self._handle_archive_query_by_name_websocket(text, original_text)
+
+            # 4. 检查档案查询命令（按列）
+            if self._is_archive_query(text):
+                self.logger.info("📁 聊天模式下识别为档案查询命令")
+                return self._handle_archive_query_websocket(text, original_text)
+
+            # 5. 只有非设备控制命令才交给AI处理
+            self.logger.info("🤖 聊天模式下非设备控制命令，交给AI处理")
+            response = self.ollama_client.send_chat_message(text)
+
+            # 直接使用AI的回复，不进行额外处理
+            self._speak_async(response)
+            # 发送WebSocket消息
+            self.send_websocket_message('ai_response', {'response': response}, original_text)
+            return response
+
+        except Exception as e:
+            self.logger.error(f"❌ 聊天处理异常: {e}")
+            error_msg = self._get_smart_fallback_response(text)
+            self._speak_async(error_msg)
+            # 发送WebSocket消息
+            self.send_websocket_message('ai_response', {'response': error_msg}, original_text)
+            return error_msg
+
+    def _get_smart_fallback_response(self, user_input):
+        """获取智能备用回复"""
+        user_input_lower = user_input.lower()
+
+        # 根据用户输入内容提供相关的备用回复
+        if any(word in user_input_lower for word in ['笑话', '搞笑', '幽默', '笑']):
+            jokes = [
+                "为什么档案柜不会说谎？因为它总是有'锁'在身呀！📁",
+                "问：什么档案最受欢迎？答：你正在查询的那一份呀~",
+                "有一天，档案柜对文件说：'别担心，我会好好保管你的！'",
+                "为什么电脑要去医院？因为它有'病毒'了！"
+            ]
+            return random.choice(jokes)
+
+        elif any(word in user_input_lower for word in ['天气', '温度', '冷', '热']):
+            return "小智是档案专家，天气的话建议你看看天气预报哦~ 不过我可以帮你调节室内温度！"
+
+        elif any(word in user_input_lower for word in ['时间', '几点', '日期']):
+            current_time = datetime.now().strftime("%Y年%m月%d日 %H点%M分")
+            return f"现在是{current_time}，今天也是努力工作的一天呢~"
+
+        elif any(word in user_input_lower for word in ['你好', '您好', 'hello', 'hi']):
+            return "哎~ 你好呀！在聊天模式里我们可以畅所欲言哦~"
+
+        elif any(word in user_input_lower for word in ['谢谢', '感谢']):
+            return "不客气呀~ 能帮到你小智也很开心！"
+
+        else:
+            # 通用的友好回复
+            fallbacks = [
+                "这个问题很有趣呢~ 小智正在努力学习中！",
+                "哎呀，小智对这个问题还不太熟悉，换个话题怎么样？",
+                "我们聊点别的吧~ 比如档案管理或者设备控制？",
+                "小智还在成长中，这个问题有点难倒我了~",
+                "哈哈，这个话题好有意思，不过小智还在学习中呢~"
+            ]
+            return random.choice(fallbacks)
+
+
+    def _correct_chat_text(self, text):
+        """纠正聊天文本中的常见语音识别错误"""
+        corrections = {
+            '讲列笑话': '讲个笑话',
+            '讲个列笑话': '讲个笑话',
+            '处理时出现错误程序给我讲列笑话': '给我讲个笑话',
+            '程序给我讲': '给我讲',
+            '列个': '这个',
+            '列是': '这是'
+        }
+
+        corrected_text = text
+        for wrong, right in corrections.items():
+            if wrong in corrected_text:
+                corrected_text = corrected_text.replace(wrong, right)
+
+        return corrected_text
+
+
+    def _enhance_chat_response(self, response):
+        """增强聊天回复的自然度和趣味性"""
+        # 如果回复比较生硬，添加一些语气词使其更自然
+        if len(response) < 50 and not any(word in response for word in ['呀', '呢', '哦', '~', '！']):
+            enhancements = ['呀~', '呢~', '哦~', '！', '~']
+            if random.random() < 0.3:  # 30%概率增强回复
+                response += random.choice(enhancements)
+
+        return response
+
+    def _is_archive_query_by_name(self, text):
+        """判断是否为按姓名查询档案命令 - 增强版"""
+        if not text:
+            return False
+
+        # 使用原始文本（包含空格）进行匹配
+        text_with_spaces = text
+        cleaned_text = self._clean_text(text)
+
+        self.logger.info(f"🔍 档案查询检测 - 原始文本: '{text}', 清洗后: '{cleaned_text}'")
+
+        # 档案查询模式 - 扩展版本
+        档案_patterns = [
+            r'查\s*(?:询)?\s*(?:一下)?\s*档案名称为\s*(.+?)\s*的\s*(?:档案)?',
+            r'查\s*(?:询|找)?\s*(?:一下)?\s*(.+?)\s*的\s*档案',
+            r'我\s*(?:想|想要|要)\s*查\s*(?:询|找)?\s*(?:一下)?\s*(.+?)\s*的\s*档案',
+            r'查\s*(.+?)\s*的?\s*信息',
+            r'查\s*(.+?)\s*的?\s*资料',
+            r'找\s*(.+?)\s*的?\s*档案',
+            r'搜索\s*(.+?)\s*的?\s*档案',
+            r'显示\s*(.+?)\s*的?\s*信息',
+            r'显示\s*(.+?)\s*的?\s*档案',
+            r'查看\s*(.+?)\s*的?\s*档案',
+            r'查询\s*(.+?)\s*的?\s*档案',
+            r'查找\s*(.+?)\s*的?\s*档案'
+        ]
+
+        # 尝试匹配各种档案查询模式
+        档案_match = None
+        for pattern in 档案_patterns:
+            档案_match = re.search(pattern, text_with_spaces)
+            if 档案_match:
+                self.logger.info(f"✅ 档案查询匹配成功，模式: {pattern}")
+                break
+
+        if 档案_match:
+            姓名 = 档案_match.group(1).strip()
+            self.logger.info(f"📌 提取到查询姓名: {姓名}")
+            return True
+
+        # 扩展匹配模式，支持更多表达方式
+        archive_keywords = ['查询', '查找', '搜索', '查一下', '找一下', '查', '显示', '查看']
+        info_keywords = ['档案', '信息', '资料', '记录']
+
+        has_archive_keyword = any(keyword in cleaned_text for keyword in archive_keywords)
+        has_info_keyword = any(keyword in cleaned_text for keyword in info_keywords)
+
+        # 如果包含查询关键词和信息关键词，且不包含列号，则认为是按姓名查询
+        if has_archive_keyword and has_info_keyword and '列' not in cleaned_text:
+            # 尝试提取姓名
+            name_match = re.search(r'查[询找]?(.+?)(?:的?[档案信息资料])', cleaned_text)
+            if name_match:
+                name = name_match.group(1).strip()
+                if name and len(name) >= 2:  # 姓名至少2个字符
+                    self.logger.info(f"📌 提取到查询姓名: {name}")
+                    return True
+
+        # 简单匹配：包含"查询"和常见姓氏
+        common_surnames = ['张', '王', '李', '赵', '刘', '陈', '杨', '黄', '周', '吴']
+        if '查询' in cleaned_text and any(surname in cleaned_text for surname in common_surnames):
+            self.logger.info(f"📌 检测到查询+姓氏组合: {cleaned_text}")
+            return True
+
+        return False
+
+    def _handle_archive_query_by_name_websocket(self, text, original_text):
+        """处理按姓名查询档案 - 与edge.py逻辑一致"""
+        try:
+            text_with_spaces = original_text  # 使用原始文本进行匹配
+
+            # 与edge.py完全一致的匹配逻辑
+            档案_patterns = [
+                r'查\s*(?:询)?\s*(?:一下)?\s*档案名称为\s*(.+?)\s*的\s*(?:档案)?',
+                r'查\s*(?:询|找)?\s*(?:一下)?\s*(.+?)\s*的\s*档案',
+                r'我\s*(?:想|想要|要)\s*查\s*(?:询|找)?\s*(?:一下)?\s*(.+?)\s*的\s*档案'
+            ]
+
+            档案_match = None
+            for pattern in 档案_patterns:
+                档案_match = re.search(pattern, text_with_spaces)
+                if 档案_match:
+                    self.logger.info(f"✅ 档案查询匹配成功，模式: {pattern}")
+                    break
+
+            if 档案_match:
+                姓名 = 档案_match.group(1).strip()
+                self.logger.info(f"📌 提取到查询姓名: {姓名}")
+            else:
+                # 备选匹配逻辑
+                name_match = re.search(r'查[询找]?(.+?)(?:的?[档案信息资料])', self._clean_text(text))
+                if name_match:
+                    姓名 = name_match.group(1).strip()
+                else:
+                    return "请告诉我您要查询谁的档案？例如：查询张三的档案"
+
+            if not 姓名 or len(姓名) < 2:
+                return "请告诉我您要查询谁的档案？例如：查询张三的档案"
+
+            # 发送WebSocket消息给前端 - 与edge.py完全一致
+            success = self.send_websocket_message('query_record', {
+                'name': 姓名  # 使用'name'参数与edge.py一致
+            }, original_text)
+
+            if success:
+                # 更新对话状态
+                self.conversation_state.update({
+                    'current_context': 'archive_query',
+                    'last_query_type': 'query_record',
+                    'expecting_selection': True,
+                    'last_query_time': datetime.now(),
+                    'last_query_params': {'name': 姓名}
+                })
+                response = f"正在查询{姓名}的档案，请稍候"
+                self._speak_async(response)
+                return response
+            else:
+                error_msg = "查询请求发送失败，请稍后重试"
+                self._speak_async(error_msg)
+                return error_msg
+
+        except Exception as e:
+            self.logger.error(f"❌ 按姓名查询档案处理失败: {e}")
+            error_msg = "处理查询时出现错误"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def _handle_with_ollama_enhanced(self, text):
+        """使用增强的AI处理 - 直接使用AI回复，不进行额外处理"""
+        try:
+            if not hasattr(self, 'ollama_client') or not self.ollama_client:
+                response = "AI服务暂不可用，请检查系统配置"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+
+            if not self.ollama_client.is_service_available():
+                # 提供更具体的错误信息
+                response = "AI服务连接失败，请确保Ollama服务正在运行"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+
+            self.logger.info(f"🚀 增强AI处理: {text}")
+
+            # 直接使用AI处理，不进行语义纠正
+            ollama_response = self.ollama_client.send_chat_message(text)
+
+            # 直接使用AI的回复，不进行额外过滤或处理
+            if ollama_response:
+                self.logger.info(f"✅ AI处理成功: {ollama_response}")
+                self._speak_async(ollama_response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': ollama_response}, text)
+                return ollama_response
+            else:
+                # 如果AI回复为空，返回连接错误提示
+                response = "AI服务响应异常，请稍后重试或检查服务状态"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+
+        except Exception as e:
+            self.logger.error(f"❌ AI处理异常: {e}")
+            response = "处理请求时出现错误，请检查AI服务状态"
+            self._speak_async(response)
+            # 发送WebSocket消息
+            self.send_websocket_message('ai_response', {'response': response}, text)
+            return response
+
+    def _handle_device_control_related(self, text):
+        """判断是否为设备控制相关命令"""
+        if not text:
+            return False
+
+        device_related_keywords = [
+            '打开', '关闭', '开启', '停止', '档案柜', '柜子', '柜',
+            '列', '号', '温度', '湿度', '调节', '设置', '度',
+            '通风', '空调', '换气', '状态', '查询', '查看'
+        ]
+
+        return any(keyword in text for keyword in device_related_keywords)
+
+
+    def _handle_exit_command(self, text, original_text=None):
+        """处理退出命令 - 增强版：支持退出聊天模式"""
+        self.logger.info(f"🚪 执行退出命令处理: {text}")
+
+        # 如果在聊天模式中，先退出聊天模式
+        if self.chat_mode:
+            response = self._exit_chat_mode()
+            self.is_exited = True
+
+            # 发送WebSocket消息给前端
+            if self.socketio:
+                self.socketio.emit('conversation_ended', {
+                    "message": response,
+                    "timestamp": time.time(),
+                    "duration": time.time() - (self.chat_start_time if self.chat_start_time else time.time())
+                })
+                self.logger.info("✅ 已发送conversation_ended消息到前端")
+
+            return response
+
+        self.is_exited = True
+
+        responses = [
+            "好的，小智先退下啦，需要的时候随时叫我~",
+            "再见啦，有事随时喊小智哦~",
+            "小智去休息啦，想我了就说'小智'~",
+            "好的，下次见~ 记得叫'小智'唤醒我哦~"
+        ]
+        response = random.choice(responses)
+
+        # 重置对话状态
+        self.reset_conversation_state()
+
+        # 语音播报退出提示
+        self._speak_async(response)
+        return response
+
+    def _is_voice_recognition_failure(self, text):
+        """判断是否为语音识别失败"""
+        failure_phrases = [
+            "检测到语音但未能识别",
+            "语音识别失败",
+            "未能识别",
+            "识别失败",
+            "没有听清楚",
+            "请再说一遍",
+            "sorry, i didn't catch that",
+            "i didn't understand"
+        ]
+        text_lower = text.lower()
+        return any(phrase in text_lower for phrase in failure_phrases)
+
+    def _clean_text(self, text):
+        """清洗文本：移除空格、语气词和干扰词 - 修复版"""
+        if not text:
+            return ""
+
+        # 先移除常见的语气词和干扰词
+        filler_words = [
+            '啊', '呢', '吧', '呀', '哦', '嗯', '那个', '这个', '然后', '就是',
+            '啦', '嘛', '哟', '呃', '哎', '喂', '哈', '哼', '哇', '呐'
+        ]
+
+        # 先移除语气词
+        cleaned = text
+        for word in filler_words:
+            cleaned = cleaned.replace(word, "")
+
+        # 修正常见的语音识别错误 - 增强设备控制相关修正
+        common_errors = {
+            '相子': '柜子',
+            '箱子': '柜子',
+            '贵子': '柜子',
+            '柜了': '柜子',
+            '柜勒': '柜子',
+            '柜啦': '柜子',
+            '关毕': '关闭',
+            '完毕': '关闭',
+            '关掉': '关闭',
+            '打开': '打开',
+            '开启': '打开',
+            '关闭': '关闭',
+            '停止': '关闭',
+            '类': '列',
+            '号': '列',
+            '个': '列',
+        }
+
+        # 关键修复：先修正常见错误，再处理空格
+        for error, correction in common_errors.items():
+            cleaned = cleaned.replace(error, correction)
+
+        # 关键修复：移除所有空格，包括"关闭 柜子"中的空格
+        cleaned = re.sub(r'\s+', '', cleaned).strip()
+
+        # 记录清洗前后的文本
+        if text != cleaned:
+            self.logger.info(f"🧹 文本清洗: '{text}' -> '{cleaned}'")
+
+        return cleaned
+
+    def _handle_temperature_input(self, text, original_text):
+        """处理温度输入 - 增强版：支持中文数字"""
+        try:
+            self.logger.info(f"🔍 处理温度输入，原始文本: {text}")
+
+            # 提取温度值
+            temperature = self._extract_temperature(text)
+            self.logger.info(f"🔍 提取到的温度: {temperature}")
+
+            if temperature:
+                action = self.conversation_state.get('pending_action', 'set')
+                # 重置状态
+                self.conversation_state.update({
+                    'waiting_for_temperature': False,
+                    'pending_action': None,
+                    'pending_context': None
+                })
+                # 发送WebSocket消息 - 严格按照app.py格式
+                success = self.send_websocket_message('control_thermo_hygro_sensor', {
+                    'action': action,
+                    'temperature': temperature
+                }, original_text)
+                if success:
+                    action_text = {
+                        'increase': '升高',
+                        'decrease': '降低',
+                        'set': '调节到'
+                    }.get(action, '调节到')
+                    response = f"正在{action_text}{temperature}度"
+                    self._speak_async(response)
+                    return response
+                else:
+                    return "温湿度控制命令发送失败"
+            else:
+                # 如果没有提取到温度，继续询问（不重置状态）
+                self.logger.warning(f"❌ 未提取到温度值，文本: {text}")
+                response = "抱歉，我没有听清楚温度值。请问您要调节到多少度呢？例如：25度、二十五度"
+                self._speak_async(response)
+                return response
+
+        except Exception as e:
+            self.logger.error(f"❌ 温度输入处理失败: {e}")
+            # 异常时才重置状态
+            self.conversation_state.update({
+                'waiting_for_temperature': False,
+                'pending_action': None,
+                'pending_context': None
+            })
+            return "处理温度设置时出现错误"
+
+    def _handle_device_control_websocket(self, text, original_text):
+        """处理设备控制命令 - 严格按照app.py的WebSocket格式"""
+        try:
+            text_lower = text.lower()
+            self.logger.info(f"🔧 处理设备控制命令: {text}")
+
+            # 处理单独的"打开"或"关闭"命令
+            if text in ['打开', '开启', '启动']:
+                response = "哎~ 您想打开什么设备呢？可以说打开第几列柜子，或者打开通风系统~"
+                self._speak_async(response)
+                self.send_websocket_message('ai_response', {'response': response}, original_text)
+                return response
+            elif text in ['关闭', '关', '关掉', '停止']:
+                response = "哎~ 您想关闭什么设备呢？可以说关闭第几列柜子，或者关闭通风系统~"
+                self._speak_async(response)
+                self.send_websocket_message('ai_response', {'response': response}, original_text)
+                return response
+
+            # 温湿度控制
+            temperature_keywords = ['温度', '湿度', '调节', '设置', '度', '调到', '调制', '调至']
+            if any(word in text_lower for word in temperature_keywords):
+                self.logger.info("🌡️ 识别为温湿度控制命令")
+                return self._handle_temperature_control_websocket(text, original_text)
+
+            # 通风控制
+            elif any(word in text_lower for word in ['通风', '空调', '换气']):
+                self.logger.info("💨 识别为通风控制命令")
+                return self._handle_ventilation_control_websocket(text, original_text)
+
+            # 档案柜控制 - 更精确的匹配
+            cabinet_keywords = ['柜子', '档案柜', '相子', '箱子', '贵子', '柜了']
+            has_cabinet_keyword = any(word in text for word in cabinet_keywords)
+
+            # 只有当明确提到柜子相关词汇时才认为是档案柜控制
+            if has_cabinet_keyword:
+                self.logger.info("📁 识别为档案柜控制命令")
+                return self._handle_cabinet_control_websocket(text, original_text)
+
+            # 或者包含列号的操作（如"打开第三列"）
+            elif any(word in text for word in ['第', '列']) and any(word in text for word in ['打开', '关闭', '开', '关']):
+                self.logger.info("📁 识别为带列号的柜子控制命令")
+                return self._handle_cabinet_control_websocket(text, original_text)
+
+            # 状态查询
+            elif any(word in text_lower for word in ['状态', '查看', '监控']):
+                self.logger.info("📊 识别为状态查询命令")
+                return self._handle_status_query_websocket(text, original_text)
+
+            # 默认使用AI处理
+            else:
+                self.logger.info("🤖 未明确匹配设备类型，使用AI处理")
+                return self._handle_with_ollama_directly(text)
+
+        except Exception as e:
+            self.logger.error(f"❌ 设备控制处理失败: {e}")
+            error_msg = "处理设备控制时出现错误"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def _handle_generic_close_command(self, text):
+        """处理单独的'关闭'命令 - 直接回复固定提示语"""
+        self.logger.info(f"🔧 处理通用关闭命令: {text}")
+
+        # 直接回复固定提示语，不走AI处理
+        response = "哎~ 您想关闭什么设备呢？可以说关闭第几列柜子，或者关闭通风系统~"
+        self._speak_async(response)
+        # 发送WebSocket消息
+        self.send_websocket_message('ai_response', {'response': response}, text)
+        return response
+
+    def _handle_generic_open_command(self, text):
+        """处理单独的'打开'命令 - 直接回复固定提示语"""
+        self.logger.info(f"🔧 处理通用打开命令: {text}")
+
+        # 直接回复固定提示语，不走AI处理
+        response = "哎~ 您想打开什么设备呢？可以说打开第几列柜子，或者打开通风系统~"
+        self._speak_async(response)
+        # 发送WebSocket消息
+        self.send_websocket_message('ai_response', {'response': response}, text)
+        return response
+
+
+    def _handle_temperature_control_websocket(self, text, original_text):
+        """处理温湿度控制 - 严格按照app.py格式"""
+        try:
+            text_lower = text.lower()
+
+            # 提取温度值
+            temperature = self._extract_temperature(text)
+
+            # 判断是升温还是降温
+            if '提高' in text_lower or '升温' in text_lower or '调高' in text_lower or '热' in text_lower:
+                action = "increase"
+                if not temperature:
+                    # 如果没有指定温度，询问要升高多少度
+                    self.conversation_state.update({
+                        'waiting_for_temperature': True,
+                        'pending_action': 'increase',
+                        'pending_context': 'temperature'
+                    })
+                    response = "请问您希望升高多少度呢？可以说数字或中文数字，比如：5度、五度"
+                    self._speak_async(response)
+                    return response
+            elif '降低' in text_lower or '降温' in text_lower or '调低' in text_lower or '冷' in text_lower:
+                action = "decrease"
+                if not temperature:
+                    # 如果没有指定温度，询问要降低多少度
+                    self.conversation_state.update({
+                        'waiting_for_temperature': True,
+                        'pending_action': 'decrease',
+                        'pending_context': 'temperature'
+                    })
+                    response = "请问您希望降低多少度呢？可以说数字或中文数字，比如：5度、五度"
+                    self._speak_async(response)
+                    return response
+            else:
+                action = "set"
+                if not temperature:
+                    # 如果没有指定温度，询问具体温度
+                    self.conversation_state.update({
+                        'waiting_for_temperature': True,
+                        'pending_action': 'set',
+                        'pending_context': 'temperature'
+                    })
+                    response = "请问您要调节到多少度呢？可以说数字或中文数字，比如：25度、二十五度"
+                    self._speak_async(response)
+                    return response
+
+            # 如果已经有温度值，直接执行
+            if temperature:
+                # 发送WebSocket消息 - 严格按照app.py格式
+                success = self.send_websocket_message('control_thermo_hygro_sensor', {
+                    'action': action,
+                    'temperature': temperature
+                }, original_text)
+                if success:
+                    action_text = {
+                        'increase': '升高温度',
+                        'decrease': '降低温度',
+                        'set': '调节温度到'
+                    }.get(action, '调节温度到')
+
+                    # 更智能友好的回复
+                    if action == 'set':
+                        response = f"好的，正在为您{action_text}{temperature}度"
+                    else:
+                        response = f"好的，正在为您{action_text}{temperature}度"
+
+                    self._speak_async(response)
+                    return response
+                else:
+                    return "温湿度控制命令发送失败"
+
+        except Exception as e:
+            print(f"❌ 温湿度控制处理失败: {e}")
+            return "处理温湿度控制时出现错误"
+
+    def _handle_ventilation_control_websocket(self, text, original_text):
+        """处理通风控制 - 严格按照app.py格式"""
+        try:
+            # 判断动作
+            if any(word in text for word in ['打开', '开启', '启动']):
+                action = "on"
+                action_text = "开启通风系统"
+            elif any(word in text for word in ['关闭', '停止']):
+                action = "off"
+                action_text = "关闭通风系统"
+            else:
+                action = "toggle"
+                action_text = "调节通风系统"
+
+            # 发送WebSocket消息 - 严格按照app.py格式
+            success = self.send_websocket_message('control_air_conditioner', {
+                'action': action
+            }, original_text)
+            if success:
+                # 更智能友好的回复
+                response = f"好的，正在为您{action_text}"
+                self._speak_async(response)
+                return response
+            else:
+                return "通风控制命令发送失败"
+        except Exception as e:
+            print(f"❌ 通风控制处理失败: {e}")
+            return "处理通风控制时出现错误"
+
+    def _handle_status_query_websocket(self, text, original_text):
+        """处理状态查询 - 严格按照app.py格式"""
+        try:
+            # 发送WebSocket消息 - 严格按照app.py格式
+            success = self.send_websocket_message('query_cabinet_status', {
+                'command': text
+            }, original_text)
+            if success:
+                response = "好的，正在为您查询设备状态，请稍候"
+                self._speak_async(response)
+                return response
+            else:
+                return "状态查询命令发送失败"
+        except Exception as e:
+            print(f"❌ 状态查询处理失败: {e}")
+            return "处理状态查询时出现错误"
+
+    def _is_archive_query(self, text):
+        """判断是否为档案查询命令"""
+        archive_keywords = ['查询', '查找', '搜索', '显示', '档案', '信息', '资料']
+        column_keywords = ['第', '列', '柜子']
+        has_archive = any(keyword in text for keyword in archive_keywords)
+        has_column = any(keyword in text for keyword in column_keywords)
+        return has_archive and has_column
+
+    def _handle_cabinet_control_websocket(self, text, original_text):
+        """处理档案柜控制 - 严格按照app.py格式"""
+        try:
+            text_lower = text.lower()
+            self.logger.info(f"📁 处理档案柜控制: '{text}'")
+
+            # 提取动作（关闭命令优先）
+            close_keywords = ['关闭', '关', '关掉', '关上', '关毕', '完毕']
+            has_close = any(keyword in text_lower for keyword in close_keywords)
+            action = 'close' if has_close else 'open'
+            action_text = "关闭" if action == 'close' else "打开"
+
+            # 严格按照app.py逻辑：关闭命令不需要列号，直接关闭所有柜子
+            if action == 'close':
+                # 发送关闭命令 - 严格按照app.py格式
+                success = self.send_websocket_message('close_cabinet', {
+                    'action': 'off'  # 使用'action'参数，值为'off'
+                }, original_text)
+                if success:
+                    response = "好的，正在为您关闭所有档案柜"
+                    self._speak_async(response)
+                    return response
+                else:
+                    error_msg = "关闭命令发送失败，请稍后重试"
+                    self._speak_async(error_msg)
+                    return error_msg
+
+            # 打开命令需要列号
+            column_number = self._extract_column_number(text)
+            self.logger.info(f"🔢 提取列号结果: {column_number}")
+
+            if not column_number:
+                self.logger.info("❓ 打开命令未指定列号，询问用户")
+                self.conversation_state.update({
+                    'waiting_for_column': True,
+                    'pending_action': action,
+                    'pending_context': 'cabinet_control'
+                })
+                response = "请问您要打开哪一列柜子？例如：第三列、3列"
+                self._speak_async(response)
+                return response
+
+            # 有列号时执行打开控制
+            success = self.send_websocket_message('open_cabinet', {
+                'colNo': column_number  # 使用'colNo'参数与app.py一致
+            }, original_text)
+
+            # 修复：添加响应返回
+            if success:
+                response = f"好的，正在为您打开第{column_number}列柜子"
+                self._speak_async(response)
+                return response
+            else:
+                error_msg = "打开命令发送失败，请稍后重试"
+                self._speak_async(error_msg)
+                return error_msg
+
+        except Exception as e:
+            self.logger.error(f"❌ 档案柜控制失败: {e}")
+            error_msg = "处理柜子控制时出现错误"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def _extract_temperature(self, text):
+        """提取温度值 - 支持中文数字和阿拉伯数字"""
+        try:
+            # 中文数字到阿拉伯数字的映射
+            chinese_number_map = {
+                '零': '0', '一': '1', '二': '2', '两': '2', '三': '3', '四': '4', '五': '5',
+                '六': '6', '七': '7', '八': '8', '九': '9', '十': '10',
+                '十一': '11', '十二': '12', '十三': '13', '十四': '14', '十五': '15',
+                '十六': '16', '十七': '17', '十八': '18', '十九': '19', '二十': '20',
+                '二十一': '21', '二十二': '22', '二十三': '23', '二十四': '24', '二十五': '25',
+                '二十六': '26', '二十七': '27', '二十八': '28', '二十九': '29', '三十': '30'
+            }
+
+            # 匹配模式：支持中文数字和阿拉伯数字
+            patterns = [
+                r'(\d+)度',           # 25度
+                r'(\d+)摄氏度',        # 25摄氏度
+                r'(\d+)°',            # 25°
+                r'([零一二两三四五六七八九十]+)度',      # 二十五度
+                r'([零一二两三四五六七八九十]+)摄氏度',   # 二十五摄氏度
+                r'([零一二两三四五六七八九十]+)°'        # 二十五°
+            ]
+
+            for pattern in patterns:
+                match = re.search(pattern, text)
+                if match:
+                    number_str = match.group(1)
+
+                    # 如果是中文数字，转换为阿拉伯数字
+                    if number_str in chinese_number_map:
+                        temperature = chinese_number_map[number_str]
+                        self.logger.info(f"✅ 中文数字转换: {number_str} -> {temperature}")
+                        return temperature
+                    elif number_str.isdigit():
+                        self.logger.info(f"✅ 提取到温度: {number_str}")
+                        return number_str
+
+            # 如果没有匹配到模式，尝试直接提取数字
+            digit_match = re.search(r'[零一二两三四五六七八九十\d]+', text)
+            if digit_match:
+                number_str = digit_match.group()
+                if number_str in chinese_number_map:
+                    temperature = chinese_number_map[number_str]
+                    self.logger.info(f"✅ 宽松模式中文数字转换: {number_str} -> {temperature}")
+                    return temperature
+                elif number_str.isdigit():
+                    self.logger.info(f"✅ 宽松模式提取到温度: {number_str}")
+                    return number_str
+
+            return None
+
+        except Exception as e:
+            self.logger.error(f"提取温度失败: {e}")
+            return None
+
+    def _handle_column_input(self, text, original_text):
+        """处理列号输入 - 严格按照app.py格式"""
+        try:
+            self.logger.info(f"🔍 处理列号输入，原始文本: {text}")
+
+            # 获取待处理的动作
+            action = self.conversation_state.get('pending_action', 'open')  # 默认打开
+
+            # 如果是关闭命令，不需要列号，直接关闭所有柜子
+            if action == 'close':
+                # 重置状态
+                self.conversation_state.update({
+                    'waiting_for_column': False,
+                    'pending_action': None,
+                    'pending_context': None
+                })
+                # 关闭所有柜子 - 严格按照app.py格式
+                success = self.send_websocket_message('close_cabinet', {
+                    'action': 'off'
+                }, original_text)
+                if success:
+                    response = "好的，正在为您关闭所有档案柜"
+                    self._speak_async(response)
+                    return response
+                else:
+                    return "关闭命令发送失败"
+
+            # 打开命令需要列号
+            column_number = self._extract_column_number(text)
+            self.logger.info(f"🔍 提取到的列号: {column_number}")
+
+            if column_number:
+                # 重置状态
+                self.conversation_state.update({
+                    'waiting_for_column': False,
+                    'pending_action': None,
+                    'pending_context': None
+                })
+                # 发送打开消息 - 严格按照app.py格式
+                success = self.send_websocket_message('open_cabinet', {
+                    'colNo': column_number  # 使用'colNo'参数
+                }, original_text)
+            else:
+                # 如果没有提取到列号，继续询问（不重置状态）
+                self.logger.warning(f"❌ 未提取到列号，文本: {text}")
+                response = "抱歉，我没有听清楚列号。请告诉我您要打开哪一列柜子？例如：第三列、3列"
+                self._speak_async(response)
+                return response
+
+        except Exception as e:
+            self.logger.error(f"❌ 列号输入处理失败: {e}")
+            # 异常时才重置状态
+            self.conversation_state.update({
+                'waiting_for_column': False,
+                'pending_action': None,
+                'pending_context': None
+            })
+            return "处理柜子控制时出现错误"
+
+    def _extract_column_number(self, text):
+        """提取列号信息 - 智能语义理解版"""
+        try:
+            # 首先处理常见的错别字和同音字
+            text = text.replace("相子", "柜子").replace("箱子", "柜子").replace("贵子", "柜子")
+            text = text.replace("类", "列").replace("号", "列").replace("个", "列")  # 增强容错
+
+            # 中文数字到阿拉伯数字的映射 - 扩展版本
+            chinese_to_digit = {
+                '零': '0', '一': '1', '二': '2', '两': '2', '三': '3', '四': '4',
+                '五': '5', '六': '6', '七': '7', '八': '8', '九': '9', '十': '10',
+                '十一': '11', '十二': '12', '十三': '13', '十四': '14', '十五': '15',
+                '十六': '16', '十七': '17', '十八': '18', '十九': '19', '二十': '20',
+                '二十一': '21', '二十二': '22', '二十三': '23', '二十四': '24', '二十五': '25',
+                '二十六': '26', '二十七': '27', '二十八': '28', '二十九': '29', '三十': '30'
+            }
+
+            # 增强匹配模式：支持多种表达方式
+            patterns = [
+                # 标准模式
+                r'第([一二两三四五六七八九十]+)[列柜]',
+                r'([一二两三四五六七八九十]+)[列柜]',
+                r'第(\d+)[列柜]',
+                r'(\d+)[列柜]',
+                # 容错模式
+                r'第([一二两三四五六七八九十]+)类',
+                r'([一二两三四五六七八九十]+)类',
+                r'第([一二两三四五六七八九十]+)号',
+                r'([一二两三四五六七八九十]+)号',
+                r'第([一二两三四五六七八九十]+)个',
+                r'([一二两三四五六七八九十]+)个',
+                # 动作+数字模式
+                r'打开([一二两三四五六七八九十]+)',
+                r'打开(\d+)',
+                r'开([一二两三四五六七八九十]+)',
+                r'开(\d+)',
+                r'关闭([一二两三四五六七八九十]+)',
+                r'关闭(\d+)',
+                r'关([一二两三四五六七八九十]+)',
+                r'关(\d+)',
+                # 纯数字模式
+                r'第([一二两三四五六七八九十]+)',
+                r'第(\d+)',
+            ]
+
+            column_found = None
+            for pattern in patterns:
+                col_match = re.search(pattern, text)
+                if col_match:
+                    number_str = col_match.group(1)
+                    # 如果是中文数字，转换为阿拉伯数字
+                    if number_str in chinese_to_digit:
+                        column_found = chinese_to_digit[number_str]
+                    elif number_str.isdigit():
+                        column_found = number_str
+
+                    if column_found:
+                        self.logger.info(f"✅ 提取到列号: {column_found}，匹配模式: {pattern}")
+                        break
+
+            # 如果没找到，尝试更宽松的匹配
+            if not column_found:
+                # 直接匹配数字
+                digit_match = re.search(r'[一二两三四五六七八九十\d]+', text)
+                if digit_match:
+                    number_str = digit_match.group()
+                    if number_str in chinese_to_digit:
+                        column_found = chinese_to_digit[number_str]
+                    elif number_str.isdigit():
+                        column_found = number_str
+                    if column_found:
+                        self.logger.info(f"✅ 宽松模式提取到列号: {column_found}")
+
+            # 调试信息：记录提取过程
+            self.logger.info(f"🔍 列号提取过程: 原始文本='{text}', 提取结果='{column_found}'")
+
+            return column_found
+
+        except Exception as e:
+            self.logger.error(f"提取列号失败: {e}")
+            return None
+
+    def _handle_selection(self, text, original_text):
+        """处理用户选择 - 严格按照app.py格式"""
+        try:
+            # 提取选择序号
+            selection_index = self._extract_selection_index(text)
+            if selection_index is None:
+                return "请告诉我您要选择第几条？例如：第一条、第二个"
+            # 验证选择范围
+            if (self.conversation_state.get('last_query_results') and
+                    selection_index > len(self.conversation_state['last_query_results'])):
+                return f"请选择1到{len(self.conversation_state['last_query_results'])}之间的数字"
+            # 发送选择消息给前端 - 严格按照app.py格式
+            success = self.send_websocket_message('select_record', {
+                'index': selection_index - 1  # 转为0基索引
+            }, original_text)
+            if success:
+                # 重置选择状态
+                self.conversation_state['expecting_selection'] = False
+                self.conversation_state['available_options'] = []
+                response = f"已选择第{selection_index}条记录"
+                self._speak_async(response)
+                return response
+            else:
+                error_msg = "选择命令发送失败"
+                self._speak_async(error_msg)
+                return error_msg
+        except Exception as e:
+            print(f"❌ 选择处理失败: {e}")
+            error_msg = "处理选择时出现错误"
+            self._speak_async(error_msg)
+            return error_msg
+
+    def _extract_selection_index(self, text):
+        """提取选择序号"""
+        try:
+            # 中文数字映射
+            chinese_numbers = {
+                '一': 1, '二': 2, '三': 3, '四': 4, '五': 5,
+                '六': 6, '七': 7, '八': 8, '九': 9, '十': 10,
+                '第一': 1, '第二': 2, '第三': 3, '第四': 4, '第五': 5,
+                '第六': 6, '第七': 7, '第八': 8, '第九': 9, '第十': 10,
+                '十一': 11, '十二': 12, '十三': 13, '十四': 14, '十五': 15,
+                '十六': 16, '十七': 17, '十八': 18, '十九': 19, '二十': 20
+            }
+            # 匹配模式
+            patterns = [
+                r'第([一二三四五六七八九十]+)条',
+                r'第([一二三四五六七八九十]+)个',
+                r'([一二三四五六七八九十]+)条',
+                r'([一二三四五六七八九十]+)个',
+                r'选择第([一二三四五六七八九十]+)条',
+                r'选择第([一二三四五六七八九十]+)个',
+                r'第(\d+)条',
+                r'第(\d+)个',
+                r'选择第(\d+)条',
+                r'选择第(\d+)个',
+                r'(\d+)条',
+                r'(\d+)个'
+            ]
+            for pattern in patterns:
+                match = re.search(pattern, text)
+                if match:
+                    number_str = match.group(1)
+                    # 中文数字转换
+                    if number_str in chinese_numbers:
+                        return chinese_numbers[number_str]
+                    elif number_str.isdigit():
+                        return int(number_str)
+            # 简单匹配
+            if '第一条' in text or '第一个' in text or '首选' in text or '第一个' in text:
+                return 1
+            elif '第二条' in text or '第二个' in text:
+                return 2
+            elif '第三条' in text or '第三个' in text:
+                return 3
+            elif '第四条' in text or '第四个' in text:
+                return 4
+            elif '第五条' in text or '第五个' in text:
+                return 5
+            return None
+        except Exception as e:
+            print(f"❌ 提取选择序号失败: {e}")
+            return None
+
+    # ... 其余方法保持不变，只修改了WebSocket相关的方法 ...
+
+    def _is_invalid_correction(self, corrected_text):
+        """判断是否为无效的语义纠正"""
+        if not corrected_text:
+            return True
+        invalid_patterns = [
+            r'^抱歉',
+            r'^对不起',
+            r'^无法理解',
+            r'^不清楚',
+            r'^不明白'
+        ]
+        for pattern in invalid_patterns:
+            if re.match(pattern, corrected_text, re.IGNORECASE):
+                return True
+        return False
+
+    def reset_conversation_state(self):
+        """重置对话状态"""
+        self.conversation_state = {
+            'current_context': None,
+            'last_query_type': None,
+            'last_query_results': [],
+            'expecting_selection': False,
+            'available_options': [],
+            'last_query_params': {},
+            'waiting_for_temperature': False,
+            'waiting_for_column': False,  # 新增：等待列号输入
+            'pending_action': None,
+            'pending_context': None
+        }
+
+    def _test_ollama_connection(self):
+        """测试Ollama连接"""
+        try:
+            if self.ollama_client.is_service_available():
+                self.logger.info("✅ Ollama服务器连接成功")
+                print("✅ Ollama服务器连接成功")
+            else:
+                self.logger.warning("⚠️ 无法连接到Ollama服务器，将使用本地命令处理")
+                print("⚠️ 无法连接到Ollama服务器，将使用本地命令处理")
+        except Exception as e:
+            self.logger.error(f"❌ Ollama连接测试异常: {e}")
+
+    def _init_jieba(self):
+        """初始化jieba分词，添加自定义词汇"""
+        # 添加常见人名到词典
+        common_names = ['张三', '李四', '王五', '赵六', '钱七', '孙八', '周九', '吴十']
+        for name in common_names:
+            jieba.add_word(name, freq=1000, tag='nr')
+        # 添加部门名称
+        departments = ['技术部', '人事部', '财务部', '市场部', '行政部', '研发部', '销售部']
+        for dept in departments:
+            jieba.add_word(dept, freq=1000, tag='n')
+        # 添加职位名称
+        positions = ['工程师', '经理', '主管', '总监', '专员', '助理', '总监', '董事长', '总经理']
+        for pos in positions:
+            jieba.add_word(pos, freq=800, tag='n')
+        # 添加唤醒词
+        for wake_word in WAKE_WORDS:
+            jieba.add_word(wake_word, freq=2000, tag='n')
+        # 添加命令关键词
+        command_words = ['查询', '查找', '搜索', '显示', '列出', '查一下', '找一下']
+        for cmd in command_words:
+            jieba.add_word(cmd, freq=1500, tag='v')
+        # 添加时间相关词汇
+        time_words = ['时间', '几点', '现在', '日期', '今天', '钟点', '什么时候']
+        for time_word in time_words:
+            jieba.add_word(time_word, freq=1000, tag='n')
+        # 添加年份相关词汇
+        year_words = ['年', '年份', '年度', '哪年', '什么时候入职']
+        for year_word in year_words:
+            jieba.add_word(year_word, freq=800, tag='n')
+        # 添加档案柜控制词汇
+        cabinet_words = ['打开', '关闭', '开启', '启动', '停止', '档案柜', '柜子', '列']
+        for cabinet_word in cabinet_words:
+            jieba.add_word(cabinet_word, freq=1000, tag='v')
+        # 添加基础对话词汇
+        basic_conversation = ['你叫什么', '你是谁', '你几岁', '你多大', '介绍自己', '自我介绍']
+        for word in basic_conversation:
+            jieba.add_word(word, freq=1000, tag='n')
+        # 添加中文数字词汇
+        chinese_numbers = ['一', '二', '两', '三', '四', '五', '六', '七', '八', '九', '十',
+                           '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十']
+        for num in chinese_numbers:
+            jieba.add_word(num, freq=800, tag='m')
+
+        temperature_words = ['度', '摄氏度', '温度', '升温', '降温', '调高', '调低']
+        for word in temperature_words:
+            jieba.add_word(word, freq=800, tag='n')
+
+        # 添加中文数字
+        chinese_numbers_extended = [
+            '零', '一', '二', '两', '三', '四', '五', '六', '七', '八', '九', '十',
+            '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
+            '二十一', '二十二', '二十三', '二十四', '二十五', '二十六', '二十七', '二十八', '二十九', '三十'
+        ]
+        for num in chinese_numbers_extended:
+            jieba.add_word(num, freq=800, tag='m')
+
+    def smart_wake_word_detection(self, text):
+        """智能唤醒词检测 - 极宽松版本：只要包含关键词就通过"""
+        if not text:
+            self.logger.info("❌ 唤醒词检测：文本为空")
+            return False
+
+        # 使用原始文本，不要清洗空格
+        original_text = text.strip()
+        cleaned_text = re.sub(r'\s+', '', original_text)
+
+        self.logger.info(f"🔍 命令处理器唤醒词检测 - 原始文本: '{original_text}', 清洗后: '{cleaned_text}'")
+
+        # 极宽松的唤醒词检测：只要包含关键词就通过
+        wake_keywords = [
+            '小智', '小知', '小之', '小志', '小只',
+            '你好', '您好', '嗨', '嘿'
+        ]
+
+        # 1. 直接检查是否包含任何唤醒关键词
+        for keyword in wake_keywords:
+            if keyword in cleaned_text:
+                self.logger.info(f"✅ 命令处理器检测到唤醒关键词: '{keyword}' 在 '{cleaned_text}' 中")
+                return True
+
+        # 2. 检查短文本（长度小于等于10个字符）
+        if len(cleaned_text) <= 10:
+            self.logger.info(f"✅ 命令处理器短文本自动通过: '{cleaned_text}' (长度: {len(cleaned_text)})")
+            return True
+
+        # 3. 检查是否以问候开头
+        greeting_starts = ['你好', '您好', '嗨', '嘿']
+        for greeting in greeting_starts:
+            if cleaned_text.startswith(greeting):
+                self.logger.info(f"✅ 命令处理器以问候开头: '{greeting}' -> '{cleaned_text}'")
+                return True
+
+        # 4. 检查是否包含"小"字（可能是"小智"的误识别）
+        if '小' in cleaned_text and len(cleaned_text) <= 8:
+            self.logger.info(f"✅ 命令处理器包含'小'字的短文本: '{cleaned_text}'")
+            return True
+
+        self.logger.info(f"❌ 命令处理器未检测到唤醒词: '{original_text}'")
+        return False
+
+    def should_process_directly(self, text):
+        """判断是否应该直接处理命令 - 更智能的版本"""
+        if not text:
+            return False
+        text_lower = text.lower().strip()
+        # 基础对话检测
+        if self._is_basic_conversation(text):
+            return True
+        # 设备控制命令直接处理
+        if self._is_device_control(text):
+            return True
+        # 如果很短，可能是唤醒词或简单问候
+        if len(text_lower) <= 4:
+            return any(wake_word in text_lower for wake_word in WAKE_WORDS)
+        # 扩展对话检测 - 更宽松
+        conversation_indicators = [
+            # 问候类
+            '你好', '您好', '早上好', '下午好', '晚上好', '嗨', '嘿',
+            # 问题类
+            '什么', '怎么', '如何', '为什么', '哪', '谁', '什么时候',
+            # 聊天类
+            '笑话', '故事', '新闻', '天气', '讲个', '说个', '聊天',
+            '今天', '现在', '最近', '怎么样',
+            # 情感类
+            '谢谢', '感谢', '抱歉', '对不起', '好的', '明白',
+            # 娱乐类
+            '唱歌', '跳舞', '表演', '娱乐'
+        ]
+        # 检查是否包含对话指示词
+        has_conversation = any(indicator in text for indicator in conversation_indicators)
+        # 检查是否有疑问结构
+        has_question_structure = any([
+            text.endswith('?') or text.endswith('？'),
+            '吗' in text,
+            '呢' in text,
+            '什么' in text,
+            '怎么' in text,
+            '如何' in text
+        ])
+        return has_conversation or has_question_structure
+
+    def _is_basic_conversation(self, text):
+        """检测是否是基础对话 - 扩展版本"""
+        text_lower = text.lower()
+        basic_conversation_patterns = [
+            r'你叫什么', r'你是谁', r'你几岁', r'你多大', r'介绍自己', r'自我介绍',
+            r'你的名字', r'叫什么名字', r'你好', r'您好', r'早上好', r'下午好',
+            r'晚上好', r'嗨', r'嘿', r'谢谢', r'感谢', r'再见', r'拜拜'
+        ]
+        for pattern in basic_conversation_patterns:
+            if re.search(pattern, text_lower):
+                return True
+        # 短问候语
+        if len(text_lower) <= 6:
+            greeting_words = ['你好', '您好', 'hello', 'hi', '嗨', '嘿', '谢谢']
+            if any(word in text_lower for word in greeting_words):
+                return True
+        return False
+
+    def extract_pure_command(self, text):
+        """提取纯净命令（移除唤醒词和语气词）"""
+        if not text:
+            return ""
+        # 移除唤醒词
+        for wake_word in WAKE_WORDS:
+            text = text.replace(wake_word, "")
+        # 移除常见的语气词和干扰词
+        noise_words = ['啊', '呢', '吧', '呀', '哦', '嗯', '那个', '这个', '然后', '就是']
+        for word in noise_words:
+            text = text.replace(word, "")
+        # 移除多余空格
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
+
+
+    def _is_pure_wakeup_call(self, text):
+        """判断是否为纯唤醒呼叫 - 紧急修复版本"""
+        if not text:
+            return False
+
+        # 紧急修复：硬编码纯唤醒词模式
+        pure_wakeup_patterns = [
+            '你好小智', '你好小知', '你好小之', '你好小志', '你好小只',
+            '小智你好', '小知你好', '小之你好', '小志你好', '小只你好',
+            '小智', '小知', '小之', '小志', '小只',
+            '你好小智你好', '小智小智',
+            '你好', '您好', '嗨', '嘿'  # 添加简单问候
+        ]
+
+        cleaned_text = re.sub(r'\s+', '', text.strip())
+
+        self.logger.info(f"🔍 纯唤醒词检测 - 输入文本: '{text}', 清洗后: '{cleaned_text}'")
+
+        # 直接精确匹配
+        for pattern in pure_wakeup_patterns:
+            if pattern == cleaned_text:
+                self.logger.info(f"🎯 精确匹配到纯唤醒词: '{pattern}'")
+                return True
+
+        # 短文本检查
+        if len(cleaned_text) <= 4:
+            wake_indicators = ['小智', '小知', '小之', '小志', '小只', '你好', '您好', '嗨', '嘿']
+            for indicator in wake_indicators:
+                if indicator in cleaned_text:
+                    self.logger.info(f"🎯 短文本检测到唤醒词特征: '{indicator}' 在 '{cleaned_text}' 中")
+                    return True
+
+        self.logger.info(f"❌ 不是纯唤醒词: '{cleaned_text}'")
+        return False
+
+
+    def _is_query_command(self, text):
+        """判断是否为查询命令"""
+        query_indicators = [
+            '查询', '查找', '搜索', '查一下', '找一下',
+            '张三', '李四', '王五', '赵六', '钱七',
+            '技术部', '人事部', '财务部', '市场部',
+            '档案', '信息', '资料', '人员', '员工',
+            # 时间查询
+            '时间', '几点', '现在', '日期',
+            # 年份查询 - 新增
+            '年', '年份', '年度', '哪年',
+            # 档案柜控制 - 新增
+            '打开', '关闭', '开启', '停止', '档案柜', '柜子'
+        ]
+        return any(indicator in text for indicator in query_indicators)
+
+    def _handle_greeting_directly(self, text):
+        """直接处理问候语，不调用大模型 - 增强版本"""
+        if not text:
+            return False
+
+        text_lower = text.lower().strip()
+
+        # 扩展问候语模式，支持更多小爱同学风格的问候
+        greeting_patterns = [
+            r'^你好$', r'^您好$', r'^hello$', r'^hi$', r'^嗨$', r'^嘿$',
+            r'^你好小智$', r'^您好小智$', r'^小智你好$', r'^小智您好$',
+            r'^嘿小智$', r'^嗨小智$', r'^你好啊$', r'^您好啊$', r'^你好呀$',
+            r'^您好呀$', r'^小智同学$', r'^你好小智同学$', r'^小智同学你好$',
+            r'^您好小智同学$', r'^小智同学您好$', r'^在吗小智$', r'^小智在吗$',
+            r'^小智小智$', r'^小智$', r'^小智！$', r'^小智!$', r'^小智。$',
+            r'^喂小智$', r'^喂，小智$'
+        ]
+
+        # 检查是否为纯问候语模式
+        for pattern in greeting_patterns:
+            if re.match(pattern, text_lower):
+                return True
+
+        # 检查简单问候（短文本且包含问候词）
+        if len(text_lower) <= 10:  # 增加长度限制
+            greeting_words = ['你好', '您好', 'hello', 'hi', '嗨', '嘿', '在吗', '喂']
+            wake_words = ['小智', '小知', '小之', '小志']
+
+            has_greeting = any(word in text_lower for word in greeting_words)
+            has_wake_word = any(word in text_lower for word in wake_words)
+
+            # 如果包含问候词或唤醒词，且没有其他复杂内容
+            if (has_greeting or has_wake_word) and not self._has_complex_content(text):
+                return True
+
+        return False
+
+    def _has_complex_content(self, text):
+        """检查文本是否包含复杂内容（不只是问候）"""
+        text_lower = text.lower()
+
+        # 复杂内容指示词
+        complex_indicators = [
+            '查询', '查找', '搜索', '打开', '关闭', '温度', '湿度',
+            '档案', '柜子', '列', '第', '号', '张三', '李四', '王五',
+            '什么', '怎么', '如何', '为什么', '哪', '谁', '什么时候',
+            '笑话', '故事', '新闻', '天气', '讲个', '说个'
+        ]
+
+        return any(indicator in text_lower for indicator in complex_indicators)
+
+    def _get_greeting_response(self):
+        """小爱风格问候回复 - 增强版本"""
+        import random
+
+        # 获取当前时间
+        current_hour = datetime.now().hour
+
+        # 根据时间段选择不同的问候语
+        if 5 <= current_hour < 12:
+            time_greeting = "早上好"
+        elif 12 <= current_hour < 14:
+            time_greeting = "中午好"
+        elif 14 <= current_hour < 18:
+            time_greeting = "下午好"
+        elif 18 <= current_hour < 22:
+            time_greeting = "晚上好"
+        else:
+            time_greeting = "你好"
+
+        # 小爱同学风格回复
+        greetings = [
+            f"哎~ {time_greeting}呀~ 我是小智，很高兴为你服务哦~ 请问需要查询档案信息，还是控制档案柜呢？",
+            f"哎~ {time_greeting}~ 小智来啦~ 可以帮你查询档案或控制柜子，尽管问哦~",
+            f"哎~ {time_greeting}呀~ 小智随时为你待命，有什么可以帮忙的吗？",
+            f"在呢~ {time_greeting}~ 我是你的智能助手小智，请问有什么需要？",
+            f"哎~ {time_greeting}~ 小智在这里，需要查询档案还是控制设备呢？",
+            f"来啦~ {time_greeting}呀~ 我是小智，档案查询、柜子控制都可以找我哦~",
+            f"嗯~ {time_greeting}~ 小智已就位，请下达指令吧~"
+        ]
+
+        return random.choice(greetings)
+
+    def _handle_with_ollama_directly(self, text):
+        """直接使用Ollama处理命令 - 直接使用AI回复"""
+        try:
+            if not hasattr(self, 'ollama_client') or not self.ollama_client:
+                response = "AI服务暂不可用"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+
+            if not self.ollama_client.is_service_available():
+                response = "无法连接到AI服务，请检查服务状态"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+
+            self.logger.info(f"🚀 直接调用AI处理: {text}")
+
+            # 直接调用AI，不进行语义纠正
+            ollama_response = self.ollama_client.send_message(text)
+
+            # 直接使用AI的回复
+            if ollama_response:
+                self.logger.info(f"✅ AI处理成功: {ollama_response}")
+                # 更新对话历史
+                if hasattr(self, 'conversation_history'):
+                    self.conversation_history.append({"role": "user", "content": text})
+                    self.conversation_history.append({"role": "assistant", "content": ollama_response})
+                    # 限制历史记录长度
+                    if len(self.conversation_history) > 8:
+                        self.conversation_history = self.conversation_history[-8:]
+                # 异步语音播报
+                self._speak_async(ollama_response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': ollama_response}, text)
+                return ollama_response
+            else:
+                response = "抱歉，我没有理解您的意思"
+                self._speak_async(response)
+                # 发送WebSocket消息
+                self.send_websocket_message('ai_response', {'response': response}, text)
+                return response
+        except Exception as e:
+            self.logger.error(f"❌ AI处理异常: {e}")
+            response = "处理请求时出现错误"
+            self._speak_async(response)
+            # 发送WebSocket消息
+            self.send_websocket_message('ai_response', {'response': response}, text)
+            return response
+
+    def _extract_column_number(self, text):
+        """提取列号信息 - 增强版：支持错别字和口语化表达"""
+        try:
+            # 首先处理常见的错别字和同音字
+            text = text.replace("相子", "柜子").replace("箱子", "柜子").replace("贵子", "柜子")
+
+            # 中文数字到阿拉伯数字的映射
+            chinese_to_digit = {
+                '一': '1', '二': '2', '两': '2', '三': '3', '四': '4',
+                '五': '5', '六': '6', '七': '7', '八': '8', '九': '9', '十': '10',
+                '十一': '11', '十二': '12', '十三': '13', '十四': '14', '十五': '15',
+                '十六': '16', '十七': '17', '十八': '18', '十九': '19', '二十': '20'
+            }
+
+            # 增强匹配模式：支持错别字和更灵活的表达
+            patterns = [
+                r'第([一二两三四五六七八九十]+)[列柜箱相贵]',      # 第二列/第二柜/第二箱（容错）
+                r'([一二两三四五六七八九十]+)[列柜箱相贵]',        # 三列/三柜（容错）
+                r'第(\d+)[列柜箱相贵]',                          # 第2列/第2柜（容错）
+                r'(\d+)[列柜箱相贵]',                            # 3列/3柜（容错）
+                r'第([一二两三四五六七八九十]+)号',               # 第二号
+                r'([一二两三四五六七八九十]+)号',                 # 三号
+                r'第(\d+)号',                                   # 第2号
+                r'(\d+)号',                                     # 3号
+                r'打开([一二两三四五六七八九十]+)',               # 打开二
+                r'打开(\d+)',                                   # 打开2
+                r'开([一二两三四五六七八九十]+)',                 # 开二
+                r'开(\d+)',                                     # 开2
+                r'第([一二两三四五六七八九十]+)',                 # 第三（只有数字）
+                r'第(\d+)',                                     # 第3（只有数字）
+            ]
+
+            column_found = None
+            for pattern in patterns:
+                col_match = re.search(pattern, text)
+                if col_match:
+                    number_str = col_match.group(1)
+                    # 如果是中文数字，转换为阿拉伯数字
+                    if number_str in chinese_to_digit:
+                        column_found = chinese_to_digit[number_str]
+                    elif number_str.isdigit():
+                        column_found = number_str
+
+                    if column_found:
+                        self.logger.info(f"✅ 提取到列号: {column_found}，匹配模式: {pattern}")
+                        break
+
+            # 如果没找到，尝试更宽松的匹配
+            if not column_found:
+                # 直接匹配数字
+                digit_match = re.search(r'[一二两三四五六七八九十\d]+', text)
+                if digit_match:
+                    number_str = digit_match.group()
+                    if number_str in chinese_to_digit:
+                        column_found = chinese_to_digit[number_str]
+                    elif number_str.isdigit():
+                        column_found = number_str
+                    if column_found:
+                        self.logger.info(f"✅ 宽松模式提取到列号: {column_found}")
+
+            return column_found
+
+        except Exception as e:
+            self.logger.error(f"提取列号失败: {e}")
+            return None
+
+    def _handle_basic_conversation(self, text):
+        text_lower = text.lower()
+        if '你叫什么' in text_lower or '你的名字' in text_lower or '叫什么名字' in text_lower:
+            return "哎~ 我是小智呀，是你的智能档案助手哦~"
+        elif '你是谁' in text_lower:
+            return "哎~ 我是小智，专门帮你管理档案和控制柜子的智能助手哦~"
+        elif '你几岁' in text_lower or '你多大' in text_lower:
+            return "哎~ 我是人工智能，没有具体年龄啦~ 但我会一直学习进步哦~"
+        # 新增小爱风格闲聊回复
+        elif '讲个笑话' in text_lower:
+            jokes = [
+                "问：档案柜为什么不会说谎？答：因为它有\"锁\"啊~",
+                "问：什么档案最好看？答：你正在查询的那一份呀~"
+            ]
+            return random.choice(jokes)
+        elif '天气' in text_lower:
+            return "哎~ 小智是档案助手，天气的话建议你问问手机哦~"
+        return None
+
+    def _speak_async(self, text):
+        """异步语音播放 - 极简版本：播放结束后立即恢复监听"""
+        if self.is_cleaning_up:
+            return
+
+        if text is None:
+            return
+
+        if not isinstance(text, str):
+            try:
+                text = str(text)
+            except:
+                return
+
+        if not text.strip():
+            return
+
+        # 检查是否已经在播放
+        if self.is_speaking:
+            return
+
+        # 设置播放状态
+        self.is_speaking = True
+
+        # 立即通知语音识别器开始播放
+        if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
+            self.voice_recognizer.set_speaking_status(True)
+
+        def speak_thread():
+            try:
+                self.logger.info(f"🎯 开始语音播报: {text}")
+
+                # 简化文本
+                if len(text) > 150:
+                    first_line = text.split('\n')[0] if '\n' in text else text
+                    text_to_speak = first_line[:100] + "..."
+                else:
+                    text_to_speak = text
+
+                # 直接播放
+                success = self.audio_processor.speak(text_to_speak)
+
+                if success:
+                    self.logger.info("✅ 语音播报成功")
+                else:
+                    self.logger.info("⚠️ 语音播报失败")
+
+            except Exception as e:
+                self.logger.error(f"❌ 异步语音播放失败: {e}")
+            finally:
+                # 关键：立即重置播放状态
+                self.is_speaking = False
+
+                # 关键：立即通知语音识别器播放结束
+                if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
+                    self.voice_recognizer.set_speaking_status(False)
+
+                self.logger.info("🔇 语音播放结束，立即恢复监听")
+
+        thread = threading.Thread(target=speak_thread, daemon=True)
+        self.active_threads.append(thread)
+        thread.start()
+
+    def is_in_speak_cooldown(self):
+        """检查是否在语音播放冷却期内 - 移除冷却期"""
+        # 只检查当前是否正在播放，没有冷却期
+        return self.is_speaking
+
+    def cleanup(self):
+        """安全清理资源"""
+        self.is_cleaning_up = True
+        self.reset_conversation_state()
+        # 等待所有活动线程完成
+        for thread in self.active_threads:
+            try:
+                if thread.is_alive():
+                    thread.join(timeout=2.0)  # 最多等待2秒
+            except Exception as e:
+                self.logger.error(f"等待线程结束失败: {e}")
+        # 调用AudioProcessor的清理方法，强制清理所有临时文件
+        self.audio_processor.cleanup()
+        # 清理资源
+        try:
+            if hasattr(self, 'db_query'):
+                self.db_query.close()
+        except Exception as e:
+            self.logger.error(f"关闭数据库查询失败: {e}")
+        try:
+            if hasattr(self, 'archive_manager'):
+                self.archive_manager.close()
+        except Exception as e:
+            self.logger.error(f"关闭档案管理器失败: {e}")
+        self.logger.info("命令处理器资源已清理")

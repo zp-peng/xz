@@ -1,0 +1,2049 @@
+2025-11-27 22:38:49,768 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音识别
+2025-11-27 22:38:49,768 - VoiceRecognizer - INFO - 🎯 播放状态: 播放中
+2025-11-27 22:39:06,797 - VoiceRecognizer - INFO - 🔇 语音播放结束，开始 3.0 秒冷却期
+2025-11-27 22:39:06,797 - VoiceRecognizer - INFO - 🎯 播放状态: 已停止
+2025-11-27 22:57:53,930 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音识别
+2025-11-27 22:57:53,930 - VoiceRecognizer - INFO - 🎯 播放状态: 播放中
+2025-11-27 22:58:10,481 - VoiceRecognizer - INFO - 🔇 语音播放结束，开始 3.0 秒冷却期
+2025-11-27 22:58:10,482 - VoiceRecognizer - INFO - 🎯 播放状态: 已停止
+2025-11-27 22:58:10,482 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-27 22:58:10,584 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-27 22:58:10,685 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-27 22:58:10,787 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-27 22:58:10,889 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-27 22:58:10,990 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-27 22:58:11,092 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-27 22:58:11,194 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-27 22:58:11,295 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-27 22:58:11,396 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-27 22:58:11,497 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-27 22:58:11,598 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-27 22:58:11,699 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-27 22:58:11,800 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-27 22:58:11,901 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-27 22:58:12,006 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-27 22:58:12,107 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-27 22:58:12,210 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-27 22:58:12,312 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-27 22:58:12,413 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-27 22:58:12,515 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-27 22:58:12,617 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-27 22:58:12,719 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-27 22:58:12,821 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-27 22:58:12,922 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-27 22:58:13,025 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-27 22:58:13,125 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-27 22:58:13,227 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-27 22:58:13,330 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-27 22:58:13,431 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.0s)
+2025-11-28 00:11:54,965 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:12:11,861 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:12:31,203 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:12:31,703 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:32,704 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:33,706 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:34,709 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:35,711 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:36,712 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:37,712 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:38,714 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:39,715 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:40,717 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:12:41,051 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:13:35,805 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:13:35,810 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:36,317 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:37,318 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:38,320 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:39,324 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:40,327 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:41,329 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:42,330 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:43,331 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:44,336 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:45,338 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:13:46,131 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:23:06,489 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:23:22,280 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:23:22,281 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:23:23,284 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:25:55,482 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:25:55,981 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:25:56,985 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:25:57,986 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:25:58,989 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:25:59,993 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:00,997 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:01,999 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:02,999 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:04,000 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:05,005 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:06,006 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:07,021 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:26:07,886 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:26:07,887 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:26:08,022 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:26:08,889 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:26:09,026 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:27:04,001 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:27:04,003 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:04,504 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:05,507 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:06,507 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:07,508 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:08,513 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:09,514 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:10,516 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:11,517 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:12,519 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:13,521 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:27:14,415 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:27:14,415 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:27:14,529 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:27:15,416 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:27:15,531 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:30:54,289 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:31:10,522 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:31:10,522 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:31:10,623 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:31:10,725 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:31:10,826 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:31:10,927 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:31:11,029 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:31:11,130 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:31:11,231 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:31:11,332 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:31:11,433 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:31:11,536 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:31:11,637 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:31:11,738 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:31:11,840 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:31:11,941 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:31:12,046 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:31:12,148 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:31:12,248 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:31:12,350 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:31:12,452 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:34:46,497 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:35:02,534 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:35:02,535 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:35:02,637 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:35:02,738 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:35:02,839 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:35:02,940 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:35:03,041 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:35:03,143 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:35:03,249 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:35:03,351 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:35:03,452 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:35:03,553 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:35:03,654 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:35:03,755 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:35:03,857 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:35:03,958 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:35:04,059 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:35:04,160 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:35:04,261 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:35:04,363 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:35:04,464 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:35:33,103 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:35:33,604 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:33,604 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:34,105 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:34,105 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:34,606 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:34,607 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:35,108 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:35,109 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:35,610 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:35,610 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:36,112 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:36,113 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:36,619 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:36,620 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:37,123 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:37,124 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:37,626 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:37,627 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:38,131 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:38,134 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:38,638 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:38,639 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:39,144 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:39,145 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:39,646 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:39,647 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:40,148 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:40,149 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:40,651 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:40,652 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:41,153 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:41,154 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:41,662 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:41,662 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:35:42,082 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:35:42,084 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:35:42,165 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:35:42,186 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:35:42,288 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:35:42,389 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:35:42,491 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:35:42,592 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:35:42,666 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:35:42,694 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:35:42,795 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:35:42,901 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:35:43,003 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:35:43,105 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:35:43,168 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:35:43,206 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:35:43,308 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:35:43,410 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:35:43,511 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:35:43,613 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:35:43,669 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:35:43,714 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:35:43,816 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:35:43,918 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:35:44,021 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:36:37,115 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:36:37,251 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:37,299 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:37,800 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:37,801 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:38,303 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:38,305 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:38,805 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:38,806 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:39,308 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:39,309 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:39,810 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:39,814 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:40,316 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:40,318 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:40,819 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:40,822 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:41,326 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:41,327 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:41,833 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:41,838 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:42,339 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:42,373 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:42,874 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:42,876 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:43,377 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:43,380 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:43,883 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:43,885 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:44,386 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:44,390 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:44,893 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:44,898 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:45,400 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:45,402 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:45,903 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:45,904 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:46,405 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:46,406 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:46,907 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:46,908 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:47,409 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:47,410 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:47,911 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:47,912 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:48,415 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:48,418 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:48,922 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:48,922 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:49,423 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:49,424 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:36:49,767 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:36:49,768 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:36:49,869 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:36:49,925 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:36:49,971 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:36:50,074 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:36:50,175 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:36:50,277 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:36:50,379 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:36:50,426 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:36:50,480 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:36:50,582 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:36:50,684 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:36:50,785 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:36:50,886 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:36:50,928 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:36:50,987 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:36:51,089 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:36:51,191 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:36:51,293 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:36:51,398 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:36:51,429 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:36:51,500 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:36:51,601 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:36:51,703 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:37:34,749 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:37:35,249 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:35,249 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:35,752 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:35,754 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:36,257 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:36,258 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:36,759 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:36,759 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:37,262 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:37,263 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:37,765 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:37,766 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:38,268 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:38,269 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:38,770 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:38,771 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:39,273 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:39,273 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:39,774 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:39,775 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:40,279 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:40,279 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:40,779 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:40,781 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:41,283 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:41,284 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:41,785 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:41,786 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:42,294 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:42,295 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:42,796 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:42,797 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:43,301 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:43,302 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:43,804 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:43,805 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:37:43,981 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:37:43,982 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:37:44,083 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:37:44,184 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:37:44,285 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:37:44,306 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:37:44,387 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:37:44,488 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:37:44,590 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:37:44,692 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:37:44,793 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:37:44,808 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:37:44,895 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:37:44,997 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:37:45,098 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:37:45,200 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:37:45,302 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:37:45,309 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:37:45,403 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:37:45,506 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:37:45,607 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:37:45,708 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:37:45,811 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:37:45,811 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:37:45,914 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:38:45,852 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:38:45,853 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:46,354 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:46,354 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:46,856 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:46,856 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:47,357 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:47,358 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:47,859 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:47,859 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:48,361 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:48,362 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:48,863 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:48,867 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:49,369 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:49,371 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:49,873 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:49,874 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:50,376 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:50,378 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:50,881 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:50,882 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:51,384 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:51,386 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:51,891 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:51,896 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:52,402 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:52,407 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:52,910 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:52,911 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:53,413 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:53,413 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:53,915 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:53,915 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:54,417 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:54,418 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:54,920 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:54,922 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:55,424 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:55,424 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:55,926 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:55,926 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:56,427 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:56,427 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:56,928 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:56,929 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:57,429 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:57,434 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:57,936 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:57,938 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:58,440 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:58,441 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:38:58,597 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:38:58,599 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:38:58,702 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:38:58,803 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:38:58,905 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:38:58,944 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:38:59,006 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:38:59,108 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:38:59,209 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:38:59,310 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:38:59,412 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:38:59,445 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:38:59,514 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:38:59,615 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:38:59,716 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:38:59,819 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:38:59,920 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:38:59,945 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:39:00,021 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:39:00,122 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:39:00,223 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:39:00,325 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:39:00,427 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:39:00,446 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:39:00,528 - VoiceRecognizer - INFO - 🔇 旧版冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:48:18,252 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:48:34,119 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:48:47,267 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:48:47,768 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:47,769 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:48,271 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:48,274 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:48,776 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:48,777 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:49,278 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:49,278 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:49,780 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:49,781 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:50,285 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:50,286 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:50,791 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:50,791 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:51,294 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:51,296 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:51,798 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:51,799 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:52,303 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:52,304 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:52,810 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:52,811 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:53,311 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:53,312 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:53,815 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:53,816 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:54,317 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:54,318 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:54,820 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:54,821 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:55,323 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:55,324 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:55,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:55,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:48:56,314 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:49:20,960 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:49:20,963 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:49:20,963 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:49:21,064 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:49:21,166 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:49:21,268 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:49:21,370 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:49:21,463 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:21,472 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:21,573 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:49:21,675 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:49:21,777 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:49:21,879 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:49:21,965 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:21,981 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:22,083 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:49:22,185 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:49:22,287 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:49:22,388 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:49:22,467 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:22,490 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:22,591 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:49:22,694 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:49:22,798 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:49:22,899 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:49:35,045 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:49:35,050 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:49:35,050 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:49:35,152 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:49:35,253 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:49:35,355 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:49:35,457 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:49:35,548 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:35,559 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:35,661 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:49:35,763 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:49:35,865 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:49:35,966 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:49:36,050 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:36,067 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:36,169 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:49:36,270 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:49:36,372 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:49:36,474 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:49:36,552 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:36,576 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:36,678 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:49:36,779 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:49:36,881 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:49:36,983 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:49:57,225 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:49:57,231 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:49:57,233 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:49:57,334 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:49:57,436 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:49:57,538 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:49:57,639 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:49:57,727 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:57,741 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:57,848 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:49:57,949 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:49:58,051 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:49:58,152 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:49:58,228 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:58,254 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:49:58,355 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:49:58,456 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:49:58,557 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:49:58,659 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:49:58,729 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:58,761 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:49:58,862 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:49:58,963 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:49:59,065 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:49:59,167 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:49:59,268 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:49:59,271 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:49:59,271 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:49:59,372 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:49:59,376 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:49:59,438 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:49:59,478 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:49:59,580 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:49:59,682 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:49:59,784 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:49:59,886 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:49:59,940 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:49:59,991 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:50:00,097 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:50:00,198 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:50:00,300 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:50:00,405 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:50:00,441 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:50:00,507 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:50:00,609 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:50:00,711 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:50:00,813 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:50:00,915 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:50:00,942 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:50:01,017 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:50:01,120 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:50:01,222 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.0s)
+2025-11-28 00:54:25,440 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:54:42,067 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:55:01,786 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:55:02,285 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:02,286 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:02,788 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:02,788 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:03,289 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:03,290 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:03,792 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:03,793 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:04,295 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:04,296 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:04,798 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:04,800 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:05,304 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:05,305 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:05,807 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:05,808 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:06,310 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:06,311 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:06,812 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:06,813 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:07,318 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:07,318 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:07,819 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:07,820 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:08,321 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:08,321 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:08,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:08,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:09,326 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:09,327 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:09,830 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:09,830 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:10,331 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:10,332 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:10,834 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:10,835 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:11,336 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:11,337 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:11,839 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:11,839 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:12,341 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:12,341 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:12,842 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:12,842 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:13,344 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:13,345 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:13,848 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:13,849 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:55:13,984 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:55:24,444 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:55:24,445 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:55:24,445 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:55:24,547 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:55:24,648 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:55:24,750 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:55:24,851 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:55:24,944 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:55:24,953 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:55:25,054 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:55:25,156 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:55:25,257 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:55:25,358 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:55:25,446 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:55:25,459 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:55:25,560 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:55:25,662 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:55:25,763 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:55:25,864 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:55:25,947 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:55:25,965 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:55:26,066 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:55:26,167 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:55:26,269 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:55:26,370 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:56:01,904 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:56:01,906 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:02,409 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:02,410 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:02,911 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:02,912 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:03,413 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:03,413 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:03,915 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:03,915 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:04,416 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:04,419 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:04,920 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:04,921 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:05,424 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:05,427 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:05,929 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:05,930 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:06,432 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:06,435 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:06,935 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:06,937 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:07,440 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:07,441 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:07,942 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:07,943 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:08,443 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:08,447 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:08,948 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:08,948 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:09,450 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:09,450 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:09,951 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:09,951 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:10,451 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:10,453 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:10,954 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:10,954 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:11,455 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:11,456 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:11,956 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:11,956 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:12,458 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:12,458 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:12,959 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:12,959 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:13,461 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:13,461 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:13,962 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:13,963 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:14,463 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:14,463 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:14,965 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:14,966 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:15,034 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:56:24,785 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:56:25,285 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:25,286 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:25,788 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:25,788 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:26,289 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:26,290 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:26,795 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:26,796 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:27,299 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:27,300 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:27,801 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:27,808 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:28,309 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:28,310 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:28,811 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:28,814 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:29,317 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:29,324 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:29,827 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:29,828 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:30,330 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:30,332 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:30,838 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:30,840 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:31,341 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:31,342 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:31,844 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:31,846 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:32,348 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:32,348 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:32,850 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:32,851 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:33,352 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:33,352 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:33,854 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:33,856 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:56:33,984 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:56:41,543 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:56:41,544 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:56:41,544 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:56:41,646 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:56:41,749 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:56:41,850 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:56:41,952 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:56:42,045 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:56:42,054 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:56:42,156 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:56:42,257 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:56:42,359 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:56:42,461 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:56:42,547 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:56:42,563 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:56:42,663 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:56:42,765 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:56:42,867 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:56:42,969 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:56:43,050 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:56:43,070 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:56:43,172 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:56:43,274 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:56:43,375 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:56:43,476 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:56:54,568 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:56:54,569 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:56:54,571 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 00:56:54,672 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 00:56:54,773 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 00:56:54,876 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 00:56:54,979 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 00:56:55,069 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:56:55,080 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 00:56:55,182 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 00:56:55,283 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 00:56:55,384 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 00:56:55,489 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 00:56:55,572 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:56:55,591 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 00:56:55,692 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 00:56:55,793 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 00:56:55,894 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 00:56:55,996 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 00:56:56,077 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:56:56,097 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 00:56:56,198 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 00:56:56,299 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 00:56:56,401 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 00:56:56,503 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 00:57:25,483 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:57:25,484 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:25,986 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:25,988 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:26,491 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:26,491 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:26,991 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:26,991 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:27,492 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:27,493 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:27,994 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:27,995 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:28,499 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:28,502 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:29,004 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:29,008 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:29,511 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:29,513 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:30,014 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:30,015 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:30,516 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:30,517 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:31,018 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:31,019 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:31,521 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:31,522 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:32,022 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:32,024 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:32,524 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:32,528 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:33,028 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:33,029 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:33,534 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:33,534 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:34,036 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:34,036 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:34,537 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:34,538 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:35,040 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:35,040 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:35,541 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:35,541 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:36,041 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:36,041 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:36,543 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:36,544 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 00:57:36,581 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 00:59:01,630 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 00:59:17,854 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:04:32,916 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:04:48,782 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:05:15,156 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:05:15,656 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:15,656 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:16,158 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:16,158 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:16,659 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:16,662 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:17,164 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:17,164 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:17,664 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:17,667 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:18,172 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:18,173 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:18,675 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:18,677 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:19,180 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:19,181 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:19,684 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:19,686 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:20,186 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:20,188 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:20,692 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:20,694 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:21,198 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:21,198 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:21,700 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:21,701 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:22,202 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:22,203 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:22,705 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:22,706 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:23,207 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:23,207 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:23,708 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:23,709 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:05:23,803 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:05:31,448 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:05:31,450 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:05:31,450 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:05:31,553 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:05:31,654 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:05:31,756 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:05:31,858 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:05:31,951 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:05:31,961 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:05:32,062 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:05:32,163 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:05:32,265 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:05:32,366 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:05:32,453 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:05:32,467 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:05:32,569 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:05:32,671 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:05:32,772 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:05:32,874 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:05:32,954 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:05:32,976 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:05:33,077 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:05:33,180 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:05:33,281 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:05:33,382 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:05:44,392 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:05:44,392 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:05:44,393 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:05:44,495 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:05:44,596 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:05:44,698 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:05:44,800 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:05:44,893 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:05:44,901 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:05:45,003 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:05:45,104 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:05:45,205 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:05:45,307 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:05:45,395 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:05:45,409 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:05:45,511 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:05:45,613 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:05:45,714 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:05:45,816 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:05:45,896 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:05:45,917 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:05:46,017 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:05:46,119 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:05:46,221 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:05:46,322 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:06:02,002 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:06:02,005 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:06:02,006 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:06:02,107 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:06:02,209 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:06:02,311 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:06:02,413 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:06:02,505 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:06:02,514 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:06:02,616 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:06:02,718 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:06:02,820 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:06:02,922 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:06:03,006 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:06:03,023 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:06:03,124 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:06:03,225 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:06:03,326 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:06:03,427 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:06:03,507 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:06:03,529 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:06:03,630 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:06:03,732 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:06:03,834 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:06:03,936 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:06:28,273 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:06:28,277 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:06:28,278 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:06:28,379 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:06:28,481 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:06:28,582 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:06:28,683 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:06:28,775 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:06:28,785 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:06:28,886 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:06:28,987 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:06:29,090 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:06:29,191 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:06:29,277 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:06:29,292 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:06:29,393 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:06:29,495 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:06:29,597 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:06:29,699 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:06:29,780 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:06:29,801 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:06:29,903 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:06:30,004 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:06:30,106 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:06:30,208 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:06:30,310 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:06:30,313 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:06:30,313 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:06:30,382 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:06:30,415 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:06:30,516 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:06:30,618 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:06:30,722 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:06:30,825 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:06:30,886 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:06:30,929 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:06:31,035 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:06:31,137 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:06:31,239 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:06:31,342 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:06:31,388 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:06:31,444 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:06:31,549 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:06:31,651 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:06:31,755 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:06:31,858 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:06:31,894 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:06:31,963 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:06:32,066 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:06:32,171 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:06:32,273 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.0s)
+2025-11-28 01:12:13,687 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:12:29,857 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:12:41,875 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:12:42,376 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:42,377 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:42,881 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:42,881 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:43,382 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:43,383 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:43,883 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:43,884 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:44,387 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:44,392 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:44,901 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:44,902 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:45,405 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:45,405 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:45,907 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:45,908 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:46,410 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:46,411 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:46,918 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:46,918 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:47,421 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:47,422 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:47,927 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:47,928 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:48,430 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:48,430 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:48,932 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:48,933 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:49,434 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:49,435 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:49,938 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:49,938 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:50,440 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:50,442 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:12:50,710 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:13:10,212 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:13:10,213 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:13:10,213 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:13:10,314 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:13:10,415 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:13:10,516 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:13:10,618 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:13:10,713 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:10,720 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:10,822 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:13:10,923 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:13:11,024 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:13:11,127 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:13:11,217 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:11,228 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:11,330 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:13:11,432 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:13:11,534 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:13:11,637 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:13:11,718 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:11,739 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:11,841 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:13:11,943 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:13:12,046 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:13:12,148 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:13:24,642 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:13:24,643 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:13:24,644 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:13:24,746 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:13:24,847 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:13:24,948 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:13:25,049 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:13:25,144 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:25,152 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:25,253 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:13:25,355 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:13:25,457 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:13:25,558 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:13:25,648 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:25,660 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:25,761 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:13:25,863 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:13:25,964 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:13:26,066 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:13:26,148 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:26,168 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:26,268 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:13:26,370 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:13:26,471 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:13:26,573 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:13:42,731 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:13:42,731 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:13:42,737 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:13:42,842 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:13:42,943 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:13:43,045 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:13:43,147 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:13:43,231 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:43,248 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:43,349 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:13:43,453 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:13:43,555 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:13:43,656 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:13:43,733 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:43,758 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:43,859 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:13:43,961 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:13:44,065 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:13:44,166 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:13:44,236 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:44,267 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:44,368 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:13:44,470 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:13:44,572 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:13:44,675 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:13:44,777 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:13:44,779 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:13:44,780 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:13:44,840 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:13:44,882 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:13:44,983 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:13:45,086 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:13:45,188 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:13:45,292 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:13:45,348 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:13:45,394 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:13:45,495 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:13:45,597 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:13:45,700 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:13:45,802 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:13:45,853 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:13:45,907 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.9s)
+2025-11-28 01:13:46,009 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.8s)
+2025-11-28 01:13:46,111 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.7s)
+2025-11-28 01:13:46,213 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.6s)
+2025-11-28 01:13:46,315 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:13:46,355 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:13:46,418 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.4s)
+2025-11-28 01:13:46,520 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.3s)
+2025-11-28 01:13:46,624 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.2s)
+2025-11-28 01:13:46,726 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.1s)
+2025-11-28 01:21:58,366 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:22:01,446 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:01,447 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:01,961 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:01,962 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:02,468 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:02,470 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:02,974 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:02,979 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:03,483 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:03,486 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:03,993 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:03,996 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:04,508 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:04,510 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:05,015 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:05,016 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:05,524 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:05,525 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:06,038 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:06,044 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:06,552 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:06,553 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:07,063 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:07,081 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:07,583 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:07,585 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:08,092 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:08,093 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:08,596 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:08,596 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:09,104 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:09,107 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:09,624 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:09,627 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:10,127 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:10,130 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:10,632 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:10,633 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:11,134 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:11,135 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:11,637 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:11,639 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:12,142 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:12,143 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:12,645 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:12,645 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:13,147 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:13,148 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:13,651 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:13,652 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:14,155 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:14,156 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:14,656 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:14,659 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:15,160 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:15,162 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:15,364 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:22:23,631 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:22:24,130 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:24,132 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:24,633 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:24,633 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:25,136 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:25,137 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:25,639 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:25,640 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:26,144 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:26,145 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:26,646 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:26,647 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:27,150 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:27,155 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:27,656 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:27,656 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:28,158 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:28,159 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:28,660 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:28,662 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:29,169 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:29,170 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:29,677 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:29,679 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:30,181 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:30,182 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:30,684 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:30,686 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:31,188 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:31,189 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:31,691 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:31,692 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:32,193 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:32,194 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:22:32,475 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:22:49,835 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:22:49,838 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:22:49,838 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:22:49,939 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:22:50,041 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:22:50,143 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:22:50,244 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:22:50,338 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:22:50,349 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:22:50,450 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:22:50,552 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:22:50,653 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:22:50,754 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:22:50,840 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:22:50,856 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:22:50,957 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:22:51,060 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:22:51,162 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:22:51,264 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:22:51,344 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:22:51,366 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:22:51,467 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:22:51,569 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:22:51,671 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:22:51,773 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:22:51,845 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:22:51,845 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:22:51,874 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:22:52,347 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:22:52,350 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:23:29,574 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:23:29,575 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:30,076 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:30,077 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:30,578 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:30,578 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:31,080 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:31,081 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:31,583 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:31,585 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:32,087 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:32,091 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:32,599 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:32,606 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:33,107 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:33,108 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:33,610 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:33,612 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:34,114 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:34,115 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:34,617 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:34,620 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:35,126 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:35,133 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:35,634 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:35,637 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:36,139 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:36,142 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:36,643 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:36,643 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:37,145 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:37,147 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:37,647 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:37,650 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:38,155 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:38,156 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:38,657 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:38,659 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:39,161 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:39,162 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:39,663 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:39,667 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:40,171 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:40,172 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:40,673 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:40,674 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:41,176 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:41,177 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:41,679 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:41,680 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:42,175 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:23:54,380 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:23:54,881 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:54,882 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:55,382 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:55,383 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:55,889 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:55,890 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:56,392 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:56,393 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:56,894 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:56,897 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:57,399 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:57,401 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:57,902 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:57,903 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:58,407 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:58,408 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:58,908 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:58,912 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:59,413 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:59,414 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:59,917 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:23:59,917 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:00,419 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:00,419 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:00,921 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:00,921 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:01,422 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:01,424 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:01,929 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:01,930 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:02,433 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:02,434 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:02,935 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:02,936 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:03,438 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:03,439 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:03,941 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:03,943 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:04,445 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:04,447 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:04,948 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:04,949 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:05,451 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:05,453 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:05,955 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:05,956 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:06,458 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:06,459 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:06,503 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:24:16,684 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:24:16,692 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:24:16,693 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:24:16,795 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:24:16,896 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:24:16,998 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:24:17,099 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:24:17,185 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:24:17,200 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:24:17,302 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:24:17,403 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:24:17,504 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:24:17,607 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:24:17,687 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:24:17,708 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:24:17,810 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:24:17,912 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:24:18,013 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:24:18,114 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:24:18,189 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:24:18,216 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:24:18,317 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:24:18,419 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:24:18,520 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:24:18,622 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:24:18,690 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:24:18,723 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:24:19,192 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:24:19,193 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:24:57,731 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:24:57,732 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:58,233 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:58,235 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:58,736 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:58,737 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:59,237 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:59,238 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:59,739 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:24:59,740 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:00,241 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:00,242 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:00,744 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:00,746 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:01,246 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:01,247 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:01,748 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:01,749 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:02,253 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:02,256 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:02,759 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:02,761 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:03,263 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:03,265 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:03,767 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:03,769 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:04,274 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:04,275 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:04,776 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:04,777 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:05,278 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:05,280 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:05,785 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:05,789 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:06,292 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:06,298 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:06,799 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:06,802 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:07,305 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:07,307 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:07,810 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:07,815 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:08,317 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:08,320 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:08,821 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:08,821 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:09,322 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:09,323 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:09,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:09,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:10,325 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:10,325 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:10,826 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:25:10,826 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:38:29,914 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:38:46,396 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:38:59,324 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:38:59,825 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:38:59,829 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:00,332 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:00,334 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:00,837 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:00,837 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:01,338 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:01,340 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:01,841 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:01,843 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:02,345 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:02,347 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:02,852 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:02,854 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:03,355 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:03,358 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:03,859 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:03,860 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:04,360 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:04,361 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:04,862 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:04,864 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:05,370 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:05,372 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:05,875 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:05,876 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:06,377 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:06,378 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:06,881 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:06,888 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:07,391 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:07,393 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:07,905 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:07,906 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:08,410 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:08,411 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:08,912 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:08,914 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:09,077 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:39:26,611 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:39:26,618 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:39:26,620 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:39:26,720 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:39:26,822 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:39:26,923 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:39:27,025 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:39:27,118 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:39:27,126 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:39:27,228 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:39:27,330 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:39:27,432 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:39:27,533 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:39:27,621 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:39:27,635 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:39:27,736 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:39:27,838 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:39:27,944 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:39:28,047 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:39:28,122 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:39:28,149 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:39:28,253 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:39:28,354 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:39:28,457 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:39:28,558 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:39:28,624 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:39:28,624 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:39:28,659 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:39:29,127 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:39:29,128 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:39:48,962 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:39:49,462 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:49,463 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:49,966 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:49,967 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:50,468 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:50,468 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:50,972 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:50,972 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:51,475 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:51,477 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:51,980 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:51,980 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:52,486 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:52,488 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:52,993 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:52,994 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:53,496 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:53,500 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:54,001 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:54,001 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:54,504 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:54,509 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:55,010 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:55,011 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:55,516 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:55,517 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:56,021 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:56,021 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:56,528 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:56,531 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:57,035 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:57,035 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:57,537 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:57,539 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:58,043 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:58,044 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:58,551 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:58,552 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:59,054 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:59,055 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:59,555 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:39:59,556 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:00,058 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:00,060 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:00,563 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:00,564 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:01,067 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:01,068 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:01,574 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:01,575 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:40:02,065 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:40:09,987 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:40:09,993 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:40:09,993 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:40:10,094 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:40:10,195 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:40:10,297 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:40:10,399 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:40:10,491 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:10,502 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:10,605 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:40:10,706 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:40:10,807 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:40:10,910 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:40:10,993 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:11,012 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:11,114 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:40:11,215 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:40:11,316 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:40:11,417 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:40:11,494 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:11,519 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:11,621 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:40:11,723 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:40:11,824 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:40:11,926 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:40:11,995 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:11,996 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:12,027 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:12,498 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:40:12,499 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:40:29,463 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:40:29,464 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:40:29,464 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:40:29,567 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:40:29,669 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:40:29,774 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:40:29,876 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:40:29,965 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:29,978 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:30,079 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:40:30,181 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:40:30,282 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:40:30,385 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:40:30,468 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:30,487 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:30,588 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:40:30,689 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:40:30,791 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:40:30,893 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:40:30,969 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:30,995 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:31,097 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:40:31,199 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:40:31,300 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:40:31,403 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:40:31,473 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:31,475 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:31,505 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:31,978 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:40:31,981 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:40:49,676 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:40:49,680 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:40:49,680 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:40:49,781 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:40:49,883 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:40:49,984 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:40:50,085 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:40:50,178 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:50,187 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:40:50,289 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:40:50,391 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:40:50,493 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:40:50,595 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:40:50,680 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:50,697 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:40:50,798 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:40:50,899 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:40:51,001 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:40:51,103 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:40:51,181 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:51,204 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:40:51,306 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:40:51,407 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:40:51,510 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:40:51,612 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:40:51,683 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:51,684 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:51,713 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:40:52,185 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:40:52,186 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:41:19,906 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:41:19,908 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:41:19,910 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:41:20,012 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:41:20,113 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:41:20,215 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:41:20,317 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:41:20,409 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:41:20,419 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:41:20,521 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:41:20,623 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:41:20,725 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:41:20,827 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:41:20,909 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:41:20,928 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:41:21,029 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:41:21,130 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:41:21,232 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:41:21,334 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:41:21,411 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:41:21,435 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:41:21,537 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:41:21,639 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:41:21,740 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:41:21,842 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:41:21,913 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:21,916 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:21,943 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:22,416 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:41:22,419 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:41:38,411 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:41:38,415 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:41:38,416 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 3.0s)
+2025-11-28 01:41:38,517 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.9s)
+2025-11-28 01:41:38,619 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.8s)
+2025-11-28 01:41:38,721 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.7s)
+2025-11-28 01:41:38,824 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.6s)
+2025-11-28 01:41:38,912 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:41:38,926 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.5s)
+2025-11-28 01:41:39,029 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.4s)
+2025-11-28 01:41:39,131 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.3s)
+2025-11-28 01:41:39,232 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.2s)
+2025-11-28 01:41:39,334 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.1s)
+2025-11-28 01:41:39,417 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:41:39,436 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 2.0s)
+2025-11-28 01:41:39,537 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.9s)
+2025-11-28 01:41:39,638 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.8s)
+2025-11-28 01:41:39,740 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.7s)
+2025-11-28 01:41:39,842 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.6s)
+2025-11-28 01:41:39,918 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:41:39,943 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.5s)
+2025-11-28 01:41:40,047 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.4s)
+2025-11-28 01:41:40,148 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.3s)
+2025-11-28 01:41:40,249 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.2s)
+2025-11-28 01:41:40,351 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.1s)
+2025-11-28 01:41:40,420 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:40,421 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:40,453 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 1.0s)
+2025-11-28 01:41:40,923 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:41:40,923 - VoiceRecognizer - INFO - 🔇 播放冷却期内，忽略语音输入 (剩余: 0.5s)
+2025-11-28 01:42:38,861 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:42:38,862 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:39,363 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:39,365 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:39,867 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:39,875 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:40,377 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:40,380 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:40,883 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:40,884 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:41,384 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:41,388 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:41,889 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:41,891 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:42,393 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:42,394 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:42,896 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:42,897 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:43,402 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:43,407 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:43,913 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:43,913 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:44,418 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:44,420 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:44,924 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:44,929 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:45,436 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:45,439 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:45,941 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:45,942 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:46,444 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:46,445 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:46,946 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:46,947 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:47,448 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:47,449 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:47,950 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:47,951 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:48,454 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:48,456 - VoiceRecognizer - INFO - 🔇 正在播放语音，忽略输入
+2025-11-28 01:42:48,503 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:56:17,760 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:56:33,707 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:56:54,888 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:57:06,144 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:57:28,223 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:57:28,225 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:57:48,973 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:57:48,977 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 01:57:50,989 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 01:57:50,992 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:09:01,753 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:09:18,181 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:09:56,617 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:10:07,602 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:10:15,333 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:10:15,334 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:10:26,642 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:10:39,262 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:10:48,492 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:11:01,437 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:11:09,979 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:11:22,915 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:11:32,521 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:11:32,523 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:11:46,970 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:11:58,834 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:12:09,538 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:12:09,546 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:13:11,922 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:13:24,408 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:13:42,991 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:13:52,136 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:14:12,451 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:14:12,453 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:24:30,996 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:24:47,180 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:24:47,182 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:24:54,784 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:25:13,261 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:25:22,497 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:25:40,602 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:25:56,058 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:26:06,132 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:26:06,137 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:26:40,568 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:26:40,574 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:27:04,931 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:27:04,934 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:27:10,154 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:27:10,166 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:27:23,816 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:27:23,820 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:27:36,219 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:27:45,977 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:27:45,980 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:27:58,301 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:28:09,206 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:28:09,217 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:28:31,632 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:28:31,639 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:28:59,846 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:28:59,849 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:29:47,546 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:29:47,548 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:30:16,648 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:30:16,658 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:30:31,361 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:30:31,366 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:30:44,293 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:30:44,301 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:32:56,217 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:33:12,011 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:33:37,866 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:33:46,743 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:34:30,123 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:34:30,128 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:35:49,608 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:35:55,524 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:36:22,141 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:36:22,146 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:38:15,031 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:38:15,034 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:39:48,008 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:40:04,623 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:42:42,212 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:42:59,460 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:43:02,393 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:43:10,370 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:03,792 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:44:13,092 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:21,124 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:44:21,127 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:23,139 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:44:23,144 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:40,745 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:44:40,752 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:42,942 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:44:42,945 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:44:55,955 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:45:09,803 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:45:26,020 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:45:26,022 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:45:48,210 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:46:19,863 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:46:46,392 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:46:46,399 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:47:04,771 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:47:36,672 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:47:51,488 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:48:13,514 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:48:38,578 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:48:38,581 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:54:32,984 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:54:49,547 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:57:27,743 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:57:43,746 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:58:10,375 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:58:19,208 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:58:22,705 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:58:30,393 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:58:58,267 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:58:58,279 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:59:25,013 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 10:59:59,267 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 10:59:59,269 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:00:11,494 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 11:00:45,613 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:00:57,271 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 11:01:11,673 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:01:11,677 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 11:01:23,011 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:01:23,015 - VoiceRecognizer - INFO - 🔇 语音播放结束，恢复语音监听
+2025-11-28 11:01:43,310 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:17:06,992 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:17:22,698 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 11:17:34,509 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:17:45,816 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 11:18:03,089 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:18:03,090 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 11:18:19,964 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:18:19,967 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 11:18:36,634 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:18:36,640 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 11:18:51,039 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 11:19:24,701 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:19:32,007 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:19:48,606 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:20:05,642 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:20:14,555 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:21:19,125 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:21:28,923 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:37:41,991 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:37:49,385 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:37:54,900 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:38:02,295 - VoiceRecognizer - INFO - 🔇 语音播放结束，立即恢复语音监听
+2025-11-28 12:40:23,936 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:40:40,566 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:41:13,680 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:41:23,178 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:41:29,904 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:41:29,906 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:41:30,282 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:41:30,284 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:41:51,709 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:42:01,511 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:43:19,260 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:43:19,268 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 12:44:24,525 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 12:44:34,084 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:19:17,328 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:19:25,254 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:20:50,663 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:20:58,643 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:21:05,981 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:21:13,821 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:22:30,369 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:22:38,154 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:27:56,665 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:28:04,118 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:28:33,059 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:28:40,916 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:29:09,872 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:29:17,658 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 13:38:55,284 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:39:12,524 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:39:29,477 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:39:38,324 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:39:53,020 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:40:00,586 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:40:00,588 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:40:00,591 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:41:08,616 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:41:16,624 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:41:16,626 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:41:32,560 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:41:41,422 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:41:50,618 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:41:57,992 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:41:57,993 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:41:58,352 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:41:58,356 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:42:14,758 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:42:14,766 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:42:19,740 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:42:19,746 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:42:29,105 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:42:29,120 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:42:55,234 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:42:55,243 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:43:20,285 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:43:53,339 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:44:11,593 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:44:11,600 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:44:29,036 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:44:29,045 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:44:50,165 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:44:50,166 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:45:06,350 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:45:06,353 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:45:21,766 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:45:58,962 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:46:27,619 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:46:27,623 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:46:55,319 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:47:29,883 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:48:37,806 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:48:37,808 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:49:03,638 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:49:41,990 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:50:48,166 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:51:01,630 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:53:20,912 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:53:30,804 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:54:08,261 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:54:08,270 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:54:27,774 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:54:27,776 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:54:46,689 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:54:46,693 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:55:08,537 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:55:08,545 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:55:32,606 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:55:32,613 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:56:00,419 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:56:37,284 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 13:57:42,796 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 13:57:53,170 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:04:04,373 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:04:13,781 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:05:08,277 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:05:08,293 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:06:24,485 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:06:24,492 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:06:43,918 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:06:43,919 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:07:02,269 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:07:38,710 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:08:14,644 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:08:14,648 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:08:42,180 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:09:16,697 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:09:34,976 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:09:34,985 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:09:51,833 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:09:51,838 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:10:57,808 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:11:11,891 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:12:42,366 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:12:52,401 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:13:09,135 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:13:09,142 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:13:25,771 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:13:25,782 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:13:43,052 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:14:24,010 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:14:40,082 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:14:40,088 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:15:12,702 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:15:52,478 - VoiceRecognizer - INFO - 🔇 语音播放结束，冷却期开始: 1.0秒
+2025-11-28 14:16:46,766 - VoiceRecognizer - INFO - 🔊 语音播放开始，立即停止所有语音监听
+2025-11-28 14:22:27,252 - VoiceRecognizer - INFO - 🔊 语音播放开始，立即停止所有语音监听
+2025-11-28 14:46:06,048 - VoiceRecognizer - INFO - 🔊 语音播放开始，立即停止所有语音监听
+2025-11-28 14:48:09,406 - VoiceRecognizer - INFO - 🔊 语音播放开始，立即停止所有语音监听
+2025-11-28 14:57:08,100 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:57:24,450 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 14:57:32,871 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:57:42,058 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 14:57:50,633 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 14:57:50,633 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听
+2025-11-28 15:07:57,911 - VoiceRecognizer - INFO - 🔊 语音播放开始，暂停语音监听
+2025-11-28 15:08:14,440 - VoiceRecognizer - INFO - 🔇 语音播放结束，准备恢复语音监听

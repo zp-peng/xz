@@ -1,0 +1,525 @@
+2025-11-23 10:43:46,370 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 10:43:46,372 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 10:43:46,374 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 10:43:46,375 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 10:44:35,645 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 10:44:35,646 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 10:44:35,654 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 10:44:35,655 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 10:47:21,078 - database_query - INFO - 数据库连接已关闭
+2025-11-23 16:27:34,102 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 16:27:34,104 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 16:27:34,107 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 16:27:34,108 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 16:48:06,127 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 16:48:06,132 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 16:48:06,134 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 16:48:06,135 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 17:13:04,805 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 17:13:04,806 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 17:13:04,810 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 17:13:04,815 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 17:17:17,701 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 17:17:17,702 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 17:17:17,706 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 17:17:17,706 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 17:17:41,276 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 17:17:41,279 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 17:17:41,283 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 17:17:41,285 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 17:49:08,540 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 17:49:08,541 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 17:49:08,546 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 17:49:08,546 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 17:55:19,464 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 17:55:19,466 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 17:55:19,470 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 17:55:19,471 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 18:00:47,944 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 18:00:47,944 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 18:00:47,946 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 18:00:47,946 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 18:10:01,442 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 18:10:01,446 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 18:10:01,450 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 18:10:01,451 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 18:40:24,909 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 18:40:24,912 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 18:40:24,924 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 18:40:24,925 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 18:48:31,433 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 18:48:31,434 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 18:48:31,437 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 18:48:31,439 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 18:53:06,028 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 18:53:06,029 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 18:53:06,034 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 18:53:06,035 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:19:57,594 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:19:57,599 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:19:57,604 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:19:57,604 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:24:22,929 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:24:22,929 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:24:22,933 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:24:22,933 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:31:51,492 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:31:51,492 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:31:51,496 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:31:51,496 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:33:18,435 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:33:18,436 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:41:02,256 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:41:02,257 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:41:02,260 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:41:02,261 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:42:10,265 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:42:10,267 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:47:28,708 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:47:28,709 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:47:28,711 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:47:28,711 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 19:49:05,144 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:49:05,146 - database_query - INFO - 数据库连接已关闭
+2025-11-23 19:55:07,329 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 19:55:07,330 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 19:55:07,334 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 19:55:07,335 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:15:53,486 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:16:13,277 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:16:13,291 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:16:13,296 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:16:13,298 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:17:25,624 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:17:25,626 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:27:33,305 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:27:33,309 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:27:33,316 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:27:33,318 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:29:06,505 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:29:06,509 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:33:29,077 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:33:29,084 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:33:29,088 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:33:29,090 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:44:29,405 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:44:29,410 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:44:29,414 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:44:29,416 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:46:19,084 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:46:38,354 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:46:38,360 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:46:38,364 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:46:38,366 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:49:50,795 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:54:45,699 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-23 20:54:45,699 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-23 20:54:45,704 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-23 20:54:45,704 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-23 20:57:15,344 - database_query - INFO - 数据库连接已关闭
+2025-11-23 20:57:15,347 - database_query - INFO - 数据库连接已关闭
+2025-11-24 10:25:08,728 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-24 10:25:08,730 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-24 10:25:08,733 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-24 10:25:08,734 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-24 10:26:40,085 - database_query - INFO - 数据库连接已关闭
+2025-11-26 19:35:17,644 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 19:35:17,645 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 19:35:17,659 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 19:35:17,659 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 19:35:49,531 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:04:11,318 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:04:11,319 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:04:11,323 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:04:11,324 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:18:31,471 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:18:31,473 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:21:09,340 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:21:09,341 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:21:09,344 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:21:09,345 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:22:02,957 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:22:02,962 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:22:02,964 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:22:02,964 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:22:47,067 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:22:47,068 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:22:47,072 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:22:47,072 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:23:52,613 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:23:52,614 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:24:10,954 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:24:10,955 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:24:10,958 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:24:10,959 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:24:47,484 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:32:12,155 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:32:12,156 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:32:12,159 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:32:12,160 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:32:59,838 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:33:01,849 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:33:33,208 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:33:33,209 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:33:33,214 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:33:33,214 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:36:28,435 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:36:28,436 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:36:47,498 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:36:47,500 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:36:47,503 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:36:47,505 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:37:44,600 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:38:03,850 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:38:03,854 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:38:03,857 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:38:03,858 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:43:57,476 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:44:16,369 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:44:16,371 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:44:16,375 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:44:16,375 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:46:21,517 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:46:21,519 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:48:11,832 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:48:11,833 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:48:11,836 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:48:11,837 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 22:53:33,611 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:53:33,613 - database_query - INFO - 数据库连接已关闭
+2025-11-26 22:53:52,304 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 22:53:52,305 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 22:53:52,308 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 22:53:52,309 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 23:00:42,547 - database_query - INFO - 数据库连接已关闭
+2025-11-26 23:40:33,410 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 23:40:33,411 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 23:40:33,414 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 23:40:33,415 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-26 23:58:15,574 - database_query - INFO - 数据库连接已关闭
+2025-11-26 23:58:35,337 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-26 23:58:35,338 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-26 23:58:35,342 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-26 23:58:35,342 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 00:03:14,897 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 00:03:14,898 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 00:03:14,901 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 00:03:14,901 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 00:21:36,871 - database_query - INFO - 数据库连接已关闭
+2025-11-27 00:21:59,211 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 00:21:59,212 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 00:21:59,216 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 00:21:59,216 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 00:23:17,035 - database_query - INFO - 数据库连接已关闭
+2025-11-27 00:23:17,035 - database_query - INFO - 数据库连接已关闭
+2025-11-27 16:52:16,446 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 16:52:16,448 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 16:52:16,451 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 16:52:16,452 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 16:53:24,872 - database_query - INFO - 数据库连接已关闭
+2025-11-27 16:53:24,874 - database_query - INFO - 数据库连接已关闭
+2025-11-27 16:53:46,721 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 16:53:46,723 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 16:53:46,726 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 16:53:46,726 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 16:57:38,763 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 16:57:38,765 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 16:57:38,768 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 16:57:38,769 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 16:59:39,497 - database_query - INFO - 数据库连接已关闭
+2025-11-27 17:31:53,969 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 17:31:53,971 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 17:31:53,974 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 17:31:53,974 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 17:32:55,956 - database_query - INFO - 数据库连接已关闭
+2025-11-27 17:32:55,958 - database_query - INFO - 数据库连接已关闭
+2025-11-27 17:36:22,765 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 17:36:22,766 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 17:36:22,769 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 17:36:22,769 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 18:38:14,057 - database_query - INFO - 数据库连接已关闭
+2025-11-27 18:51:19,461 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 18:51:19,463 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 18:51:19,467 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 18:51:19,468 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:05:34,351 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:06:52,799 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:06:52,800 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:06:52,804 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:06:52,804 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:16:05,990 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:16:05,991 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:16:05,994 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:16:05,995 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:17:25,301 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:17:25,303 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:22:51,341 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:22:51,342 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:22:51,346 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:22:51,346 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:24:37,006 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:24:37,017 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:30:17,204 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:30:17,205 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:30:17,209 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:30:17,210 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:32:33,486 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:32:51,974 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:32:51,975 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:32:51,977 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:32:51,978 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:48:01,590 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:48:20,572 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:48:20,573 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:48:20,576 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:48:20,577 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:49:36,838 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:49:36,840 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:49:55,315 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 19:49:55,316 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 19:49:55,319 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 19:49:55,321 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 19:51:48,856 - database_query - INFO - 数据库连接已关闭
+2025-11-27 19:51:48,857 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:08:49,790 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:08:49,792 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:08:49,797 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:08:49,797 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:16:15,388 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:16:34,536 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:16:34,537 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:16:34,541 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:16:34,542 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:19:20,350 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:19:52,967 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:19:52,968 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:19:52,970 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:19:52,971 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:26:45,755 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:26:45,756 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:27:03,952 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:27:03,953 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:27:03,957 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:27:03,966 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:37:32,737 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:37:51,051 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:37:51,052 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:37:51,056 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:37:51,056 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:39:51,799 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:40:09,956 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:40:09,957 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:40:09,960 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:40:09,961 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:41:02,536 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:42:27,819 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:42:27,820 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:42:27,823 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:42:27,824 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 20:46:44,577 - database_query - INFO - 数据库连接已关闭
+2025-11-27 20:47:03,209 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 20:47:03,211 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 20:47:03,216 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 20:47:03,216 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 21:04:46,556 - database_query - INFO - 数据库连接已关闭
+2025-11-27 21:05:05,745 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 21:05:05,747 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 21:05:05,754 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 21:05:05,755 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 21:11:19,056 - database_query - INFO - 数据库连接已关闭
+2025-11-27 21:11:37,601 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 21:11:37,602 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 21:11:37,605 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 21:11:37,605 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 22:11:09,715 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 22:11:09,716 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 22:11:09,717 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 22:11:09,717 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 22:19:48,744 - database_query - INFO - 数据库连接已关闭
+2025-11-27 22:19:48,751 - database_query - INFO - 数据库连接已关闭
+2025-11-27 22:38:25,448 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 22:38:25,448 - database_query - INFO - ✅ MySQL数据库连接成功
+2025-11-27 22:39:07,076 - database_query - INFO - 数据库连接已关闭
+2025-11-27 22:57:29,402 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 22:57:29,402 - database_query - INFO - ✅ MySQL数据库连接成功
+2025-11-27 23:05:30,105 - database_query - INFO - 数据库连接已关闭
+2025-11-27 23:19:32,347 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-27 23:19:32,349 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-27 23:19:32,353 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-27 23:19:32,354 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-27 23:44:24,448 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:11:25,816 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:11:25,818 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:11:25,822 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:11:25,823 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:22:01,712 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:22:20,086 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:22:20,087 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:22:20,088 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:22:20,088 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:29:36,798 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:29:55,805 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:29:55,806 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:29:55,811 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:29:55,812 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:31:44,902 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:31:44,905 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:34:17,643 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:34:17,643 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:34:17,645 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:34:17,645 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:47:09,155 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:47:28,462 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:47:28,463 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:47:28,465 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:47:28,466 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:50:20,630 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:50:20,631 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:53:28,502 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:53:28,503 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:53:28,507 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:53:28,507 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 00:57:50,898 - database_query - INFO - 数据库连接已关闭
+2025-11-28 00:58:09,317 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 00:58:09,318 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 00:58:09,324 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 00:58:09,324 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 01:03:45,346 - database_query - INFO - 数据库连接已关闭
+2025-11-28 01:04:04,179 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 01:04:04,179 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 01:04:04,182 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 01:04:04,183 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 01:11:06,796 - database_query - INFO - 数据库连接已关闭
+2025-11-28 01:11:26,542 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 01:11:26,544 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 01:11:26,548 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 01:11:26,548 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 01:21:11,426 - database_query - INFO - 数据库连接已关闭
+2025-11-28 01:21:30,032 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 01:21:30,033 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 01:21:30,037 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 01:21:30,038 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 01:37:43,556 - database_query - INFO - 数据库连接已关闭
+2025-11-28 01:38:01,541 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 01:38:01,544 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 01:38:01,547 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 01:38:01,553 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 01:55:03,199 - database_query - INFO - 数据库连接已关闭
+2025-11-28 01:55:46,644 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 01:55:46,645 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 01:55:46,649 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 01:55:46,650 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:03:25,816 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:03:47,067 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:03:47,069 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:03:47,073 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:03:47,074 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:08:07,802 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:08:07,804 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:08:07,809 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:08:07,809 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:14:16,324 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:21:33,129 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:21:33,131 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:21:33,133 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:21:33,133 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:24:02,520 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:24:02,521 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:24:02,525 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:24:02,526 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:30:48,508 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:30:50,514 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:31:56,471 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:31:56,472 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:31:56,477 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:31:56,477 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:38:56,270 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:38:56,271 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:38:56,273 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:38:56,273 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:40:20,924 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:41:41,788 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:41:41,789 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:41:41,795 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:41:41,795 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:48:42,385 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:48:44,392 - database_query - INFO - 数据库连接已关闭
+2025-11-28 10:53:37,358 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:53:37,359 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:53:37,362 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:53:37,362 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 10:56:59,407 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 10:56:59,408 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 10:56:59,412 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 10:56:59,413 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 11:02:02,506 - database_query - INFO - 数据库连接已关闭
+2025-11-28 11:16:38,518 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 11:16:38,519 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 11:16:38,524 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 11:16:38,524 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 11:19:24,990 - database_query - INFO - 数据库连接已关闭
+2025-11-28 11:28:42,783 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 11:28:42,784 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 11:28:42,788 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 11:28:42,788 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 12:18:16,631 - database_query - INFO - 数据库连接已关闭
+2025-11-28 12:18:36,080 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 12:18:36,085 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 12:18:36,088 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 12:18:36,089 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 12:39:13,707 - database_query - INFO - 数据库连接已关闭
+2025-11-28 12:39:13,710 - database_query - INFO - 数据库连接已关闭
+2025-11-28 12:39:32,433 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 12:39:32,434 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 12:39:32,437 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 12:39:32,439 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 13:32:26,515 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 13:32:26,516 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 13:32:26,518 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 13:32:26,520 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 13:34:17,434 - database_query - INFO - 数据库连接已关闭
+2025-11-28 13:34:17,436 - database_query - INFO - 数据库连接已关闭
+2025-11-28 13:34:44,976 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 13:34:44,977 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 13:34:44,981 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 13:34:44,982 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 13:37:39,827 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 13:37:39,828 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 13:37:39,832 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 13:37:39,834 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 13:38:03,882 - database_query - INFO - 数据库连接已关闭
+2025-11-28 13:38:26,020 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 13:38:26,023 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 13:38:26,026 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 13:38:26,027 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 13:40:20,741 - database_query - INFO - 数据库连接已关闭
+2025-11-28 13:40:39,970 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 13:40:39,972 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 13:40:39,976 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 13:40:39,976 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:16:17,508 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 14:16:17,509 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 14:16:17,512 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 14:16:17,515 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:39:24,350 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 14:39:24,351 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 14:39:24,356 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 14:39:24,356 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:45:34,867 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 14:45:34,868 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 14:45:34,874 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 14:45:34,875 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:47:28,730 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 14:47:28,730 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 14:47:28,735 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 14:47:28,735 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:56:28,275 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 14:56:28,282 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 14:56:28,282 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 14:56:28,284 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 14:58:18,966 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:06:57,596 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 15:06:57,600 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 15:06:57,602 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 15:06:57,602 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 15:10:45,830 - database_query - INFO - 数据库连接已关闭
