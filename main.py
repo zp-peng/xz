@@ -9,20 +9,17 @@ import json
 import re
 import queue
 from flask import Flask, jsonify, request
+import requests
 
 # 添加当前目录到Python路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
-# 全局变量（与app.py保持一致）
-is_listening = False
-is_in_conversation = False
+# 全局变量（简化版本）
 audio_queue = queue.Queue()
 is_speaking = False
 speech_start_time = 0
 speech_cooldown = 2  # 语音播放后的冷却时间(秒)
-wakeup_history = []
-conversation_start_time = 0
 IS_ELECTRON = getattr(sys, 'frozen', False)
 port = None
 
@@ -30,13 +27,146 @@ port = None
 audio_playback_active = False
 audio_thread = None
 
+# --- 音频上传和工作流配置 ---
+# 目标上传 API 的 URL
+TARGET_API_URL = 'http://192.168.1.221/v1/files/upload'
+# 工作流运行 API 的 URL
+WORKFLOW_API_URL = 'http://192.168.1.221/v1/workflows/run'
+# 工作流 API 的认证 Token
+WORKFLOW_API_KEY = 'app-BlcNrYszyCM0OHIBzmNIfOy3'
+# 目标 API 要求的 user ID
+USER_ID = 'abc-123'
+
+# 支持的音频格式及其 MIME 类型
+SUPPORTED_AUDIO_FORMATS = {
+    'mp3': 'audio/mpeg',
+    'wav': 'audio/wav',
+    'flac': 'audio/flac',
+    'm4a': 'audio/mp4',
+    'ogg': 'audio/ogg',
+    'aac': 'audio/aac',
+    'wma': 'audio/x-ms-wma'
+}
+
+def upload_audio_to_target(file_obj, file_name: str) -> dict:
+    """
+    内部函数：将上传的音频文件转发到目标 API
+    """
+    # 1. 验证文件格式
+    file_ext = file_name.split('.')[-1].lower()
+    if file_ext not in SUPPORTED_AUDIO_FORMATS:
+        supported_formats = ', '.join(SUPPORTED_AUDIO_FORMATS.keys())
+        return {'success': False, 'error': f'不支持的音频格式: {file_ext}。仅支持: {supported_formats}'}
+
+    # 2. 构造目标 API 的请求参数
+    headers = {
+        'Authorization': f'Bearer {WORKFLOW_API_KEY}'
+    }
+    data = {
+        'user': USER_ID
+    }
+
+    # 3. 转发文件到目标 API
+    try:
+        files = {
+            'file': (file_name, file_obj, SUPPORTED_AUDIO_FORMATS[file_ext])
+        }
+        response = requests.post(
+            TARGET_API_URL,
+            headers=headers,
+            data=data,
+            files=files
+        )
+
+        # 4. 处理目标 API 的响应
+        if response.status_code == 201:
+            return {'success': True, 'message': '音频上传成功！', 'target_response': response.json()}
+        else:
+            return {
+                'success': False,
+                'error': '上传到目标 API 失败',
+                'status_code': response.status_code,
+                'target_error': response.text
+            }
+
+    except requests.exceptions.RequestException as e:
+        return {'success': False, 'error': f'请求目标 API 网络异常: {e}'}
+    except Exception as e:
+        return {'success': False, 'error': f'未知错误: {e}'}
+
+def run_workflow_and_extract_text(api_key, upload_file_id):
+    """
+    运行工作流并提取文本内容
+    """
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    data = {
+        "inputs": {
+            "file": [
+                {
+                    "transfer_method": "local_file",
+                    "upload_file_id": upload_file_id,
+                    "type": "audio"
+                }
+            ]
+        },
+        "response_mode": "streaming",
+        "user": USER_ID
+    }
+
+    try:
+        response = requests.post(
+            url=WORKFLOW_API_URL,
+            headers=headers,
+            json=data,
+            timeout=30
+        )
+
+        if response.status_code == 200:
+            final_text = None
+
+            for line in response.iter_lines(decode_unicode=True):
+                if line:
+                    # 检查是否是 workflow_finished 事件
+                    if '"event": "workflow_finished"' in line:
+                        try:
+                            # 提取 JSON 数据
+                            json_str = line.replace('data: ', '')
+                            data_obj = json.loads(json_str)
+
+                            # 获取 outputs.text
+                            if 'data' in data_obj and 'outputs' in data_obj['data']:
+                                final_text = data_obj['data']['outputs'].get('text', '')
+
+                                if final_text:
+                                    return {
+                                        'success': True,
+                                        'text': final_text,
+                                        'message': '文本提取成功'
+                                    }
+
+                        except json.JSONDecodeError as e:
+                            return {'success': False, 'error': f'JSON解析错误: {e}'}
+
+            if not final_text:
+                return {'success': False, 'error': '未找到 workflow_finished 事件中的文本内容'}
+
+        else:
+            return {'success': False, 'error': f'工作流请求失败，状态码: {response.status_code}', 'response': response.text}
+
+    except requests.exceptions.RequestException as e:
+        return {'success': False, 'error': f'请求工作流异常: {e}'}
+
 # main.py 中的依赖检查部分
 def check_dependencies():
     """快速依赖检查"""
     import importlib.util
 
     required_deps = [
-        "vosk", "pyaudio", "pygame", "requests",
+        "requests",
         "jieba", "mysql.connector", "flask", "flask_socketio"
     ]
 
@@ -54,7 +184,7 @@ def check_dependencies():
         print("\n💡 某些功能可能受限")
 
         # 只对关键依赖要求安装
-        critical_deps = ["vosk", "pyaudio", "flask"]
+        critical_deps = ["flask"]
         has_critical_missing = any(dep in missing_deps for dep in critical_deps)
 
         if has_critical_missing:
@@ -69,16 +199,17 @@ if not check_dependencies():
     sys.exit(1)
 
 try:
-    from core.voice_recognizer import VoiceRecognizer
     from core.command_handler import CommandHandler
-    from core.audio_processor import AudioProcessor
-    from core.database_manager import DatabaseManager
     from flask_socketio import SocketIO
+    # 导入 ArchiveManager
+    from core.archive_manager import ArchiveManager
     from flask_cors import CORS
 except ImportError as e:
     print(f"❌ 导入核心模块失败: {e}")
     print("💡 请确保所有核心文件都存在且正确")
     sys.exit(1)
+    # 在全局变量部分添加
+archive_manager = None  # 全局档案管理器实例
 
 class XiaoZhiAssistant:
     def __init__(self):
@@ -88,14 +219,13 @@ class XiaoZhiAssistant:
         CORS(self.app)
         self.socketio = SocketIO(self.app, cors_allowed_origins="*", async_mode='threading')
 
-        # 新增：初始化语音模式所需的属性
+        # 简化：移除语音模式相关状态
         self.is_running = False
-        self.is_awake = False
-        self.is_exited = True
-        self.wake_timeout = 60  # 唤醒超时时间（秒）
-        self.last_wake_time = 0
         self.audio_thread_running = False
         self.is_cleaning_up = False
+
+        # 初始化全局档案管理器
+        self.init_archive_manager()
 
         # 立即设置路由
         self.setup_routes()
@@ -107,42 +237,35 @@ class XiaoZhiAssistant:
         # 然后同步初始化其他组件
         self.init_components_sync()
 
-    def on_playback_state_change(self, is_speaking):
-        """播放状态变化回调"""
-        if is_speaking:
-            print("🎵 检测到语音播放开始，暂停语音监听")
-        else:
-            print("🔇 检测到语音播放结束，准备恢复语音监听")
-            # 通知前端播放状态变化
-            self.emit('playback_state', {'is_playing': False})
-
     def init_components_sync(self):
         """同步初始化所有组件"""
         try:
             print("🔄 正在同步初始化所有组件...")
 
-            # 初始化基础组件
-            self.init_basic_components()
-
-            # 初始化音频处理器
-            self.init_audio_processor()
-
             # 初始化命令处理器
             self.init_command_handler()
 
-            # 初始化语音识别器
-            voice_success = self.init_voice_recognizer()
+            print("✅ 所有组件同步初始化完成")
 
-            if voice_success:
-                print("✅ 所有组件同步初始化完成")
-            else:
-                print("⚠️ 组件初始化完成，但语音识别器有问题")
-
-            return voice_success
+            return True
 
         except Exception as e:
             print(f"❌ 同步初始化失败: {e}")
             return False
+
+    def init_archive_manager(self):
+        """初始化全局档案管理器"""
+        global archive_manager
+        try:
+            print("🔄 正在初始化档案管理器...")
+            archive_manager = ArchiveManager()
+            if archive_manager.connect():
+                print("✅ 档案管理器初始化成功")
+            else:
+                print("⚠️ 档案管理器初始化失败，档案查询功能将不可用")
+        except Exception as e:
+            print(f"❌ 档案管理器初始化异常: {e}")
+            archive_manager = None
 
     def start_websocket_server_sync(self):
         """同步启动WebSocket服务器 - 修复版本"""
@@ -196,54 +319,10 @@ class XiaoZhiAssistant:
                     print("💡 请检查端口5000是否被占用")
         return False
 
-    def init_basic_components(self):
-        """初始化基础组件"""
-        try:
-            self.database_manager = DatabaseManager()
-            print("✅ 数据库管理器初始化完成")
-        except Exception as e:
-            print(f"⚠️ 数据库管理器初始化失败: {e}")
-            self.database_manager = None
-
-    def init_heavy_components_parallel(self):
-        """并行初始化耗时组件"""
-        threads = []
-
-        # 音频处理器
-        audio_thread = threading.Thread(target=self.init_audio_processor)
-        threads.append(audio_thread)
-
-        # 命令处理器
-        command_thread = threading.Thread(target=self.init_command_handler)
-        threads.append(command_thread)
-
-        # 语音识别器
-        voice_thread = threading.Thread(target=self.init_voice_recognizer)
-        threads.append(voice_thread)
-
-        # 启动所有线程
-        for thread in threads:
-            thread.start()
-
-        # 等待所有线程完成
-        for thread in threads:
-            thread.join(timeout=10)  # 10秒超时
-
-    def init_audio_processor(self):
-        """初始化音频处理器"""
-        try:
-            self.audio_processor = AudioProcessor(self.database_manager)
-            print("✅ 音频处理器初始化完成")
-        except Exception as e:
-            print(f"⚠️ 音频处理器初始化失败: {e}")
-            self.audio_processor = None
-
     def init_command_handler(self):
         """初始化命令处理器"""
         try:
             self.command_handler = CommandHandler(
-                self.audio_processor,
-                self.database_manager,
                 self.socketio
             )
             print("✅ 命令处理器初始化完成")
@@ -251,56 +330,8 @@ class XiaoZhiAssistant:
             print(f"⚠️ 命令处理器初始化失败: {e}")
             self.command_handler = None
 
-    def init_voice_recognizer(self):
-        """初始化语音识别器 - 增强版本"""
-        try:
-            print("🎯 正在初始化语音识别器...")
-            self.voice_recognizer = VoiceRecognizer(
-                self.database_manager,
-                self.command_handler
-            )
-
-            # 添加播放状态监听器
-            self.voice_recognizer.add_playback_state_listener(self)
-
-            # 直接检查模型是否加载成功 - 增强检查逻辑
-            if (hasattr(self.voice_recognizer, 'model_loaded') and
-                    self.voice_recognizer.model_loaded and
-                    hasattr(self.voice_recognizer, 'model') and
-                    self.voice_recognizer.model is not None):
-                print("✅ 语音识别器初始化完成 (模型已加载)")
-                return True
-            else:
-                print("⚠️ 语音识别器初始化完成，但模型加载失败或状态异常")
-                # 添加详细的状态信息
-                print(f"   - model_loaded: {getattr(self.voice_recognizer, 'model_loaded', '无此属性')}")
-                print(f"   - model exists: {hasattr(self.voice_recognizer, 'model')}")
-                print(f"   - model is None: {getattr(self.voice_recognizer, 'model', None) is None}")
-                return False
-
-        except Exception as e:
-            print(f"⚠️ 语音识别器初始化失败: {e}")
-            self.voice_recognizer = None
-            return False
-
-    def init_voice_async(self):
-        """异步初始化语音功能"""
-        def voice_init_task():
-            try:
-                print("🎯 正在初始化语音功能...")
-                voice_ready = self.initialize_voice()
-                if voice_ready:
-                    print("✅ 语音功能初始化完成")
-                else:
-                    print("⚠️ 语音功能初始化部分失败")
-            except Exception as e:
-                print(f"❌ 语音功能初始化失败: {e}")
-
-        voice_thread = threading.Thread(target=voice_init_task, daemon=True)
-        voice_thread.start()
-
     def setup_routes(self):
-        """设置所有路由接口（与app.py保持一致）"""
+        """设置所有路由接口（简化版本）"""
         # 添加调试路由，显示所有可用路由
         @self.app.route('/api/debug/routes', methods=['GET'])
         def debug_routes():
@@ -322,69 +353,15 @@ class XiaoZhiAssistant:
                 "port": port
             })
 
-        @self.app.route('/api/start', methods=['POST'])
-        def api_start_listening():
-            global is_listening
-            if not self.voice_recognizer or not self.voice_recognizer.model:
-                return jsonify({"error": "Vosk 未初始化"}), 500
-            if is_listening:
-                return jsonify({"error": "已经在监听中"}), 400
-
-            is_listening = True
-            # 这里可以启动语音检测线程
-            return jsonify({"status": "started", "message": "开始语音检测"})
-
-        @self.app.route('/api/stop', methods=['POST'])
-        def api_stop_listening():
-            global is_listening
-            is_listening = False
-            # 删除结束对话处理，交给command_handler
-            return jsonify({"status": "stopped", "message": "停止语音检测"})
-
         @self.app.route('/api/status', methods=['GET'])
         def get_status():
             return jsonify({
-                "is_listening": is_listening,
-                "is_in_conversation": is_in_conversation,
-                "vosk_ready": self.voice_recognizer and self.voice_recognizer.model is not None,
-                "wakeup_count": len(wakeup_history),
                 "audio_queue_size": audio_queue.qsize(),
                 "is_speaking": is_speaking,
                 "electron_mode": IS_ELECTRON,
                 "port": port,
                 "speech_cooldown_remaining": max(0, speech_cooldown - (time.time() - speech_start_time)),
                 "audio_playback_active": audio_playback_active
-            })
-
-        @self.app.route('/api/history', methods=['GET'])
-        def get_history():
-            history_list = list(wakeup_history)
-            return jsonify({
-                "history": history_list,
-                "count": len(history_list)
-            })
-
-        @self.app.route('/api/speak', methods=['POST'])
-        def api_speak():
-            data = request.get_json()
-            text = data.get('text', '')
-            if text:
-                self.speak_text(text)
-                return jsonify({"status": "speaking", "text": text})
-            else:
-                return jsonify({"error": "没有提供文本"}), 400
-
-        @self.app.route('/api/test_speech', methods=['POST'])
-        def api_test_speech():
-            data = request.get_json()
-            text = data.get('text', '测试语音')
-
-            self.speak_text(text)
-            return jsonify({
-                "status": "success",
-                "message": "语音已加入播放队列",
-                "text": text,
-                "queue_size": audio_queue.qsize()
             })
 
         @self.app.route('/api/health/detailed', methods=['GET'])
@@ -398,20 +375,88 @@ class XiaoZhiAssistant:
                 "components": {
                     "flask_app": hasattr(self, 'app'),
                     "socketio": hasattr(self, 'socketio'),
-                    "voice_recognizer": self.voice_recognizer is not None,
-                    "audio_processor": self.audio_processor is not None,
                     "command_handler": self.command_handler is not None,
-                    "database_manager": self.database_manager is not None
                 },
                 "endpoints": [
                     {"method": "GET", "path": "/", "description": "服务状态"},
-                    {"method": "POST", "path": "/api/speak", "description": "语音播报"},
-                    {"method": "POST", "path": "/api/test_speech", "description": "测试语音"},
                     {"method": "GET", "path": "/api/status", "description": "系统状态"},
                     {"method": "GET", "path": "/api/health/detailed", "description": "详细健康检查"}
                 ]
             }
             return jsonify(health_info)
+
+        @self.app.route('/audioConversion', methods=['POST'])
+        def audioConversion():
+            """运行工作流接口 - 直接接收文件，自动上传并运行工作流（只做语音识别）"""
+            try:
+                # 从form-data中获取上传的文件
+                uploaded_file = request.files.get('file')
+                if not uploaded_file:
+                    return jsonify({
+                        'success': False,
+                        'error': '请在form-data中上传名为"file"的音频文件'
+                    }), 400
+
+                # 获取上传文件的文件名
+                file_name = uploaded_file.filename
+                if not file_name:
+                    return jsonify({
+                        'success': False,
+                        'error': '上传的文件无有效名称'
+                    }), 400
+
+                # 1. 先上传文件获取文件ID
+                upload_result = upload_audio_to_target(uploaded_file, file_name)
+                if not upload_result['success']:
+                    return jsonify(upload_result), 400
+
+                # 2. 从上传结果中获取文件ID
+                upload_file_id = upload_result['target_response']['id']
+
+                # 3. 运行工作流并提取文本（只做语音识别）
+                workflow_result = run_workflow_and_extract_text(WORKFLOW_API_KEY, upload_file_id)
+
+                # 4. 只返回语音识别的文本结果，不做后续处理
+                if workflow_result['success']:
+                    text = workflow_result.get('text', '').strip()
+                    print(f"✅ 语音识别结果: {text}")
+
+                    if text:
+                        # 构建响应数据 - 只返回语音识别结果
+                        response_data = {
+                            'success': True,
+                            'text': text,
+                            'is_processed': False,  # 标记为未处理
+                            'message': '语音识别成功',
+                            'timestamp': time.time(),
+                            'source': 'workflow_audio_processing'
+                        }
+
+                        return jsonify(response_data), 200
+                    else:
+                        return jsonify({
+                            'success': True,
+                            'text': '',
+                            'is_processed': False,
+                            'message': '语音识别成功但文本为空',
+                            'timestamp': time.time(),
+                            'source': 'workflow_audio_processing'
+                        }), 200
+                else:
+                    # 工作流执行失败
+                    return jsonify({
+                        'success': False,
+                        'error': '语音识别失败',
+                        'workflow_error': workflow_result.get('error', '未知错误'),
+                        'workflow_result': workflow_result
+                    }), 400
+
+            except Exception as e:
+                print(f"❌ run_workflow_endpoint 异常: {e}")
+                return jsonify({
+                    'success': False,
+                    'error': f'处理请求时出现异常: {str(e)}'
+                }), 500
 
         @self.app.route('/api/health', methods=['GET'])
         def health_check():
@@ -421,8 +466,259 @@ class XiaoZhiAssistant:
                 "service": "voice_wakeup"
             })
 
+        # --- 音频上传和工作流接口 ---
+        @self.app.route('/uploadAudio', methods=['POST'])
+        def upload_audio_endpoint():
+            """
+            上传音频文件接口
+            """
+            # 从form-data中获取上传的文件
+            uploaded_file = request.files.get('file')
+            if not uploaded_file:
+                return jsonify({
+                    'success': False,
+                    'error': '请在form-data中上传名为"file"的音频文件'
+                }), 400
+
+            # 获取上传文件的文件名
+            file_name = uploaded_file.filename
+            if not file_name:
+                return jsonify({
+                    'success': False,
+                    'error': '上传的文件无有效名称'
+                }), 400
+
+            # 转发文件到目标 API
+            result = upload_audio_to_target(uploaded_file, file_name)
+
+            # 返回最终响应
+            return jsonify(result), 200 if result['success'] else 400
+
+        # 新增档案查询接口
+        @self.app.route('/api/archive/query', methods=['POST'])
+        def query_archive_formatted_endpoint():
+            """
+            档案查询API接口（格式化结果）
+            请求参数: { "query_text": "查询文本" }
+            返回结果: 格式化的文本结果
+            """
+            try:
+                # 检查全局档案管理器
+                global archive_manager
+                if not archive_manager:
+                    return jsonify({
+                        'success': False,
+                        'error': '档案管理器未初始化',
+                        'formatted_result': '档案管理器未初始化，请稍后重试'
+                    }), 500
+
+                # 获取请求数据
+                data = request.get_json()
+                if not data:
+                    return jsonify({
+                        'success': False,
+                        'error': '请求体必须为JSON格式',
+                        'formatted_result': '请求格式错误，请使用JSON格式'
+                    }), 400
+
+                query_text = data.get('query_text')
+                if not query_text:
+                    return jsonify({
+                        'success': False,
+                        'error': '缺少查询文本参数 query_text',
+                        'formatted_result': '请输入要查询的档案名称或编号'
+                    }), 400
+
+                print(f"📁 格式化档案查询API调用: {query_text}")
+
+                # 执行查询
+                query_result = archive_manager.query_archive(query_text)
+
+                # 格式化结果
+                formatted_result = archive_manager.format_archive_results(query_result)
+
+                # 返回格式化结果
+                return jsonify({
+                    'success': query_result.get('success', False),
+                    'query_text': query_text,
+                    'formatted_result': formatted_result,
+                    'raw_result': query_result,  # 可选：包含原始结果供调试
+                    'timestamp': time.time()
+                }), 200
+
+            except Exception as e:
+                print(f"❌ 格式化档案查询API异常: {e}")
+                return jsonify({
+                    'success': False,
+                    'error': f'查询过程中出现错误: {str(e)}',
+                    'formatted_result': '查询档案时出现错误，请稍后再试'
+                }), 500
+
+
+        # 在 setup_routes 方法中添加以下代码（可以放在 /api/archive/query 路由之后）
+
+        @self.app.route('/api/archive/attachments', methods=['POST'])
+        def query_attachments_by_archive_id():
+            """
+            根据档案ID查询附件信息API接口
+            请求参数: { "archive_id": "档案ID" }
+            返回结果: 附件列表信息
+            """
+            try:
+                # 检查全局档案管理器
+                global archive_manager
+                if not archive_manager:
+                    return jsonify({
+                        'success': False,
+                        'error': '档案管理器未初始化',
+                        'message': '档案管理器未初始化，请稍后重试'
+                    }), 500
+
+                # 获取请求数据
+                data = request.get_json()
+                if not data:
+                    return jsonify({
+                        'success': False,
+                        'error': '请求体必须为JSON格式',
+                        'message': '请求格式错误，请使用JSON格式'
+                    }), 400
+
+                archive_id = data.get('archive_id')
+                if not archive_id:
+                    return jsonify({
+                        'success': False,
+                        'error': '缺少档案ID参数 archive_id',
+                        'message': '请输入要查询的档案ID'
+                    }), 400
+
+                print(f"📁 查询档案附件API调用，档案ID: {archive_id}")
+
+                # 执行查询
+                query_result = archive_manager.query_attachment_by_archive_id(archive_id)
+
+                # 格式化附件信息
+                attachments = query_result.get('results', [])
+                formatted_results = []
+
+                for attachment in attachments:
+                    formatted_attachment = {
+                        'id': attachment.get('id'),
+                        'name': attachment.get('name', '未命名附件'),
+                        'file_path': attachment.get('file_path'),
+                        'file_size': attachment.get('file_size'),
+                        'create_time': attachment.get('create_time'),
+                        'archives_id': attachment.get('archives_id')
+                    }
+                    formatted_results.append(formatted_attachment)
+
+                # 返回结果
+                return jsonify({
+                    'success': query_result.get('success', False),
+                    'archive_id': archive_id,
+                    'count': len(formatted_results),
+                    'timestamp': time.time(),
+                    'raw_result': query_result  # 可选：包含原始结果供调试
+                }), 200
+
+            except Exception as e:
+                print(f"❌ 查询附件API异常: {e}")
+                return jsonify({
+                    'success': False,
+                    'error': f'查询过程中出现错误: {str(e)}',
+                    'message': '查询附件时出现错误，请稍后再试'
+                }), 500
+
+        @self.app.route('/runWorkflow', methods=['POST'])
+        def run_workflow_endpoint():
+            """
+            运行工作流接口 - 直接接收文件，自动上传并运行工作流
+            """
+            try:
+                # 从form-data中获取上传的文件
+                uploaded_file = request.files.get('file')
+                if not uploaded_file:
+                    return jsonify({
+                        'success': False,
+                        'error': '请在form-data中上传名为"file"的音频文件'
+                    }), 400
+
+                # 获取上传文件的文件名
+                file_name = uploaded_file.filename
+                if not file_name:
+                    return jsonify({
+                        'success': False,
+                        'error': '上传的文件无有效名称'
+                    }), 400
+
+                # 1. 先上传文件获取文件ID
+                upload_result = upload_audio_to_target(uploaded_file, file_name)
+                if not upload_result['success']:
+                    return jsonify(upload_result), 400
+
+                # 2. 从上传结果中获取文件ID
+                upload_file_id = upload_result['target_response']['id']
+
+                # 3. 运行工作流并提取文本
+                workflow_result = run_workflow_and_extract_text(WORKFLOW_API_KEY, upload_file_id)
+
+                # 4. 如果工作流成功，则使用command_handler处理提取的文本
+                if workflow_result['success']:
+                    text = workflow_result.get('text', '').strip()
+                    print(f"✅ 获取到的文字------------: {text}")
+                    if text:
+                        # 使用command_handler处理文本
+                        if hasattr(self, 'command_handler') and self.command_handler is not None:
+                            # 直接使用command_handler的处理结果作为最终响应
+                            command_response = self.command_handler.process_command(text)
+
+                            # 构建响应数据 - 完全基于command_handler的处理结果
+                            response_data = {
+                                'success': True,
+                                'text': text,
+                                'processed_response': command_response,
+                                'timestamp': time.time(),
+                                'source': 'workflow_audio_processing'
+                            }
+
+                            # 同时发送WebSocket消息给前端显示
+                            if hasattr(self, 'socketio') and self.socketio:
+                                self.socketio.emit('workflow_processed', {
+                                    'text': text,
+                                    'processed_response': command_response,
+                                    'timestamp': time.time()
+                                })
+
+                            return jsonify(response_data), 200
+                        else:
+                            return jsonify({
+                                'success': False,
+                                'error': '命令处理器未初始化',
+                                'text': text
+                            }), 500
+                    else:
+                        return jsonify({
+                            'success': False,
+                            'error': '工作流返回的文本为空',
+                            'workflow_result': workflow_result
+                        }), 400
+                else:
+                    # 工作流执行失败
+                    return jsonify({
+                        'success': False,
+                        'error': '工作流执行失败',
+                        'workflow_error': workflow_result.get('error', '未知错误'),
+                        'workflow_result': workflow_result
+                    }), 400
+
+            except Exception as e:
+                print(f"❌ run_workflow_endpoint 异常: {e}")
+                return jsonify({
+                    'success': False,
+                    'error': f'处理请求时出现异常: {str(e)}'
+                }), 500
+
     def setup_socketio_events(self):
-        """设置SocketIO事件处理器（与app.py保持一致）"""
+        """设置SocketIO事件处理器（简化版本）"""
         @self.socketio.on('connect')
         def handle_connect():
             print(f"✅ 客户端连接: {request.sid}")
@@ -432,29 +728,6 @@ class XiaoZhiAssistant:
         def handle_disconnect():
             print(f"❌ 客户端断开: {request.sid}")
 
-        @self.socketio.on('test_speech')
-        def handle_test_speech(data):
-            text = data.get('text', '测试语音')
-            self.speak_text(text)
-            self.emit('test_speech_result', {'status': 'playing', 'text': text})
-
-        @self.socketio.on('start_listening')
-        def handle_start_listening():
-            global is_listening
-            if not is_listening and self.voice_recognizer and self.voice_recognizer.model:
-                is_listening = True
-                # 这里可以启动语音检测线程
-                self.emit('listening_started', {'status': 'started'})
-
-        @self.socketio.on('stop_listening')
-        def handle_stop_listening():
-            global is_listening
-            is_listening = False
-            # 删除结束对话处理，交给command_handler
-            self.emit('listening_stopped', {'status': 'stopped'})
-
-        # 删除 end_conversation 事件处理器，交给command_handler处理
-
         @self.socketio.on('record_selected')
         def handle_record_selected(data):
             fileno = data.get('fileno')
@@ -462,8 +735,6 @@ class XiaoZhiAssistant:
             print(f"📌 用户选择了档案: {filename} (编号: {fileno})")
 
             response_text = f"已成功打开{filename}对应存储位置"
-            self.speak_text(response_text)
-
             self.emit('record_processed', {
                 'status': 'success',
                 'message': response_text,
@@ -477,439 +748,18 @@ class XiaoZhiAssistant:
         except Exception as e:
             print(f"❌ 发送SocketIO消息失败: {e}")
 
-    def speak_text(self, text):
-        """将文本添加到音频队列（与app.py保持一致）"""
-        if text:
-            try:
-                audio_queue.put(text)
-                print(f"📝 已添加到音频队列: {text}")
-                # 通知前端
-                self.emit('speech_added', {
-                    'text': text,
-                    'queue_size': audio_queue.qsize(),
-                    'timestamp': time.time()
-                })
-            except Exception as e:
-                print(f"❌ 无法添加到音频队列: {e}")
-
-    def start_audio_playback_thread(self):
-        """启动音频播放线程 - 增强版本：改进状态管理和互斥控制"""
-        if self.audio_thread_running:
-            return
-
-        # 确保 audio_processor 已初始化
-        if not hasattr(self, 'audio_processor') or self.audio_processor is None:
-            print("❌ 音频处理器未初始化，无法启动音频播放线程")
-            return
-
-        print("🔊 启动音频播放线程...")
-        self.audio_thread_running = True
-
-        def audio_playback_worker():
-            global audio_playback_active, is_speaking
-
-            while self.audio_thread_running:
-                try:
-                    # 非阻塞获取队列中的音频
-                    try:
-                        text = audio_queue.get(timeout=1.0)
-                    except queue.Empty:
-                        continue
-
-                    if text and hasattr(self, 'audio_processor') and self.audio_processor:
-                        print(f"🔊 开始播放语音: {text}")
-
-                        # 设置播放状态
-                        audio_playback_active = True
-                        is_speaking = True
-
-                        # 通知语音识别器开始播放
-                        if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                            self.voice_recognizer.set_speaking_status(True)
-
-                        # 通知前端开始播放
-                        self.emit('playback_state', {'is_playing': True})
-                        self.emit('speech_started', {
-                            'text': text,
-                            'timestamp': time.time()
-                        })
-
-                        try:
-                            # 实际播放音频
-                            success = self.audio_processor.speak(text)
-                            if not success:
-                                print(f"❌ 语音播放失败: {text}")
-                        except Exception as e:
-                            print(f"❌ 播放语音时出错: {e}")
-
-                        # 重置播放状态
-                        audio_playback_active = False
-                        is_speaking = False
-
-                        # 通知语音识别器播放结束
-                        if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                            self.voice_recognizer.set_speaking_status(False)
-
-                        # 关键修改：语音播放完成后重置唤醒超时时间
-                        if self.is_awake:
-                            self.last_wake_time = time.time()
-                            print(f"⏰ 语音播放完成，重置唤醒超时时间: {self.last_wake_time}")
-
-                        # 通知前端播放结束
-                        self.emit('speech_finished', {
-                            'text': text,
-                            'timestamp': time.time()
-                        })
-
-                        print(f"✅ 语音播放完成: {text}")
-
-                    # 标记任务完成
-                    audio_queue.task_done()
-
-                except Exception as e:
-                    print(f"❌ 音频播放线程错误: {e}")
-                    # 确保在异常情况下也重置播放状态
-                    if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                        self.voice_recognizer.set_speaking_status(False)
-                    audio_playback_active = False
-                    is_speaking = False
-                    time.sleep(1)
-
-        # 启动音频播放线程
-        self.audio_thread = threading.Thread(target=audio_playback_worker, daemon=True)
-        self.audio_thread.start()
-        print("✅ 音频播放线程已启动")
-
-    def start_websocket_server(self):
-        """启动WebSocket服务器"""
-        print("🌐 正在启动Flask-SocketIO服务器...")
-
-        def run_server():
-            try:
-                # 使用SocketIO运行Flask应用
-                print(f"🔧 服务器配置: host=0.0.0.0, port=5000, debug=False")
-                self.socketio.run(
-                    self.app,
-                    host='0.0.0.0',  # 允许所有IP访问
-                    port=5000,
-                    debug=False,
-                    use_reloader=False,
-                    allow_unsafe_werkzeug=True
-                )
-            except Exception as e:
-                print(f"❌ WebSocket服务器运行失败: {e}")
-                import traceback
-                traceback.print_exc()
-
-        # 在新线程中启动服务器
-        self.server_thread = threading.Thread(target=run_server, daemon=True)
-        self.server_thread.start()
-
-        # 等待服务器启动并检查
-        max_retries = 10
-        for i in range(max_retries):
-            time.sleep(1)
-            try:
-                import requests
-                response = requests.get('http://localhost:5000/', timeout=2)
-                if response.status_code == 200:
-                    print("✅ Flask-SocketIO服务器启动成功")
-                    print("💡 前端可以连接到: http://localhost:5000")
-                    print("💡 WebSocket连接地址: ws://localhost:5000/socket.io/")
-
-                    # 显示可用路由
-                    try:
-                        routes_response = requests.get('http://localhost:5000/api/debug/routes', timeout=2)
-                        if routes_response.status_code == 200:
-                            routes_data = routes_response.json()
-                            print("📋 可用路由:")
-                            for route in routes_data.get('routes', []):
-                                if '/api/' in route['rule']:
-                                    print(f"   {list(route['methods'])} {route['rule']}")
-                    except:
-                        print("⚠️ 无法获取路由列表")
-
-                    return True
-            except:
-                if i < max_retries - 1:
-                    print(f"⏳ 等待服务器启动... ({i+1}/{max_retries})")
-                else:
-                    print("❌ Flask-SocketIO服务器启动失败 - 超时")
-                    return False
-
-        return False
-
-    def initialize_voice(self):
-        """初始化语音功能 - 更健壮的版本"""
-        try:
-            print("🎯 正在初始化语音功能...")
-
-            # 检查关键组件
-            if not hasattr(self, 'audio_processor') or not self.audio_processor:
-                print("❌ 音频处理器不可用")
-                return False
-
-            if not hasattr(self, 'voice_recognizer') or not self.voice_recognizer:
-                print("❌ 语音识别器不可用")
-                return False
-
-            try:
-                from core.ollama_client import OllamaClient
-                print("🔍 检查AI服务状态...")
-
-                # 测试连接
-                if self.command_handler and hasattr(self.command_handler, 'ollama_client'):
-                    ollama_client = self.command_handler.ollama_client
-                    if ollama_client.is_service_available():
-                        if ollama_client.websocket_available:
-                            print("✅ WebSocket服务可用")
-                        elif ollama_client.http_available:
-                            print("✅ HTTP服务可用")
-                    else:
-                        print("❌ AI服务不可用")
-                        print("💡 请确保已启动AI服务")
-            except Exception as e:
-                print(f"⚠️ AI服务检查失败: {e}")
-
-            print("🔧 正在校准麦克风...")
-            try:
-                self.voice_recognizer.calibrate_microphone()
-            except Exception as e:
-                print(f"⚠️ 麦克风校准失败: {e}")
-                print("💡 将继续使用默认设置")
-
-            # 启动音频播放线程（现在会检查组件）
-            self.start_audio_playback_thread()
-
-            print("🔊 测试语音播报...")
-            try:
-                # 直接测试语音播放
-                test_text = "小智语音助手启动成功，请说'小智'唤醒我"
-                print(f"🔊 测试播放: {test_text}")
-
-                # 使用音频队列而不是直接调用
-                self.speak_text(test_text)
-                print("✅ 语音播报测试已加入队列")
-
-            except Exception as e:
-                print(f"⚠️ 语音播报测试失败: {e}")
-
-            return True
-        except Exception as e:
-            print(f"❌ 语音初始化失败: {e}")
-            print("⚠️ 将使用文本模式")
-            self.voice_enabled = False
-            return False
-
-    def voice_control_loop(self):
-        """语音控制主循环 - 支持唤醒词模式"""
-        print("🎤 语音控制已启动，等待唤醒词...")
-
-        while not self.is_cleaning_up:
-            try:
-                # 使用唤醒词模式进行录音
-                text = self.voice_recognizer.record_and_transcribe(
-                    command_handler=self.command_handler,
-                    require_wake_word=True  # 启用唤醒词检测
-                )
-
-                if text and text not in ["语音识别失败，请重试", "语音识别异常，请重试"]:
-                    print(f"🎯 接收到语音命令: {text}")
-
-                    # 处理命令
-                    response = self.command_handler.process_command_with_wake_word(text)
-
-                    if response:
-                        print(f"🤖 系统回复: {response}")
-                    else:
-                        print("🔇 未检测到有效命令或唤醒词")
-
-                elif text:
-                    print(f"⚠️ 语音识别问题: {text}")
-
-                # 短暂延迟，避免过度占用CPU
-                time.sleep(0.5)
-
-            except Exception as e:
-                print(f"❌ 语音控制循环异常: {e}")
-                time.sleep(1)
-
     def run_voice_mode(self):
-        """运行语音交互模式 - 增强版本：改进播放状态检查"""
-        print("\n" + "="*50)
-        print("🎉 小智语音助手 - 智能语音模式")
-        print("="*50)
-        print("💡 语音唤醒功能已启用")
-        print("💡 播放状态互斥：语音播放时暂停监听，播放结束后恢复")
-        print("💡 请清晰地说出 '你好小智' 或 '小智' 来唤醒系统")
-        print("="*50)
+        """运行语音交互模式 - 简化版本"""
+        print("🎤 语音模式启动...")
+        print("💡 语音模式已通过 /runWorkflow 接口实现")
+        print("🌐 请通过前端调用接口使用语音功能")
 
-        # 初始状态为休眠
-        self.is_awake = False
-        self.is_exited = True
-        self.last_wake_time = time.time()
-
-        # 确保语音识别器就绪
-        if not hasattr(self, 'voice_recognizer') or not self.voice_recognizer:
-            print("❌ 语音识别器不可用，无法启动语音模式")
-            return
-
-        # 确保命令处理器就绪
-        if not hasattr(self, 'command_handler') or not self.command_handler:
-            print("❌ 命令处理器不可用，无法启动语音模式")
-            return
-
-        print("✅ 语音模式启动完成，开始监听唤醒词...")
-
-        # 主循环
-        while self.is_running:
-            try:
-                current_time = datetime.now().strftime("%H:%M:%S")
-
-                # 增强的播放状态检查
-                if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                    if self.voice_recognizer.should_ignore_for_playback():
-                        # 显示播放状态信息
-                        if self.voice_recognizer._is_speaking:
-                            print(f"\r[{current_time}] 🔊 系统正在播放语音，暂停监听...", end="", flush=True)
-                        else:
-                            cooldown_remaining = self.voice_recognizer._playback_cooldown - (time.time() - self.voice_recognizer._last_speech_end_time)
-                            if cooldown_remaining > 0:
-                                print(f"\r[{current_time}] ⏳ 播放冷却期中... ({cooldown_remaining:.1f}s)  ", end="", flush=True)
-                        time.sleep(0.5)
-                        continue
-
-                # 检查是否在唤醒状态
-                if not self.is_awake:
-                    # 休眠状态：只监听唤醒词
-                    wake_prompts = [
-                        f"\r[{current_time}] 💤 休眠中... 说'你好小智'唤醒我",
-                        f"\r[{current_time}] 😴 休息中... 喊'小智'叫醒我",
-                        f"\r[{current_time}] ⏸️  待命中... 说'小智'激活",
-                        f"\r[{current_time}] 🔊 聆听中... 呼唤'你好小智'开始对话"
-                    ]
-                    prompt_index = int(time.time()) % len(wake_prompts)
-                    print(wake_prompts[prompt_index], end="", flush=True)
-
-                    # 关键修复：使用语音识别器的唤醒词检测
-                    try:
-                        # 直接使用语音识别器的唤醒词检测功能
-                        wake_detected = self.voice_recognizer.listen_for_wake_word()
-
-                        if wake_detected:
-                            print(f"\n✅ 检测到唤醒词，激活系统")
-                            self._handle_wakeup()
-
-                        # 短暂延迟避免过度占用CPU
-                        time.sleep(0.5)
-
-                    except Exception as e:
-                        print(f"\n❌ 唤醒词检测失败: {e}")
-                        time.sleep(1)
-
-                    continue
-
-                # 唤醒状态的处理逻辑
-                else:
-                    # 检查唤醒超时
-                    if time.time() - self.last_wake_time > self.wake_timeout:
-                        print(f"\n⏰ 唤醒超时，自动休眠")
-                        self._handle_sleep()
-                        continue
-
-                    # 在唤醒状态下录音
-                    try:
-                        text = self.voice_recognizer.record_and_transcribe(
-                            self.command_handler,
-                            require_wake_word=False  # 唤醒状态下不需要唤醒词
-                        )
-
-                        if text and text not in ["语音识别失败，请重试", "语音识别异常", "语音识别异常，请重试"]:
-                            print(f"\n🎯 接收到命令: {text}")
-
-                            # 处理命令
-                            response = self.command_handler.process_command(text)
-
-                            if response:
-                                print(f"🤖 系统回复: {response}")
-                                # 语音播报回复
-                                self.speak_text(response)
-
-                                # 检查是否为退出命令
-                                if self.command_handler._is_exit_command(text):
-                                    print("👋 用户要求退出，进入休眠")
-                                    self._handle_sleep()
-
-                            else:
-                                print("🔇 未识别到有效命令")
-
-                        elif text:
-                            print(f"⚠️ 语音识别问题: {text}")
-
-                    except Exception as e:
-                        print(f"❌ 命令处理异常: {e}")
-
-                    # 短暂延迟
-                    time.sleep(0.5)
-
-            except KeyboardInterrupt:
-                print(f"\n\n🛑 用户中断")
-                break
-            except Exception as e:
-                print(f"\n❌ 语音循环错误: {e}")
+        # 保持程序运行
+        try:
+            while self.is_running:
                 time.sleep(1)
-
-    def _handle_wakeup(self):
-        """处理唤醒"""
-        self.is_awake = True
-        self.is_exited = False
-        self.last_wake_time = time.time()
-
-        # 小爱风格的唤醒回复
-        wake_responses = [
-            "哎~ 小智来啦~ 有什么可以帮您的吗？",
-            "在呢~ 小智随时为您服务~",
-            "来啦~ 需要小智做什么呢？",
-            "嗯~ 小智已就位，请吩咐~"
-        ]
-        import random
-        response = random.choice(wake_responses)
-
-        print(f"\n✅ 检测到唤醒词，系统已激活")
-        self.speak_text(response)
-
-        # 通过WebSocket通知前端
-        self.emit('wakeup', {'message': '系统已唤醒'})
-
-    def _handle_sleep(self):
-        """处理休眠"""
-        self.is_awake = False
-        self.is_exited = True
-
-        # 重置对话状态
-        if self.command_handler:
-            self.command_handler.reset_conversation_state()
-
-        sleep_responses = [
-            "好的，小智先退下啦，需要的时候随时叫我~",
-            "再见啦，有事随时喊小智哦~",
-            "小智去休息啦，想我了就说'小智'~",
-            "好的，下次见~ 记得叫'小智'唤醒我哦~"
-        ]
-        import random
-        response = random.choice(sleep_responses)
-
-        print(f"✅ 系统进入休眠状态，等待唤醒词")
-        self.speak_text(response)
-
-        # 通过WebSocket通知前端
-        self.emit('sleep', {'message': '系统已休眠'})
-
-    def _is_exit_command(self, text):
-        """判断是否为退出命令"""
-        exit_keywords = ['退出', '结束', '结束对话', '退出系统', '再见', '拜拜']
-        text_lower = text.lower().strip()
-        return any(exit_word in text_lower for exit_word in exit_keywords)
+        except KeyboardInterrupt:
+            print("\n👋 用户退出")
 
     def run(self):
         """运行助手 - 修复版本"""
@@ -918,35 +768,11 @@ class XiaoZhiAssistant:
         try:
             print("🚀 系统启动中...")
 
-            # 检查语音识别器是否就绪 - 简化检查逻辑
-            voice_ready = (
-                    hasattr(self, 'voice_recognizer') and
-                    self.voice_recognizer is not None and
-                    hasattr(self.voice_recognizer, 'model_loaded') and
-                    self.voice_recognizer.model_loaded
-            )
-
-            # 启动音频播放线程
-            self.start_audio_playback_thread()
-
-            # 服务启动成功的语音播报
-            if voice_ready:
-                self.speak_text("小智语音助手服务启动成功，请说'小智'唤醒我")
-            else:
-                self.speak_text("小智语音助手服务已启动，文本模式可用")
-
             # 选择运行模式
             mode = self.choose_mode()
 
             if mode == 'exit':
                 return
-
-            if mode == 'voice' and not voice_ready:
-                print("❌ 语音模式不可用，切换到文本模式")
-                mode = 'text'
-            elif mode == 'auto':
-                mode = 'voice' if voice_ready else 'text'
-                print(f"🔍 自动选择模式: {'语音模式' if mode == 'voice' else '文本模式'}")
 
             # 运行选定的模式
             if mode == 'voice':
@@ -964,18 +790,13 @@ class XiaoZhiAssistant:
             self.cleanup()
 
     def run_text_mode(self):
-        """运行文本交互模式 - 修复版本"""
+        """运行文本交互模式 - 简化版本"""
         print("\n" + "="*50)
         print("💬 小智助手 - 文本模式")
         print("="*50)
         print("📚 支持命令:")
-        print("  • 查询张三的档案")
-        print("  • 技术部有哪些人员")
-        print("  • 显示李四的信息")
-        print("  • 现在几点")
-        print("  • 技术部信息")
-        print("  • 项目信息")
-        print("  • 退出")
+        print("  • 查询档案")
+        print("  • 设备控制")
         print("="*50)
 
         while self.is_running:
@@ -985,24 +806,6 @@ class XiaoZhiAssistant:
                 if not user_input:
                     continue
 
-                # 检查退出命令
-                if self._is_exit_command(user_input):
-                    response = self.command_handler.process_command(user_input)
-                    if response:
-                        print(f"🤖 小智: {response}")
-                        # 通过WebSocket发送响应给前端
-                        self.emit('response', {'text': response})
-                        # 语音播报响应
-                        self.speak_text(response)
-                    # 更新本地状态
-                    self._handle_sleep()
-                    print("💤 系统已休眠，输入任意内容唤醒...")
-                    # 等待唤醒
-                    wake_input = input("👤 唤醒: ").strip()
-                    if wake_input:
-                        self._handle_wakeup()
-                    continue
-
                 # 处理普通命令
                 response = self.command_handler.process_command(user_input)
 
@@ -1010,17 +813,6 @@ class XiaoZhiAssistant:
                     print(f"🤖 小智: {response}")
                     # 通过WebSocket发送响应给前端
                     self.emit('response', {'text': response})
-                    # 语音播报响应
-                    self.speak_text(response)
-
-                    # 可选语音播报
-                    if hasattr(self, 'voice_enabled') and self.voice_enabled:
-                        speak_choice = input("🔊 播放语音？(y/n): ").strip().lower()
-                        if speak_choice in ['y', 'yes', '是']:
-                            try:
-                                self.speak_text(response)
-                            except Exception as e:
-                                print(f"⚠️  语音播报失败: {e}")
                 else:
                     print("❌ 未识别到有效命令，请重试")
 
@@ -1065,27 +857,7 @@ class XiaoZhiAssistant:
             except Exception as e:
                 print(f"❌ 健康检查测试失败: {e}")
 
-            # 测试3: Speak接口
-            print("📡 测试Speak接口...")
-            try:
-                test_data = {"text": "API连接测试"}
-                response = requests.post(
-                    f"{base_url}/api/speak",
-                    json=test_data,
-                    timeout=10,
-                    headers={'Content-Type': 'application/json'}
-                )
-                if response.status_code == 200:
-                    data = response.json()
-                    print(f"✅ Speak接口正常 - 状态: {data.get('status', 'unknown')}")
-                    print(f"   📝 测试文本: '{test_data['text']}' 已加入队列")
-                else:
-                    print(f"❌ Speak接口返回状态码: {response.status_code}")
-                    print(f"   📋 响应内容: {response.text}")
-            except Exception as e:
-                print(f"❌ Speak接口测试失败: {e}")
-
-            # 测试4: 列出所有路由
+            # 测试3: 列出所有路由
             print("📡 检查可用路由...")
             try:
                 response = requests.get(f"{base_url}/", timeout=5)
@@ -1109,11 +881,8 @@ class XiaoZhiAssistant:
                             "GET  /",
                             "GET  /api/status",
                             "GET  /api/health",
-                            "GET  /api/history",
-                            "POST /api/speak",
-                            "POST /api/test_speech",
-                            "POST /api/start",
-                            "POST /api/stop"
+                            "POST /uploadAudio",
+                            "POST /runWorkflow"
                         ]
                         for route in known_routes:
                             print(f"   {route}")
@@ -1135,22 +904,18 @@ class XiaoZhiAssistant:
     def choose_mode(self):
         """选择运行模式"""
         print("\n请选择运行模式:")
-        print("1. 🎤 语音模式 (Vosk语音识别 + 唤醒词)")
-        print("2. 💬 文本模式 (键盘输入)")
-        print("3. ⚡ 自动模式 (自动检测)")
+        print("1. 💬 语音 (语音输入)")
+        print("2. 💬 文本 (键盘输入)")
 
         while True:
             try:
-                choice = input("\n请选择模式 (1/2/3): ").strip()
-
+                choice = input("\n请选择模式 (1): ").strip()
                 if choice == '1':
                     return 'voice'
                 elif choice == '2':
                     return 'text'
-                elif choice == '3':
-                    return 'auto'
                 else:
-                    print("❌ 无效选择，请输入 1, 2 或 3")
+                    print("❌ 无效选择，请输入 1 或 2")
             except KeyboardInterrupt:
                 return 'exit'
             except Exception as e:
@@ -1164,21 +929,6 @@ class XiaoZhiAssistant:
         self.is_cleaning_up = True
 
         try:
-            # 移除播放状态监听器
-            if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                self.voice_recognizer.remove_playback_state_listener(self)
-
-            # 等待音频队列处理完成
-            if hasattr(self, 'audio_thread') and self.audio_thread:
-                print("🔄 等待音频播放线程结束...")
-                self.audio_thread.join(timeout=5.0)
-
-            if hasattr(self, 'voice_recognizer') and self.voice_recognizer:
-                self.voice_recognizer.cleanup()
-
-            if hasattr(self, 'audio_processor') and self.audio_processor:
-                self.audio_processor.cleanup()
-
             if hasattr(self, 'command_handler') and self.command_handler:
                 self.command_handler.cleanup()
 
@@ -1195,31 +945,6 @@ def main():
     os.makedirs("temp_audio", exist_ok=True)
     os.makedirs("logs", exist_ok=True)
 
-    # 检查 Vosk 模型
-    model_paths_to_check = [
-        "model/vosk-model-cn-0.22",
-        "model/vosk-model-small-cn-0.22",
-        "model",
-        "vosk-model-cn-0.22"
-    ]
-
-    found_model = False
-    for path in model_paths_to_check:
-        if os.path.exists(path):
-            print(f"✅ 找到 Vosk 模型: {path}")
-            found_model = True
-            break
-
-    if not found_model:
-        print("❌ Vosk 模型目录不存在!")
-        print("💡 请检查模型目录结构:")
-        print("   您的模型应该在: model/vosk-model-cn-0.22/")
-        print("   目录内容应该包含: am/final.mdl, graph/HCLG.fst, ivector/, conf/ 等")
-        print("\n📥 您可以从这里下载模型:")
-        print("   https://alphacephei.com/vosk/models")
-        print("   推荐下载: vosk-model-cn-0.22 或 vosk-model-small-cn-0.22")
-        return
-
     assistant = None
     try:
         assistant = XiaoZhiAssistant()
@@ -1232,8 +957,7 @@ def main():
         traceback.print_exc()
         print("💡 如果问题持续存在，请尝试:")
         print("   1. 检查所有依赖是否安装正确")
-        print("   2. 检查模型路径是否正确")
-        print("   3. 在文本模式下运行进行测试")
+        print("   2. 在文本模式下运行进行测试")
     finally:
         if assistant:
             assistant.cleanup()
