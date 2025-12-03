@@ -523,3 +523,163 @@
 2025-11-28 15:06:57,602 - database_query - INFO - ✅ 示例数据表创建成功
 2025-11-28 15:06:57,602 - database_query - INFO - ✅ SQLite数据库连接成功
 2025-11-28 15:10:45,830 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:14:27,246 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 15:14:27,247 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 15:14:27,251 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 15:14:27,253 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 15:15:56,393 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:15:56,395 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:24:40,261 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 15:24:40,262 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 15:24:40,265 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 15:24:40,267 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 15:25:48,153 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:25:48,156 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:30:21,299 - database_query - WARNING - ⚠️ MySQL连接失败: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2025-11-28 15:30:21,301 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-28 15:30:21,304 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-28 15:30:21,304 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-28 15:37:41,893 - database_query - INFO - 数据库连接已关闭
+2025-11-28 15:37:41,899 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:26:28,807 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 15:26:28,810 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 15:26:28,823 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 15:26:28,823 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 15:26:36,180 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:26:36,180 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:40:08,411 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 15:40:08,413 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 15:40:08,417 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 15:40:08,418 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 15:44:34,151 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:44:34,152 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:44:46,444 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 15:44:46,446 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 15:44:46,449 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 15:44:46,449 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 15:58:53,571 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:58:53,572 - database_query - INFO - 数据库连接已关闭
+2025-11-30 15:59:05,918 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 15:59:05,919 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 15:59:05,922 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 15:59:05,922 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 16:13:51,700 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:13:51,701 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:14:04,086 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 16:14:04,087 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 16:14:04,089 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 16:14:04,089 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 16:20:13,547 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:20:13,550 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:20:25,622 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 16:20:25,624 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 16:20:25,627 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 16:20:25,627 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 16:24:11,627 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:24:11,628 - database_query - INFO - 数据库连接已关闭
+2025-11-30 16:24:24,266 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 16:24:24,268 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 16:24:24,271 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 16:24:24,271 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 19:18:39,774 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:18:39,774 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:18:52,734 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 19:18:52,734 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 19:18:52,738 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 19:18:52,738 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 19:28:45,099 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:28:45,101 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:41:42,594 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 19:41:42,595 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 19:41:42,598 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 19:41:42,598 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 19:51:05,246 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:51:05,247 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:51:18,609 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 19:51:18,610 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 19:51:18,614 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 19:51:18,614 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-11-30 19:56:08,383 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:56:08,385 - database_query - INFO - 数据库连接已关闭
+2025-11-30 19:56:21,023 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-11-30 19:56:21,024 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-11-30 19:56:21,028 - database_query - INFO - ✅ 示例数据表创建成功
+2025-11-30 19:56:21,028 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 13:54:07,716 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 13:54:07,719 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 13:54:07,740 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 13:54:07,741 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 14:31:49,482 - database_query - INFO - 数据库连接已关闭
+2025-12-01 14:31:49,484 - database_query - INFO - 数据库连接已关闭
+2025-12-01 14:32:02,095 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 14:32:02,096 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 14:32:02,100 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 14:32:02,101 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 15:04:54,229 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:04:54,235 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:05:07,070 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 15:05:07,071 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 15:05:07,073 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 15:05:07,073 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 15:31:59,940 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:31:59,942 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:32:12,494 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 15:32:12,494 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 15:32:12,499 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 15:32:12,501 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 15:41:42,995 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:41:42,996 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:41:56,334 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 15:41:56,336 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 15:41:56,339 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 15:41:56,339 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 15:54:26,814 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:54:26,815 - database_query - INFO - 数据库连接已关闭
+2025-12-01 15:54:40,661 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 15:54:40,662 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 15:54:40,664 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 15:54:40,665 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 16:10:56,743 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:10:56,743 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:11:12,232 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 16:11:12,234 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 16:11:12,239 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 16:11:12,240 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 16:17:42,586 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:17:42,593 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:17:55,527 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 16:17:55,527 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 16:17:55,536 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 16:17:55,536 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 16:21:06,514 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:21:06,515 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:21:19,277 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 16:21:19,278 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 16:21:19,282 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 16:21:19,283 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 16:23:05,598 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:23:05,599 - database_query - INFO - 数据库连接已关闭
+2025-12-01 16:23:18,573 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 16:23:18,574 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 16:23:18,580 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 16:23:18,580 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 18:16:12,635 - database_query - INFO - 数据库连接已关闭
+2025-12-01 18:16:12,636 - database_query - INFO - 数据库连接已关闭
+2025-12-01 18:16:25,679 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 18:16:25,680 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 18:16:25,682 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 18:16:25,682 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 18:21:08,382 - database_query - INFO - 数据库连接已关闭
+2025-12-01 18:21:08,387 - database_query - INFO - 数据库连接已关闭
+2025-12-01 18:22:03,311 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 18:22:03,313 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 18:22:03,313 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 18:22:03,313 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-01 20:47:15,668 - database_query - INFO - 数据库连接已关闭
+2025-12-01 20:47:15,668 - database_query - INFO - 数据库连接已关闭
+2025-12-01 20:47:30,264 - database_query - WARNING - ⚠️ MySQL连接失败: 2003: Can't connect to MySQL server on 'localhost:3306' (Errno 10061: 由于目标计算机积极拒绝，无法连接。)
+2025-12-01 20:47:30,315 - database_query - INFO - 🔄 尝试连接SQLite...
+2025-12-01 20:47:30,318 - database_query - INFO - ✅ 示例数据表创建成功
+2025-12-01 20:47:30,319 - database_query - INFO - ✅ SQLite数据库连接成功
+2025-12-02 11:03:36,996 - database_query - INFO - 数据库连接已关闭
+2025-12-02 11:03:36,998 - database_query - INFO - 数据库连接已关闭

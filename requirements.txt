@@ -28,13 +28,6 @@ requests==2.31.0
 # 语音合成服务调用
 requests>=2.25.0
 
-# 音频处理
-pygame>=2.0.0
-pyaudio>=0.2.11
-
-# 语音识别
-vosk>=0.3.45
-
 # Web框架
 flask>=2.0.0
 flask-socketio>=5.0.0

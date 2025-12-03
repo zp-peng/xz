@@ -9,11 +9,8 @@ class Settings:
             'port': 3306,
             'user': 'root',
             'password': '123456',
-            'database': 'archive_management'
+            'database': 'sys'
         }
-
-        # 语音识别配置 (Vosk 相关)
-        self.vosk_model_path = "model/vosk-model-cn-0.22"
 
         # WebSocket服务器配置 - 新增
         self.websocket_config = {

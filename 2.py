@@ -193,7 +193,7 @@ def main():
     print("=" * 50)
 
     # 测试查询
-    query = "电能表"
+    query = "接线方式三项三线"
 
     # 直接获取文档列表
     documents = api_client.get_documents(query)

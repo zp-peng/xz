@@ -28,12 +28,12 @@ class ArchiveManager:
             return False
 
     def query_archive(self, query_text):
-        """查询档案 - 支持名称和编号查询"""
+        """查询档案 - 统一查询所有相关字段"""
         try:
             self.logger.info(f"档案查询: {query_text}")
 
-            # 分析查询类型
-            query_type, query_value = self._analyze_query(query_text)
+            # 清理查询文本
+            query_value = self._clean_query_text(query_text)
 
             if not query_value:
                 return {
@@ -44,7 +44,7 @@ class ArchiveManager:
 
             # 执行查询
             if self.connection and self.connection.is_connected():
-                return self._execute_archive_query(query_type, query_value)
+                return self._execute_double_query(query_value)
             else:
                 return {
                     'success': False,
@@ -60,8 +60,8 @@ class ArchiveManager:
                 'results': []
             }
 
-    def _analyze_query(self, text):
-        """分析查询意图 - 检测档案查询语义"""
+    def _clean_query_text(self, text):
+        """清理查询文本 - 移除常见的前缀和后缀，并提取关键信息"""
         text = text.strip()
 
         # 清理查询前缀
@@ -83,33 +83,30 @@ class ArchiveManager:
                 text = text[:-len(suffix)].strip()
                 break
 
-        # 如果清理后为空，返回未知
-        if not text:
-            return 'unknown', None
+        # 特别处理"为"和"是"连接的情况，如"接线方式为三相三线"
+        # 正则表达式匹配：XXX为YYY 或 XXX是YYY 的形式
+        pattern = r'(.+?)(?:为|是)(.+)$'
+        match = re.match(pattern, text)
 
-        # 检测档案编号查询
-        code_patterns = [
-            r'编号\s*[:：]?\s*([^\s]+)',   # 编号: 12345
-            r'编号\s*([^\s]+)',            # 编号12345
-            r'^[A-Za-z0-9\-_]+$'          # 纯编号，如: 2024-001
-        ]
+        if match:
+            # 获取关键字前的描述部分（如"接线方式"）和实际值（如"三相三线"）
+            description = match.group(1).strip()
+            actual_value = match.group(2).strip()
 
-        for pattern in code_patterns:
-            match = re.search(pattern, text, re.IGNORECASE)
-            if match:
-                if len(match.groups()) > 0:
-                    code = match.group(1).strip()
-                else:
-                    code = match.group(0).strip()
+            self.logger.info(f"📝 检测到描述性查询: '{description}' 为/是 '{actual_value}'")
 
-                if code and len(code) > 0:
-                    return 'code', code
+            # 如果描述包含"接线方式"，我们只提取实际值
+            if '接线方式' in description:
+                text = actual_value
+                self.logger.info(f"📝 提取接线方式值: '{text}'")
+            else:
+                # 其他情况，也使用实际值
+                text = actual_value
 
-        # 将整个文本作为名称查询
-        return 'name', text
+        return text
 
-    def _execute_archive_query(self, query_type, query_value):
-        """执行档案查询 - 同时支持中文数字和阿拉伯数字"""
+    def _execute_double_query(self, query_value):
+        """执行双重查询 - 先查询转换后的阿拉伯数字，再查询原始中文数字"""
         try:
             cursor = self.connection.cursor(dictionary=True)
 
@@ -128,73 +125,166 @@ class ArchiveManager:
             for chinese, arabic in chinese_number_map.items():
                 if chinese in query_value:
                     converted_value = converted_value.replace(chinese, arabic)
-                    self.logger.info(f"📝 中文数字转换: {chinese} -> {arabic}, 转换后: {converted_value}")
 
-            if query_type == 'name':
-                # 按名称模糊查询，同时查询原始值和转换后的值
+            print(f"📝 [DEBUG] 查询值转换: '{query_value}' -> '{converted_value}'")
+
+            # 定义查询函数，用于执行单次查询
+            def execute_single_query(search_value):
                 query = """
                     SELECT DISTINCT ta.*
                     FROM `t_archives` ta
                     LEFT JOIN t_archives_attachment taa ON ta.id = taa.archives_id
                     WHERE ta.is_del = '0'
                     AND (
+                        -- 档案表字段
                         ta.title LIKE CONCAT('%', %s, '%')
-                        OR taa.`name` LIKE CONCAT('%', %s, '%')
-                        OR ta.title LIKE CONCAT('%', %s, '%')
-                        OR taa.`name` LIKE CONCAT('%', %s, '%')
-                    )
-                    ORDER BY ta.create_time DESC
-                """
-                cursor.execute(query, (query_value, query_value, converted_value, converted_value))
-            elif query_type == 'code':
-                # 按编号模糊查询，同时查询原始值和转换后的值
-                query = """
-                    SELECT DISTINCT ta.*
-                    FROM `t_archives` ta
-                    LEFT JOIN t_archives_attachment taa ON ta.id = taa.archives_id
-                    WHERE ta.is_del = '0'
-                    AND (
-                        ta.dang_num LIKE CONCAT('%', %s, '%')
                         OR ta.dang_num LIKE CONCAT('%', %s, '%')
                     )
                     ORDER BY ta.create_time DESC
                 """
-                cursor.execute(query, (query_value, converted_value))
-            else:
-                cursor.close()
-                return {
-                    'success': False,
-                    'error': '无法识别查询类型',
-                    'results': []
-                }
+                # 参数数量和占位符数量必须一致：2个占位符，2个参数
+                cursor.execute(query, (search_value, search_value))
+                return cursor.fetchall()
 
-            results = cursor.fetchall()
-            cursor.close()
+            # 第一次查询：使用转换后的阿拉伯数字
+            results1 = execute_single_query(converted_value)
+            print(f"📊 [DEBUG] 第一次查询结果数量: {len(results1)}")
 
-            self.logger.info(f"查询结果数量: {len(results)}")
+            # 第二次查询：使用原始中文数字
+            results2 = execute_single_query(query_value)
 
-            # 如果查询结果很多，可能需要去重（按标题和编号）
+            # 合并两次查询结果并去重
+            all_results = results1 + results2
+
+            # 去重（按标题和编号）
             unique_results = []
             seen_keys = set()
 
-            for result in results:
-                # 使用标题+编号作为唯一键
+            for result in all_results:
                 key = f"{result.get('title', '')}_{result.get('dang_num', '')}"
                 if key not in seen_keys:
                     seen_keys.add(key)
                     unique_results.append(result)
 
+            print(f"📊 [DEBUG] 去重后结果数量: {len(unique_results)}")
+
+            # 如果双重查询没有结果，则尝试通过文档查询接口查找
+            if len(unique_results) == 0:
+                print(f"🔍 [DEBUG] 双重查询无结果，尝试通过文档查询接口查找: '{query_value}'")
+                try:
+                    # 尝试导入主应用中的文档查询函数
+                    import requests
+                    import json
+
+                    # 构建请求参数
+                    request_data = {'query_text': query_value}
+                    print(f"📤 [DEBUG] 发送文档查询请求参数: {json.dumps(request_data, ensure_ascii=False)}")
+
+                    # 调用文档查询接口
+                    response = requests.post(
+                        'http://localhost:5000/api/documents/query',
+                        json=request_data,
+                        timeout=10
+                    )
+
+                    print(f"📥 [DEBUG] 文档查询接口响应状态码: {response.status_code}")
+
+                    if response.status_code == 200:
+                        data = response.json()
+                        print(f"📥 [DEBUG] 文档查询接口返回原始数据: {json.dumps(data, ensure_ascii=False)}")
+
+                        if data.get('success') and data.get('documents'):
+                            documents = data.get('documents', [])
+                            print(f"📄 [DEBUG] 文档查询接口解析后返回 {len(documents)} 个文档: {documents}")
+
+                            # 对每个文档名进行查询
+                            document_results = []
+                            for doc_name in documents:
+                                # 清理文档名
+                                import re
+                                # 移除 "数字. " 格式的前缀
+                                doc_name_clean = re.sub(r'^\d+\.\s*', '', doc_name)
+                                # 移除括号及括号内的内容（如"(激光熔覆)"）
+                                doc_name_clean = re.sub(r'\([^)]*\)', '', doc_name_clean)
+                                # 移除文件扩展名
+                                doc_name_without_ext = doc_name_clean.split('.')[0] if '.' in doc_name_clean else doc_name_clean
+                                # 移除前后空格
+                                doc_name_without_ext = doc_name_without_ext.strip()
+
+                                print(f"🔍 [DEBUG] 原始文档名: '{doc_name}'")
+
+                                # 查询档案表（使用name字段）
+                                name_query = """
+                                    SELECT DISTINCT ta.*
+                                    FROM `t_archives` ta
+                                    LEFT JOIN t_archives_attachment taa ON ta.id = taa.archives_id
+                                    WHERE ta.is_del = '0'
+                                    AND taa.name LIKE CONCAT('%', %s, '%')
+                                    ORDER BY ta.create_time DESC
+                                """
+                                cursor.execute(name_query, (doc_name_without_ext,))
+                                doc_results = cursor.fetchall()
+
+                                if doc_results:
+                                    print(f"🔍 [DEBUG] 根据文档名 '{doc_name_without_ext}' 查询到 {len(doc_results)} 条档案记录")
+                                    document_results.extend(doc_results)
+
+                            # 如果通过文档名查询到结果，合并并去重
+                            if document_results:
+                                # 去重
+                                seen_doc_keys = set()
+                                unique_doc_results = []
+
+                                for result in document_results:
+                                    key = f"{result.get('title', '')}_{result.get('dang_num', '')}"
+                                    if key not in seen_doc_keys:
+                                        seen_doc_keys.add(key)
+                                        unique_doc_results.append(result)
+
+                                print(f"📊 [DEBUG] 文档查询最终去重后结果数量: {len(unique_doc_results)}")
+
+                                # 返回文档查询的结果 - 保持与SQL查询完全一致的结构
+                                cursor.close()
+                                return {
+                                    'success': True,
+                                    'query_value': query_value,
+                                    'converted_value': converted_value,
+                                    'results': unique_doc_results,
+                                    'count': len(unique_doc_results),
+                                    'query_type': 'double'  # 保持一致的查询类型
+                                }
+                            else:
+                                print("❌ [DEBUG] 文档查询接口返回文档名，但未在档案表中找到对应记录")
+                        else:
+                            error_msg = data.get('error', '未知错误')
+                            print(f"❌ [DEBUG] 文档查询接口调用失败: {error_msg}")
+                    else:
+                        response_text = response.text[:500] if response.text else "无响应内容"
+                        print(f"❌ [DEBUG] 文档查询接口HTTP错误: {response.status_code}, 响应内容: {response_text}")
+                except requests.exceptions.Timeout:
+                    print("❌ [DEBUG] 调用文档查询接口超时")
+                except requests.exceptions.ConnectionError:
+                    print("❌ [DEBUG] 无法连接到文档查询接口，请确保主应用已启动")
+                except json.JSONDecodeError as e:
+                    print(f"❌ [DEBUG] 文档查询接口返回JSON解析失败: {e}")
+                except Exception as e:
+                    print(f"❌ [DEBUG] 调用文档查询接口异常: {e}")
+                    import traceback
+                    traceback.print_exc()
+
+            cursor.close()
+
             return {
                 'success': True,
-                'query_type': query_type,
                 'query_value': query_value,
                 'converted_value': converted_value,
                 'results': unique_results,
-                'count': len(unique_results)
+                'count': len(unique_results),
+                'query_type': 'double'  # 标记使用了双重查询
             }
 
         except Exception as e:
-            self.logger.error(f"数据库查询失败: {e}")
+            print(f"❌ [DEBUG] 数据库查询失败: {e}")
             if 'cursor' in locals():
                 cursor.close()
             return {
@@ -202,33 +292,25 @@ class ArchiveManager:
                 'error': str(e),
                 'results': []
             }
-
     def format_archive_results(self, archive_result):
         """格式化档案查询结果"""
         if not archive_result.get('success', False):
             return "查询档案时出现错误，请稍后再试"
 
         results = archive_result.get('results', [])
-        query_type = archive_result.get('query_type', 'unknown')
         query_value = archive_result.get('query_value', '')
+        converted_value = archive_result.get('converted_value', '')
 
         if not results:
-            if query_type == 'name':
-                return f"没有找到名称包含'{query_value}'的档案"
-            elif query_type == 'code':
-                return f"没有找到编号为'{query_value}'的档案"
-            else:
-                return "没有找到相关的档案信息"
+            return f"没有找到包含'{query_value}'或'{converted_value}'的档案信息"
 
         if len(results) == 1:
             archive = results[0]
-            return f"""📋 档案信息：
-    档案名称：{archive.get('title', '未知')}
-    档案编号：{archive.get('dang_num', '未知')}
-    创建时间：{archive.get('create_time', '未知')}"""
+            # 返回简洁的档案信息，去掉表情符号和缩进
+            return f"档案名称：{archive.get('title', '未知')}，档案编号：{archive.get('dang_num', '未知')}，创建时间：{archive.get('create_time', '未知')}"
         else:
-            # 只返回简单的数量提示和选择指示
-            return f"已为您找到{len(results)}条相关档案，请选择要查看哪一条"
+            # 返回图片中的格式："为您找到X条相关档案，请选择要查看哪一条"
+            return f"为您找到{len(results)}条相关档案，请选择要查看哪一条"
 
     def query_attachment_by_archive_id(self, archive_id):
         """根据档案ID查询附件信息"""

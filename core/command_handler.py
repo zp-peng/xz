@@ -325,15 +325,6 @@ class CommandHandler:
                 self.logger.info("🎯 识别为退出命令")
                 return self._handle_exit_command(cleaned_text, text)
 
-            # 🔥🔥🔥 关键修复：先检查是否在选择状态
-            # 检查选择输入（如"选择第一个"、"选择第一条"、"第一条"等）
-            is_expecting_selection = self.conversation_state.get('expecting_selection', False)
-            self.logger.info(f"🔄 当前选择状态: expecting_selection={is_expecting_selection}")
-
-            if is_expecting_selection:
-                self.logger.info(f"🔄 处理选择输入，文本: '{cleaned_text}'")
-                return self._handle_selection(cleaned_text, text)
-
             # 🔥 新增：即使不在选择状态，如果文本看起来像选择命令，也尝试处理
             # 例如：第一条、第二个、选择第一个等
             if self._looks_like_selection_command(cleaned_text):
@@ -2212,6 +2203,10 @@ class CommandHandler:
             self.logger.info(f"🔢 提取到的选择序号: {selection_index}")
 
             if selection_index is None:
+                # 🔥 关键修复：如果无法提取选择序号，重置选择状态
+                self.conversation_state['expecting_selection'] = False
+                self.logger.warning("❌ 无法提取选择序号，已重置选择状态")
+
                 # 尝试更宽松的匹配
                 if '二' in text or '两' in text:
                     selection_index = 2
@@ -2235,10 +2230,10 @@ class CommandHandler:
                     selection_index = 1
 
             if selection_index is None:
-                # 如果还是无法提取，询问用户
-                self.logger.warning("❌ 无法提取选择序号")
+                # 如果还是无法提取，询问用户并重置状态
+                self.logger.warning("❌ 无法提取选择序号，重置选择状态")
+                self.conversation_state['expecting_selection'] = False
                 return "请告诉我您要选择第几条？例如：第一条、第二个，或者直接说数字"
-
 
             # 发送选择消息给前端 - 严格按照app.py格式
             self.logger.info(f"📤 发送选择消息到前端: index={selection_index-1}")
