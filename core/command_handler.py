@@ -346,11 +346,6 @@ class CommandHandler:
                 self.logger.info("🎯 识别为明确设备控制命令，直接处理")
                 return self._handle_device_control_websocket(cleaned_text, text)
 
-            # 第九步：档案查询命令检测（按列）
-            if self._is_archive_query(cleaned_text):
-                self.logger.info("📁 识别为档案查询命令")
-                return self._handle_archive_query_websocket(cleaned_text, text)
-
             # 第十步：所有其他非设备控制命令都交给AI处理
             self.logger.info("🤖 非设备控制命令，交给AI处理")
             return self._handle_with_ollama_enhanced(cleaned_text)
@@ -396,54 +391,6 @@ class CommandHandler:
 
         return False
 
-
-    def _handle_archive_query_websocket(self, text, original_text):
-        """处理档案查询（按列）- 添加选择支持"""
-        try:
-            # 提取列号
-            column_number = self._extract_column_number(text)
-
-            if not column_number:
-                # 如果没有指定列号，询问用户
-                self.conversation_state.update({
-                    'waiting_for_column': True,
-                    'pending_action': 'query',
-                    'pending_context': 'archive_query'
-                })
-                return "请问您要查询哪一列的档案？例如：第三列、3列"
-
-            # 发送查询消息到前端
-            success = self.send_websocket_message('query_cabinet_contents', {
-                'colNo': column_number
-            }, original_text)
-
-            if success:
-                # 🔥 新增：设置等待选择状态
-                self.conversation_state.update({
-                    'current_context': 'archive_query',
-                    'last_query_type': 'query_cabinet_contents',
-                    'last_query_time': datetime.now(),
-                    'last_query_params': {
-                        'column_number': column_number,
-                        'original_text': original_text
-                    },
-                    'expecting_selection': True,  # 🔥 设置为True，等待用户选择
-                    'last_query_results': []  # 暂时为空，由前端填充
-                })
-
-                # 返回友好的响应，提示用户可以选择
-                responses = [
-                    f"好的，正在为您查询第{column_number}列档案... 查询到结果后，您可以说'选择第一个'或'第一条'来选择对应的档案。",
-                    f"收到，马上为您查看第{column_number}列的档案... 找到结果后，告诉我您要选择哪一条。",
-                    f"正在查询第{column_number}列的档案，请稍等... 结果出来后，您可以说'第一个'或'第二条'进行选择。"
-                ]
-                response = random.choice(responses)
-                return response
-            else:
-                return "档案查询命令发送失败"
-        except Exception as e:
-            self.logger.error(f"❌ 档案查询处理失败: {e}")
-            return "处理档案查询时出现错误"
 
     def _extract_selection_index(self, text):
         """提取选择序号 - 增强版"""
@@ -1322,9 +1269,9 @@ class CommandHandler:
 
                 # 返回友好的响应，提示用户可以选择
                 responses = [
-                    f"好的，正在为您查询'{query_value}'的档案信息... 查询到结果后，您可以说'选择第一个'或'第一条'来选择对应的档案。",
-                    f"收到，马上为您查找'{query_value}'的档案... 找到结果后，告诉我您要选择哪一条。",
-                    f"正在查询'{query_value}'的档案，请稍等... 结果出来后，您可以说'第一个'或'第二条'进行选择。"
+                    f"好的，正在为您查询档案信息，请稍后...",
+                    f"收到，马上为您查找档案,请稍后...",
+                    f"正在查询的档案，请稍等..."
                 ]
                 response = random.choice(responses)
                 return response
@@ -1931,14 +1878,6 @@ class CommandHandler:
         except Exception as e:
             print(f"❌ 状态查询处理失败: {e}")
             return "处理状态查询时出现错误"
-
-    def _is_archive_query(self, text):
-        """判断是否为档案查询命令"""
-        archive_keywords = ['查询', '查找', '搜索', '显示', '档案', '信息', '资料']
-        column_keywords = ['第', '列', '柜子']
-        has_archive = any(keyword in text for keyword in archive_keywords)
-        has_column = any(keyword in text for keyword in column_keywords)
-        return has_archive and has_column
 
     def _handle_cabinet_control_websocket(self, text, original_text):
         """处理档案柜控制 - 严格按照app.py格式"""

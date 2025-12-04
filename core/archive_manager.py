@@ -9,27 +9,83 @@ class ArchiveManager:
         """初始化档案管理器"""
         self.logger = logging.getLogger("archive_manager")
         self.connection = None
-        self.connect()
 
     def connect(self):
         """连接到MySQL数据库"""
         try:
+            # 先关闭现有连接（如果有）
+            if self.connection and self.connection.is_connected():
+                self.connection.close()
+                self.logger.info("关闭旧数据库连接")
+
             self.connection = mysql.connector.connect(
                 host=settings.database_config['host'],
                 port=settings.database_config['port'],
                 user=settings.database_config['user'],
                 password=settings.database_config['password'],
-                database=settings.database_config['database']
+                database=settings.database_config['database'],
+                # 添加连接池和缓存相关配置
+                pool_name="archive_pool",
+                pool_size=5,
+                pool_reset_session=True,  # 重置会话状态
+                autocommit=True,  # 自动提交事务
+                connection_timeout=30,
+                buffered=True  # 立即获取结果
             )
+
+            # 设置会话参数
+            cursor = self.connection.cursor()
+            try:
+                cursor.execute("SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED")
+                cursor.execute("SET autocommit=1")
+                # MySQL 8.0+ 已经移除了query_cache_type，尝试设置并捕获异常
+                try:
+                    cursor.execute("SET SESSION query_cache_type=OFF")
+                except mysql.connector.Error as e:
+                    if "Unknown system variable 'query_cache_type'" in str(e):
+                        self.logger.warning("MySQL版本已移除query_cache_type，跳过此设置")
+                    else:
+                        raise e
+            except Exception as e:
+                self.logger.warning(f"设置会话参数失败，继续执行: {e}")
+            finally:
+                cursor.close()
+
             self.logger.info("✅ MySQL数据库连接成功")
             return True
         except Exception as e:
             self.logger.error(f"❌ 数据库连接失败: {e}")
             return False
 
+    def ensure_fresh_connection(self):
+        """确保使用新的数据库连接"""
+        try:
+            if self.connection:
+                # 关闭旧连接
+                try:
+                    self.connection.close()
+                except:
+                    pass
+                self.connection = None
+
+            # 重新连接
+            return self.connect()
+
+        except Exception as e:
+            self.logger.error(f"重置连接失败: {e}")
+            return False
+
     def query_archive(self, query_text):
         """查询档案 - 统一查询所有相关字段"""
         try:
+            # 确保使用新的连接获取最新数据
+            if not self.ensure_fresh_connection():
+                return {
+                    'success': False,
+                    'error': '数据库连接失败',
+                    'results': []
+                }
+
             self.logger.info(f"档案查询: {query_text}")
 
             # 清理查询文本
@@ -108,6 +164,15 @@ class ArchiveManager:
     def _execute_double_query(self, query_value):
         """执行双重查询 - 先查询转换后的阿拉伯数字，再查询原始中文数字"""
         try:
+            # 确保连接正常
+            if not self.connection or not self.connection.is_connected():
+                if not self.connect():
+                    return {
+                        'success': False,
+                        'error': '数据库连接失败',
+                        'results': []
+                    }
+
             cursor = self.connection.cursor(dictionary=True)
 
             # 中文数字到阿拉伯数字的映射
@@ -130,6 +195,7 @@ class ArchiveManager:
 
             # 定义查询函数，用于执行单次查询
             def execute_single_query(search_value):
+                # 移除SQL_NO_CACHE，因为MySQL 8.0+不再需要
                 query = """
                     SELECT DISTINCT ta.*
                     FROM `t_archives` ta
@@ -315,6 +381,14 @@ class ArchiveManager:
     def query_attachment_by_archive_id(self, archive_id):
         """根据档案ID查询附件信息"""
         try:
+            # 确保使用新的连接获取最新数据
+            if not self.ensure_fresh_connection():
+                return {
+                    'success': False,
+                    'error': '数据库连接失败',
+                    'results': []
+                }
+
             if not archive_id:
                 return {
                     'success': False,
@@ -368,6 +442,21 @@ class ArchiveManager:
                 'error': f"查询附件时发生异常: {str(e)}",
                 'results': []
             }
+
+    def flush_tables(self):
+        """刷新表缓存（用于开发环境）"""
+        try:
+            if self.connection and self.connection.is_connected():
+                cursor = self.connection.cursor()
+                # 注意：FLUSH TABLES 会锁定表，生产环境慎用
+                cursor.execute("FLUSH TABLES")
+                # 移除RESET QUERY CACHE，因为MySQL 8.0+已移除查询缓存
+                cursor.close()
+                self.logger.info("✅ 表缓存已刷新")
+                return True
+        except Exception as e:
+            self.logger.warning(f"刷新表缓存失败: {e}")
+        return False
 
     def close(self):
         """关闭数据库连接"""
