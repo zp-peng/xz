@@ -325,7 +325,7 @@ def get_document_list(query, user="abc-123"):
 
 class XiaoZhiAssistant:
     def __init__(self):
-        print("🔄 正在初始化小智语音助手...")
+        print("🔄 正在初始化小电语音助手...")
         # 确保先初始化Flask和SocketIO
         self.app = Flask(__name__)
         CORS(self.app)
@@ -961,7 +961,7 @@ class XiaoZhiAssistant:
     def run_text_mode(self):
         """运行文本交互模式 - 简化版本"""
         print("\n" + "="*50)
-        print("💬 小智助手 - 文本模式")
+        print("💬 小电助手 - 文本模式")
         print("="*50)
         print("📚 支持命令:")
         print("  • 查询档案")
@@ -979,7 +979,7 @@ class XiaoZhiAssistant:
                 response = self.command_handler.process_command(user_input)
 
                 if response:
-                    print(f"🤖 小智: {response}")
+                    print(f"🤖 小电: {response}")
                     # 通过WebSocket发送响应给前端
                     self.emit('response', {'text': response})
                 else:
@@ -1108,7 +1108,7 @@ class XiaoZhiAssistant:
 
 def main():
     """主函数"""
-    print("🚀 启动小智语音助手服务端...")
+    print("🚀 启动小电语音助手服务端...")
 
     # 创建必要的目录
     os.makedirs("temp_audio", exist_ok=True)
@@ -1131,7 +1131,7 @@ def main():
         if assistant:
             assistant.cleanup()
 
-    print("🎯 小智助手服务端已关闭")
+    print("🎯 小电助手服务端已关闭")
 
 if __name__ == "__main__":
     main()

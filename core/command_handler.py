@@ -213,7 +213,7 @@ class CommandHandler:
         exit_patterns = [
             r'^退出$', r'^结束$', r'^再见$', r'^拜拜$',
             r'^退出系统$', r'^结束对话$', r'^关闭系统$',
-            r'^小智退出$', r'^小智再见$', r'^小智拜拜$',
+            r'^小电退出$', r'^小电再见$', r'^小电拜拜$',
             r'^系统退出$', r'^程序退出$', r'^应用退出$',
             r'^关闭助手$', r'^关闭语音$', r'^关闭对话$',
             r'^停止语音$', r'^停止对话$'
@@ -228,7 +228,7 @@ class CommandHandler:
         has_exit_keyword = any(exit_word in text_lower for exit_word in exit_keywords)
 
         if '关闭' in cleaned_text:
-            exit_indicators = ['系统', '程序', '应用', '助手', '小智', '语音', '对话']
+            exit_indicators = ['系统', '程序', '应用', '助手', '小电', '语音', '对话']
             has_exit_indicator = any(indicator in text_lower for indicator in exit_indicators)
 
             if has_exit_indicator:
@@ -553,10 +553,10 @@ class CommandHandler:
         self.logger.info(f"💬 退出聊天模式，持续时间: {chat_duration:.1f}秒")
 
         responses = [
-            "好的，聊天结束啦~ 需要的时候再叫小智哦！",
-            "聊得很开心呢~ 小智先退下啦，有事随时叫我~",
-            "好的，小智去忙别的啦，想聊天了随时喊我~",
-            "聊天时间结束~ 小智继续待命，等你召唤哦~"
+            "好的，聊天结束啦~ 需要的时候再叫小电哦！",
+            "聊得很开心呢~ 小电先退下啦，有事随时叫我~",
+            "好的，小电去忙别的啦，想聊天了随时喊我~",
+            "聊天时间结束~ 小电继续待命，等你召唤哦~"
         ]
 
         return random.choice(responses)
@@ -1099,7 +1099,7 @@ class CommandHandler:
             return random.choice(jokes)
 
         elif any(word in user_input_lower for word in ['天气', '温度', '冷', '热']):
-            return "小智是档案专家，天气的话建议你看看天气预报哦~ 不过我可以帮你调节室内温度！"
+            return "小电是档案专家，天气的话建议你看看天气预报哦~ 不过我可以帮你调节室内温度！"
 
         elif any(word in user_input_lower for word in ['时间', '几点', '日期']):
             current_time = datetime.now().strftime("%Y年%m月%d日 %H点%M分")
@@ -1109,16 +1109,16 @@ class CommandHandler:
             return "哎~ 你好呀！在聊天模式里我们可以畅所欲言哦~"
 
         elif any(word in user_input_lower for word in ['谢谢', '感谢']):
-            return "不客气呀~ 能帮到你小智也很开心！"
+            return "不客气呀~ 能帮到你小电也很开心！"
 
         else:
             # 通用的友好回复
             fallbacks = [
-                "这个问题很有趣呢~ 小智正在努力学习中！",
-                "哎呀，小智对这个问题还不太熟悉，换个话题怎么样？",
+                "这个问题很有趣呢~ 小电正在努力学习中！",
+                "哎呀，小电对这个问题还不太熟悉，换个话题怎么样？",
                 "我们聊点别的吧~ 比如档案管理或者设备控制？",
-                "小智还在成长中，这个问题有点难倒我了~",
-                "哈哈，这个话题好有意思，不过小智还在学习中呢~"
+                "小电还在成长中，这个问题有点难倒我了~",
+                "哈哈，这个话题好有意思，不过小电还在学习中呢~"
             ]
             return random.choice(fallbacks)
 
@@ -1461,10 +1461,10 @@ class CommandHandler:
         self.is_exited = True
 
         responses = [
-            "好的，小智先退下啦，需要的时候随时叫我~",
-            "再见啦，有事随时喊小智哦~",
-            "小智去休息啦，想我了就说'小智'~",
-            "好的，下次见~ 记得叫'小智'唤醒我哦~"
+            "好的，小电先退下啦，需要的时候随时叫我~",
+            "再见啦，有事随时喊小电哦~",
+            "小电去休息啦，想我了就说'小电'~",
+            "好的，下次见~ 记得叫'小电'唤醒我哦~"
         ]
         response = random.choice(responses)
 
@@ -2363,13 +2363,13 @@ class CommandHandler:
         if not text:
             return False
 
-        # 定义打招呼词语和"小智"的同音字
+        # 定义打招呼词语和"小电"的同音字
         greeting_words = ['你好', '您好', '嗨', '嘿', '喂', '哈喽', 'hello', 'hi']
-        xiaozhi_variants = ['小智', '小知', '小之', '小志', '小只', '小指', '小枝', '小纸', '小直', '小稚']
+        xiaozhi_variants = ['小电', '小知', '小之', '小志', '小只', '小指', '小枝', '小纸', '小直', '小稚']
 
         # 构建正则表达式模式
-        # 匹配：打招呼词 + 0或多个任意字符 + "小智"同音字
-        # 或者："小智"同音字 + 0或多个任意字符 + 打招呼词
+        # 匹配：打招呼词 + 0或多个任意字符 + "小电"同音字
+        # 或者："小电"同音字 + 0或多个任意字符 + 打招呼词
         greeting_pattern = '|'.join(greeting_words)
         xiaozhi_pattern = '|'.join(xiaozhi_variants)
 
@@ -2416,13 +2416,13 @@ class CommandHandler:
 
         # 小爱同学风格回复
         greetings = [
-            f"哎~ {time_greeting}呀~ 我是小智，很高兴为你服务哦~ 请问需要查询档案信息，还是控制档案柜呢？",
-            f"哎~ {time_greeting}~ 小智来啦~ 可以帮你查询档案或控制柜子，尽管问哦~",
-            f"哎~ {time_greeting}呀~ 小智随时为你待命，有什么可以帮忙的吗？",
-            f"在呢~ {time_greeting}~ 我是你的智能助手小智，请问有什么需要？",
-            f"哎~ {time_greeting}~ 小智在这里，需要查询档案还是控制设备呢？",
-            f"来啦~ {time_greeting}呀~ 我是小智，档案查询、柜子控制都可以找我哦~",
-            f"嗯~ {time_greeting}~ 小智已就位，请下达指令吧~"
+            f"哎~ {time_greeting}呀~ 我是小电，很高兴为你服务哦~ 请问需要查询档案信息，还是控制档案柜呢？",
+            f"哎~ {time_greeting}~ 小电来啦~ 可以帮你查询档案或控制柜子，尽管问哦~",
+            f"哎~ {time_greeting}呀~ 小电随时为你待命，有什么可以帮忙的吗？",
+            f"在呢~ {time_greeting}~ 我是你的智能助手小电，请问有什么需要？",
+            f"哎~ {time_greeting}~ 小电在这里，需要查询档案还是控制设备呢？",
+            f"来啦~ {time_greeting}呀~ 我是小电，档案查询、柜子控制都可以找我哦~",
+            f"嗯~ {time_greeting}~ 小电已就位，请下达指令吧~"
         ]
 
         return random.choice(greetings)
