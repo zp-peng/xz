@@ -10,6 +10,9 @@ import re
 import queue
 from flask import Flask, jsonify, request
 import requests
+import tempfile
+import shutil
+import torch
 
 # 添加当前目录到Python路径
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,6 +29,13 @@ port = None
 # 新增：音频播放状态
 audio_playback_active = False
 audio_thread = None
+
+# --- SenseVoice 语音识别配置 ---
+# 模型本地路径（从modelscope下载后的路径）
+MODEL_DIR = r"C:\Users\gpu\.cache\modelscope\hub\models\iic\SenseVoiceSmall"
+VAD_MODEL_DIR = r"C:\Users\gpu\.cache\modelscope\hub\models\iic\speech_fsmn_vad_zh-cn-16k-common-pytorch"
+# 设备配置（自动检测GPU/CPU）
+DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 # --- 音频上传和工作流配置 ---
 # 目标上传 API 的 URL
@@ -49,9 +59,7 @@ SUPPORTED_AUDIO_FORMATS = {
 }
 
 def upload_audio_to_target(file_obj, file_name: str) -> dict:
-    """
-    内部函数：将上传的音频文件转发到目标 API
-    """
+    """内部函数：将上传的音频文件转发到目标 API"""
     # 1. 验证文件格式
     file_ext = file_name.split('.')[-1].lower()
     if file_ext not in SUPPORTED_AUDIO_FORMATS:
@@ -95,9 +103,7 @@ def upload_audio_to_target(file_obj, file_name: str) -> dict:
         return {'success': False, 'error': f'未知错误: {e}'}
 
 def run_workflow_and_extract_text(api_key, upload_file_id):
-    """
-    运行工作流并提取文本内容
-    """
+    """运行工作流并提取文本内容"""
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
@@ -166,8 +172,7 @@ def check_dependencies():
     import importlib.util
 
     required_deps = [
-        "requests",
-        "jieba", "mysql.connector", "flask", "flask_socketio"
+        "requests", "jieba", "mysql.connector", "flask", "flask_socketio", "funasr", "torch"
     ]
 
     missing_deps = []
@@ -204,12 +209,16 @@ try:
     # 导入 ArchiveManager
     from core.archive_manager import ArchiveManager
     from flask_cors import CORS
+    from funasr import AutoModel
+    from funasr.utils.postprocess_utils import rich_transcription_postprocess
 except ImportError as e:
     print(f"❌ 导入核心模块失败: {e}")
     print("💡 请确保所有核心文件都存在且正确")
     sys.exit(1)
-    # 在全局变量部分添加
+
+# 在全局变量部分添加
 archive_manager = None  # 全局档案管理器实例
+sensevoice_model = None  # SenseVoice模型实例
 
 class DocumentAPI:
     def __init__(self):
@@ -339,6 +348,9 @@ class XiaoZhiAssistant:
         # 初始化全局档案管理器
         self.init_archive_manager()
 
+        # 初始化SenseVoice模型
+        self.init_sensevoice_model()
+
         # 立即设置路由
         self.setup_routes()
         self.setup_socketio_events()
@@ -348,6 +360,24 @@ class XiaoZhiAssistant:
 
         # 然后同步初始化其他组件
         self.init_components_sync()
+
+    def init_sensevoice_model(self):
+        """初始化SenseVoice语音识别模型"""
+        global sensevoice_model
+        try:
+            print("🔄 正在加载SenseVoice语音识别模型...")
+            sensevoice_model = AutoModel(
+                model=MODEL_DIR,
+                trust_remote_code=True,
+                remote_code="./model.py",  # 若模型无自定义代码可注释
+                vad_model=VAD_MODEL_DIR,
+                device=DEVICE,
+                disable_update=True,
+            )
+            print(f"✅ SenseVoice模型加载成功，使用设备: {DEVICE}")
+        except Exception as e:
+            print(f"❌ SenseVoice模型初始化失败: {e}")
+            sensevoice_model = None
 
     def init_components_sync(self):
         """同步初始化所有组件"""
@@ -473,7 +503,8 @@ class XiaoZhiAssistant:
                 "electron_mode": IS_ELECTRON,
                 "port": port,
                 "speech_cooldown_remaining": max(0, speech_cooldown - (time.time() - speech_start_time)),
-                "audio_playback_active": audio_playback_active
+                "audio_playback_active": audio_playback_active,
+                "sensevoice_available": sensevoice_model is not None
             })
 
         @self.app.route('/api/health/detailed', methods=['GET'])
@@ -488,6 +519,7 @@ class XiaoZhiAssistant:
                     "flask_app": hasattr(self, 'app'),
                     "socketio": hasattr(self, 'socketio'),
                     "command_handler": self.command_handler is not None,
+                    "sensevoice_model": sensevoice_model is not None
                 },
                 "endpoints": [
                     {"method": "GET", "path": "/", "description": "服务状态"},
@@ -497,78 +529,6 @@ class XiaoZhiAssistant:
             }
             return jsonify(health_info)
 
-        @self.app.route('/audioConversion', methods=['POST'])
-        def audioConversion():
-            """运行工作流接口 - 直接接收文件，自动上传并运行工作流（只做语音识别）"""
-            try:
-                # 从form-data中获取上传的文件
-                uploaded_file = request.files.get('file')
-                if not uploaded_file:
-                    return jsonify({
-                        'success': False,
-                        'error': '请在form-data中上传名为"file"的音频文件'
-                    }), 400
-
-                # 获取上传文件的文件名
-                file_name = uploaded_file.filename
-                if not file_name:
-                    return jsonify({
-                        'success': False,
-                        'error': '上传的文件无有效名称'
-                    }), 400
-
-                # 1. 先上传文件获取文件ID
-                upload_result = upload_audio_to_target(uploaded_file, file_name)
-                if not upload_result['success']:
-                    return jsonify(upload_result), 400
-
-                # 2. 从上传结果中获取文件ID
-                upload_file_id = upload_result['target_response']['id']
-
-                # 3. 运行工作流并提取文本（只做语音识别）
-                workflow_result = run_workflow_and_extract_text(WORKFLOW_API_KEY, upload_file_id)
-
-                # 4. 只返回语音识别的文本结果，不做后续处理
-                if workflow_result['success']:
-                    text = workflow_result.get('text', '').strip()
-                    print(f"✅ 语音识别结果: {text}")
-
-                    if text:
-                        # 构建响应数据 - 只返回语音识别结果
-                        response_data = {
-                            'success': True,
-                            'text': text,
-                            'is_processed': False,  # 标记为未处理
-                            'message': '语音识别成功',
-                            'timestamp': time.time(),
-                            'source': 'workflow_audio_processing'
-                        }
-
-                        return jsonify(response_data), 200
-                    else:
-                        return jsonify({
-                            'success': True,
-                            'text': '',
-                            'is_processed': False,
-                            'message': '语音识别成功但文本为空',
-                            'timestamp': time.time(),
-                            'source': 'workflow_audio_processing'
-                        }), 200
-                else:
-                    # 工作流执行失败
-                    return jsonify({
-                        'success': False,
-                        'error': '语音识别失败',
-                        'workflow_error': workflow_result.get('error', '未知错误'),
-                        'workflow_result': workflow_result
-                    }), 400
-
-            except Exception as e:
-                print(f"❌ run_workflow_endpoint 异常: {e}")
-                return jsonify({
-                    'success': False,
-                    'error': f'处理请求时出现异常: {str(e)}'
-                }), 500
 
         @self.app.route('/api/health', methods=['GET'])
         def health_check():
@@ -742,11 +702,7 @@ class XiaoZhiAssistant:
 
         @self.app.route('/runWorkflow', methods=['POST'])
         def run_workflow_endpoint():
-            """
-            运行工作流接口 - 直接接收文件，自动上传并运行工作流
-            """
             try:
-                # 从form-data中获取上传的文件
                 uploaded_file = request.files.get('file')
                 if not uploaded_file:
                     return jsonify({
@@ -754,7 +710,6 @@ class XiaoZhiAssistant:
                         'error': '请在form-data中上传名为"file"的音频文件'
                     }), 400
 
-                # 获取上传文件的文件名
                 file_name = uploaded_file.filename
                 if not file_name:
                     return jsonify({
@@ -762,65 +717,44 @@ class XiaoZhiAssistant:
                         'error': '上传的文件无有效名称'
                     }), 400
 
-                # 1. 先上传文件获取文件ID
-                upload_result = upload_audio_to_target(uploaded_file, file_name)
-                if not upload_result['success']:
-                    return jsonify(upload_result), 400
+                # 直接调用核心识别函数（不再调用路由函数）
+                recognition_result = process_audio_recognition(uploaded_file, file_name)
 
-                # 2. 从上传结果中获取文件ID
-                upload_file_id = upload_result['target_response']['id']
-
-                # 3. 运行工作流并提取文本
-                workflow_result = run_workflow_and_extract_text(WORKFLOW_API_KEY, upload_file_id)
-
-                # 4. 如果工作流成功，则使用command_handler处理提取的文本
-                if workflow_result['success']:
-                    text = workflow_result.get('text', '').strip()
-                    print(f"✅ 获取到的文字------------: {text}")
-                    if text:
-                        # 使用command_handler处理文本
-                        if hasattr(self, 'command_handler') and self.command_handler is not None:
-                            # 直接使用command_handler的处理结果作为最终响应
-                            command_response = self.command_handler.process_command(text)
-
-                            # 构建响应数据 - 完全基于command_handler的处理结果
-                            response_data = {
-                                'success': True,
-                                'text': text,
-                                'processed_response': command_response,
-                                'timestamp': time.time(),
-                                'source': 'workflow_audio_processing'
-                            }
-
-                            # 同时发送WebSocket消息给前端显示
-                            if hasattr(self, 'socketio') and self.socketio:
-                                self.socketio.emit('workflow_processed', {
-                                    'text': text,
-                                    'processed_response': command_response,
-                                    'timestamp': time.time()
-                                })
-
-                            return jsonify(response_data), 200
-                        else:
-                            return jsonify({
-                                'success': False,
-                                'error': '命令处理器未初始化',
-                                'text': text
-                            }), 500
-                    else:
-                        return jsonify({
-                            'success': False,
-                            'error': '工作流返回的文本为空',
-                            'workflow_result': workflow_result
-                        }), 400
-                else:
-                    # 工作流执行失败
+                # 解析识别结果（直接操作字典，无需 .json）
+                if not recognition_result.get('success'):
                     return jsonify({
                         'success': False,
-                        'error': '工作流执行失败',
-                        'workflow_error': workflow_result.get('error', '未知错误'),
-                        'workflow_result': workflow_result
+                        'error': '音频识别失败',
+                        'recognition_error': recognition_result.get('error', '未知错误'),
+                        'source': 'audio_conversion'
                     }), 400
+
+                text = recognition_result.get('text', '').strip()
+                if not text:
+                    return jsonify({
+                        'success': False,
+                        'error': '音频识别返回的文本为空',
+                        'source': 'audio_conversion'
+                    }), 400
+
+                # 后续处理（保持不变）
+                if hasattr(self, 'command_handler') and self.command_handler is not None:
+                    command_response = self.command_handler.process_command(text)
+                    response_data = {
+                        'success': True,
+                        'text': text,
+                        'processed_response': command_response,
+                        'timestamp': time.time(),
+                        'source': 'audio_conversion_processing'
+                    }
+                    self.socketio.emit('workflow_processed', response_data)
+                    return jsonify(response_data), 200
+                else:
+                    return jsonify({
+                        'success': False,
+                        'error': '命令处理器未初始化',
+                        'text': text
+                    }), 500
 
             except Exception as e:
                 print(f"❌ run_workflow_endpoint 异常: {e}")
@@ -828,6 +762,97 @@ class XiaoZhiAssistant:
                     'success': False,
                     'error': f'处理请求时出现异常: {str(e)}'
                 }), 500
+
+
+        @self.app.route('/text', methods=['POST'])
+        def run_workflow_text():
+            try:
+                text = request.get('text')
+                # 后续处理（保持不变）
+                if hasattr(self, 'command_handler') and self.command_handler is not None:
+                    command_response = self.command_handler.process_command(text)
+                    response_data = {
+                        'success': True,
+                        'text': text,
+                        'processed_response': command_response,
+                        'timestamp': time.time(),
+                        'source': 'audio_conversion_processing'
+                    }
+                    self.socketio.emit('workflow_processed', response_data)
+                    return jsonify(response_data), 200
+                else:
+                    return jsonify({
+                        'success': False,
+                        'error': '命令处理器未初始化',
+                        'text': text
+                    }), 500
+
+            except Exception as e:
+                print(f"❌ run_workflow_endpoint 异常: {e}")
+                return jsonify({
+                    'success': False,
+                    'error': f'处理请求时出现异常: {str(e)}'
+                }), 500
+
+        def process_audio_recognition(uploaded_file, file_name):
+            """核心语音识别逻辑，返回识别结果字典"""
+            global sensevoice_model
+            try:
+                # 检查模型是否加载
+                if sensevoice_model is None:
+                    return {
+                        'success': False,
+                        'error': '语音识别模型未初始化',
+                        'is_processed': False,
+                        'message': '语音识别失败',
+                        'timestamp': time.time(),
+                        'source': 'sensevoice_recognition'
+                    }
+
+                # 验证文件格式
+                file_ext = file_name.split('.')[-1].lower()
+                if file_ext not in SUPPORTED_AUDIO_FORMATS:
+                    supported_formats = ', '.join(SUPPORTED_AUDIO_FORMATS.keys())
+                    return {
+                        'success': False,
+                        'error': f'不支持的音频格式: {file_ext}。仅支持: {supported_formats}',
+                        'is_processed': False,
+                        'message': '语音识别失败',
+                        'timestamp': time.time(),
+                        'source': 'sensevoice_recognition'
+                    }
+
+                # 处理临时文件
+                with tempfile.NamedTemporaryFile(suffix=f'.{file_ext}', delete=False) as temp_file:
+                    shutil.copyfileobj(uploaded_file.stream, temp_file)
+                    temp_file_path = temp_file.name
+
+                # 调用模型识别
+                res = sensevoice_model.generate(temp_file_path)
+                text = rich_transcription_postprocess(res[0]["text"])
+
+                # 清理临时文件
+                if os.path.exists(temp_file_path):
+                    os.remove(temp_file_path)
+
+                return {
+                    'success': True,
+                    'text': text,
+                    'is_processed': False,
+                    'message': '语音识别成功',
+                    'timestamp': time.time(),
+                    'source': 'sensevoice_recognition'
+                }
+
+            except Exception as e:
+                return {
+                    'success': False,
+                    'error': f'语音识别过程出错: {str(e)}',
+                    'is_processed': False,
+                    'message': '语音识别失败',
+                    'timestamp': time.time(),
+                    'source': 'sensevoice_recognition'
+                }
 
         @self.app.route('/api/documents/query', methods=['POST'])
         def query_documents_endpoint():
@@ -886,6 +911,39 @@ class XiaoZhiAssistant:
                     'message': '查询文档时出现错误，请稍后再试'
                 }), 500
 
+        # 新增SenseVoice语音识别接口
+        @self.app.route('/audioConversion', methods=['POST'])
+        def speech_recognition():
+            """语音识别路由接口"""
+            uploaded_file = request.files.get('file')
+            if not uploaded_file:
+                result = {
+                    'success': False,
+                    'error': '请在form-data中上传名为"file"的音频文件',
+                    'is_processed': False,
+                    'message': '语音识别失败',
+                    'timestamp': time.time(),
+                    'source': 'sensevoice_recognition'
+                }
+                return jsonify(result), 400
+
+            file_name = uploaded_file.filename
+            if not file_name:
+                result = {
+                    'success': False,
+                    'error': '上传的文件无有效名称',
+                    'is_processed': False,
+                    'message': '语音识别失败',
+                    'timestamp': time.time(),
+                    'source': 'sensevoice_recognition'
+                }
+                return jsonify(result), 400
+
+            # 调用核心处理函数
+            result = process_audio_recognition(uploaded_file, file_name)
+            status_code = 200 if result['success'] else 500
+            return jsonify(result), status_code
+
     def setup_socketio_events(self):
         """设置SocketIO事件处理器（简化版本）"""
         @self.socketio.on('connect')
@@ -916,6 +974,8 @@ class XiaoZhiAssistant:
             self.socketio.emit(event, data)
         except Exception as e:
             print(f"❌ 发送SocketIO消息失败: {e}")
+
+
 
     def run_voice_mode(self):
         """运行语音交互模式 - 简化版本"""
